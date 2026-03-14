@@ -50,9 +50,9 @@
 <!-- PRINCIPLES -->
 <div class="section">
   <div class="section-title">Core Principles</div>
-  <div class="row">
+  <div class="principle-grid">
 
-    <div class="principle-card">
+    <div class="principle-card principle-card--clickable" onclick="document.getElementById('modal-lie-factor').classList.add('modal--open')">
       <div class="principle-number">01 / LIE FACTOR</div>
       <div class="principle-title">Graphical Integrity</div>
       <div class="principle-formula">Lie Factor = Effect in graphic ÷ Effect in data</div>
@@ -62,9 +62,10 @@
       <div class="principle-rule">
         <strong>Rule:</strong> Y-axis always starts at zero for bar charts. Never truncate bars to exaggerate differences. Bubble area, not diameter, encodes value.
       </div>
+      <div class="principle-cta">Click for deep dive →</div>
     </div>
 
-    <div class="principle-card">
+    <div class="principle-card principle-card--clickable" onclick="document.getElementById('modal-data-ink').classList.add('modal--open')">
       <div class="principle-number">02 / DATA-INK RATIO</div>
       <div class="principle-title">Maximise Data-Ink</div>
       <div class="principle-formula">Data-Ink Ratio = Data-ink ÷ Total ink in graphic</div>
@@ -74,9 +75,10 @@
       <div class="principle-rule">
         <strong>Rule:</strong> Prefer range-frame axes. Use no fill or single-hue fills. Remove legends when direct labels are possible. No 3D — ever.
       </div>
+      <div class="principle-cta">Click for deep dive →</div>
     </div>
 
-    <div class="principle-card">
+    <div class="principle-card principle-card--clickable" onclick="document.getElementById('modal-preattentive').classList.add('modal--open')">
       <div class="principle-number">03 / PREATTENTIVE</div>
       <div class="principle-title">Preattentive Attributes</div>
       <div class="principle-formula">Length &gt; Area &gt; Angle &gt; Hue</div>
@@ -86,9 +88,10 @@
       <div class="principle-rule">
         <strong>Rule:</strong> Prefer bars over pies. Use position over size. Use saturation over hue when encoding continuous scale. Limit to ≤4 distinct hues per chart.
       </div>
+      <div class="principle-cta">Click for deep dive →</div>
     </div>
 
-    <div class="principle-card">
+    <div class="principle-card principle-card--clickable" onclick="document.getElementById('modal-chartjunk').classList.add('modal--open')">
       <div class="principle-number">04 / CHARTJUNK</div>
       <div class="principle-title">Eliminate Administrative Debris</div>
       <div class="principle-formula">Chartjunk = Non-data ink − erasable structure</div>
@@ -98,9 +101,10 @@
       <div class="principle-rule">
         <strong>Rule:</strong> Gridlines in #d8d4ce only. No fills behind charts. No icons in charts. No gradient axes. Anti-patterns page shows every rule violation.
       </div>
+      <div class="principle-cta">Click for deep dive →</div>
     </div>
 
-    <div class="principle-card">
+    <div class="principle-card principle-card--clickable" onclick="document.getElementById('modal-direct-labels').classList.add('modal--open')">
       <div class="principle-number">05 / DIRECT LABELS</div>
       <div class="principle-title">No Legends — Label Directly</div>
       <div class="principle-formula">Eye travel = Legend lookups × distance²</div>
@@ -110,9 +114,10 @@
       <div class="principle-rule">
         <strong>Rule:</strong> Label bar ends directly. Label line ends at rightmost point. Label map regions inline. Use badge cells in tables instead of separate legend keys.
       </div>
+      <div class="principle-cta">Click for deep dive →</div>
     </div>
 
-    <div class="principle-card">
+    <div class="principle-card principle-card--clickable" onclick="document.getElementById('modal-macro-micro').classList.add('modal--open')">
       <div class="principle-number">06 / MACRO / MICRO</div>
       <div class="principle-title">Overview + Detail Simultaneously</div>
       <div class="principle-formula">Sparkline: word-sized · data-intense · context-rich</div>
@@ -122,6 +127,7 @@
       <div class="principle-rule">
         <strong>Rule:</strong> Embed sparklines in tables alongside numeric values. Use small multiples with a shared Y-scale. Avoid modals unless the data cannot fit the primary view.
       </div>
+      <div class="principle-cta">Click for deep dive →</div>
     </div>
 
   </div>
@@ -180,36 +186,430 @@
 <div class="section">
   <div class="section-title">Library Structure — 6 Pages</div>
   <div class="page-index">
-    <div class="page-card">
+    <a href="index.html" class="page-card">
       <div class="page-card-num">Page 1</div>
       <div class="page-card-name">📖 About</div>
       <div class="page-card-desc">Cover, principles (Lie Factor, Data-Ink, anti-patterns), bibliography, page index.</div>
-    </div>
-    <div class="page-card">
+    </a>
+    <a href="lib-foundations.html" class="page-card">
       <div class="page-card-num">Page 2</div>
       <div class="page-card-name">🎨 Foundations</div>
       <div class="page-card-desc">16 color tokens, 10 type tokens, 9 spacing tokens, 2 theme variants.</div>
-    </div>
-    <div class="page-card">
+    </a>
+    <a href="lib-components.html" class="page-card">
       <div class="page-card-num">Page 3</div>
       <div class="page-card-name">🧩 Components</div>
       <div class="page-card-desc">4 atoms, 6 molecules, badge variants, KPI chips/cards, table row, section header.</div>
-    </div>
-    <div class="page-card">
+    </a>
+    <a href="lib-charts.html" class="page-card">
       <div class="page-card-num">Page 4</div>
       <div class="page-card-name">📊 Chart Library</div>
       <div class="page-card-desc">10 chart types, each with anatomy callouts and ❌/✅ do/don't pair.</div>
-    </div>
-    <div class="page-card">
+    </a>
+    <a href="lib-template.html" class="page-card">
       <div class="page-card-num">Page 5</div>
       <div class="page-card-name">📋 Template</div>
       <div class="page-card-desc">Full dashboard assembled from components — mirrors ai-market-report section order.</div>
-    </div>
-    <div class="page-card">
+    </a>
+    <a href="lib-antipatterns.html" class="page-card">
       <div class="page-card-num">Page 6</div>
       <div class="page-card-name">🚫 Anti-Patterns</div>
       <div class="page-card-desc">8 side-by-side ❌ wrong / ✅ right pairs with rule citations.</div>
+    </a>
+  </div>
+</div>
+
+<!-- ── MODAL: CHARTJUNK ──────────────────────────────────── -->
+<div class="modal-overlay" id="modal-chartjunk" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('modal--open')">✕</button>
+    <div class="modal-eyebrow">04 / CHARTJUNK · Deep Dive</div>
+    <h2 class="modal-title">Eliminate Administrative Debris</h2>
+    <div class="modal-formula">Chartjunk = Non-data ink − erasable structure</div>
+
+    <div class="modal-section">
+      <h3>Definition &amp; Taxonomy</h3>
+      <p>Tufte coined <strong>chartjunk</strong> for all visual elements in charts that are not necessary to comprehend the displayed information. His original taxonomy identifies three species:</p>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Moiré Patterns</strong> — Vibrating textures (hatching, cross-hatching) that fatigue the eye and create unintentional optical art.</div>
+        <div class="modal-item"><strong>The Dreaded Grid</strong> — Dark, heavy gridlines that compete with the data for visual attention and create 1+1=3 vibrations.</div>
+        <div class="modal-item"><strong>The Self-Promoting Duck</strong> — Named after buildings shaped like their function. The entire graphic becomes decoration rather than a carrier of information.</div>
+        <div class="modal-item"><strong>Interior Decoration</strong> — Chartjunk is distinguished from general non-data ink by being specifically "decoration that provides no new information" — often masking a lack of substance.</div>
+      </div>
     </div>
+
+    <div class="modal-section">
+      <h3>Common Violations</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>3D Effects</strong> — False perspective on 2D data introduces occlusion and makes comparisons impossible.</div>
+        <div class="modal-item"><strong>Glossy Gradients</strong> — Skew the perception of values by adding meaningless visual weight.</div>
+        <div class="modal-item"><strong>Pictograms</strong> — Encourage counting icons instead of comparing magnitudes. Area distortion compounds the error.</div>
+        <div class="modal-item"><strong>Background Fills</strong> — Colored backgrounds behind chart areas add noise without encoding any data.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>The Tufte vs. Holmes Debate</h3>
+      <p>A historical flashpoint: Tufte advocates rigorous <strong>minimalism</strong>, while Nigel Holmes argues that art, wit, and humor create <strong>"enjoyable clarity"</strong> that makes information less boring. Research suggests Tufte's plain style is superior for <strong>quick precision</strong>, but Holmes' embellished charts are significantly better for <strong>long-term memorability</strong>. Few resolves this tension with a pragmatic framework: non-data elements are justified only if they <strong>engage interest</strong>, <strong>draw attention</strong> to important items, or <strong>increase memorability</strong>.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>The 5-Point Audit</h3>
+      <ol class="modal-list">
+        <li><strong>Frame.</strong> Is the background complex? Remove fills, borders, and beveled edges.</li>
+        <li><strong>Graphical objects.</strong> Any unnecessary 3D, shadows, or styling on data marks?</li>
+        <li><strong>Axes.</strong> Excessive tick marks, heavy axis lines, or redundant gridlines?</li>
+        <li><strong>Labels.</strong> Over-precision (8 decimal places), repeated units, or rotated text?</li>
+        <li><strong>Overlay objects.</strong> Non-functional icons, logos, or decorative elements on the chart?</li>
+      </ol>
+    </div>
+
+    <div class="modal-section modal-section--quotes">
+      <h3>Key Quotes</h3>
+      <blockquote>"If the statistics are boring, then you've got the wrong numbers."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"Nothing that supports the chart's message in a meaningful way is junk."<div class="modal-source">— Stephen Few</div></blockquote>
+    </div>
+
+    <div class="modal-section">
+      <h3>See It in This Library</h3>
+      <div class="modal-links">
+        <a href="lib-antipatterns.html">🚫 Anti-Patterns</a> — 8 side-by-side pairs showing chartjunk violations and their corrections
+        <a href="lib-foundations.html">🎨 Foundations</a> — gridline color token (#d8d4ce) designed to minimize grid interference
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MODAL: DIRECT LABELS ─────────────────────────────── -->
+<div class="modal-overlay" id="modal-direct-labels" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('modal--open')">✕</button>
+    <div class="modal-eyebrow">05 / DIRECT LABELS · Deep Dive</div>
+    <h2 class="modal-title">No Legends — Label Directly</h2>
+    <div class="modal-formula">Eye travel = Legend lookups × distance²</div>
+
+    <div class="modal-section">
+      <h3>Why Legends Fail</h3>
+      <p>Legends act as lookup keys that force <strong>costly eye travel</strong> and constant context switching between the data series and the key. This back-and-forth scanning increases cognitive load and is particularly damaging because human <strong>working memory</strong> holds only 3–9 concurrent chunks of information. Every legend lookup consumes a chunk, leaving less capacity for actual analysis.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Direct Labeling Techniques</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Bar Ends</strong> — Place the value label at the end of each bar, inside if the bar is wide enough, outside if not. No axis needed.</div>
+        <div class="modal-item"><strong>Line Endpoints</strong> — Label each line at its rightmost point with the series name and final value. Eliminates the legend entirely.</div>
+        <div class="modal-item"><strong>Scatter Dots</strong> — Place the item name adjacent to each dot when identifying individuals is the analytical goal.</div>
+        <div class="modal-item"><strong>Badge Cells</strong> — In tables, use inline badges (YES/NO/HIGH) to provide visual meaning without a separate legend key.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>When Legends Are Acceptable</h3>
+      <p>Legends are only justified in rare cases where data items are not naturally grouped — such as a bar chart where every bar represents a different category differentiated by hue, making direct repetition of labels impractical. Even then, position the legend as close to the data as possible to minimize eye travel.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Practical Rules</h3>
+      <ol class="modal-list">
+        <li><strong>Succinct text.</strong> Use abbreviations (state codes, tool acronyms) to keep labels compact.</li>
+        <li><strong>Round values.</strong> $4.1M instead of $4,138,842.25 — facilitate rapid scanning.</li>
+        <li><strong>Visually subdued.</strong> Labels should be lighter/smaller than data marks so they inform without competing.</li>
+        <li><strong>Integrate words and numbers.</strong> Treat data graphics as "paragraphs about data" where text, numbers, and images flow together.</li>
+      </ol>
+    </div>
+
+    <div class="modal-section modal-section--quotes">
+      <h3>Key Quotes</h3>
+      <blockquote>"Data graphics are paragraphs about data and should be treated as such."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"Above all else show the data."<div class="modal-source">— Edward Tufte</div></blockquote>
+    </div>
+
+    <div class="modal-section">
+      <h3>See It in This Library</h3>
+      <div class="modal-links">
+        <a href="lib-charts.html">📊 Chart Library</a> — every chart uses direct end-labels, no standalone legends
+        <a href="lib-components.html">🧩 Components</a> — badge atoms and inline sparklines eliminate legend dependencies
+        <a href="lib-template.html">📋 Template</a> — assembled dashboard demonstrates direct labeling throughout
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MODAL: MACRO / MICRO ─────────────────────────────── -->
+<div class="modal-overlay" id="modal-macro-micro" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('modal--open')">✕</button>
+    <div class="modal-eyebrow">06 / MACRO · MICRO · Deep Dive</div>
+    <h2 class="modal-title">Overview + Detail Simultaneously</h2>
+    <div class="modal-formula">Sparkline: word-sized · data-intense · design-simple</div>
+
+    <div class="modal-section">
+      <h3>Micro/Macro Readings</h3>
+      <p>A graphic should provide a <strong>"panorama" overview</strong> visible at a glance while simultaneously rewarding close inspection with exquisite local detail. The design works at multiple scales: readable as a whole gestalt and inspectable at each individual data point — without switching views, scrolling, or clicking through.</p>
+      <div class="modal-source">— Edward Tufte, <em>Envisioning Information</em> (1990)</div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Sparklines</h3>
+      <p>Tufte's canonical example: <strong>"word-sized, data-intense, design-simple graphics"</strong> that provide historical context directly within the flow of text or table cells. A sparkline embeds a complete time series in the space of a single word, giving the reader trend, volatility, and current position without any eye travel to a separate chart.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Small Multiples</h3>
+      <p>A series of small, similar graphs arranged together allow the viewer to compare many different slices of a dataset <strong>within a single eyespan</strong>. The key constraint: all panels must share a common scale so that position and length remain comparable across panels. The eye compares changes in the data, not changes in the design.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Shneiderman's Mantra</h3>
+      <p>The Visual Information Seeking Mantra provides the architectural framework: <strong>"Overview first, zoom and filter, then details on demand."</strong> The dashboard should present the full picture at the top level. Drill-down is for exceptions, not for basic comprehension.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>The Single-Screen Constraint</h3>
+      <p>Few mandates that dashboards consolidate information on <strong>one screen</strong>. This provides <strong>simultaneity of vision</strong> and prevents data fragmentation. When users must scroll or flip between pages, they rely on visual memory — a notoriously weak skill compared to the brain's ability to make immediate comparisons of items seen at once.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Information Density</h3>
+      <p>The human eye has high resolution that can distinguish fine patterns when data is presented in a <strong>"rich texture"</strong> rather than spread across many pages. More data per square inch is better — not worse. Practical rules: use subtle gridlines for local reference, integrate micro-visuals (data bars, sparklines) directly into table rows, and use whitespace as a functional separator without adding ink.</p>
+    </div>
+
+    <div class="modal-section modal-section--quotes">
+      <h3>Key Quotes</h3>
+      <blockquote>"There is no such thing as information overload, only bad design."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"Measures only become meaningful when compared to yardsticks."<div class="modal-source">— Stephen Few</div></blockquote>
+      <blockquote>"Above all else show the data."<div class="modal-source">— Edward Tufte</div></blockquote>
+    </div>
+
+    <div class="modal-section">
+      <h3>See It in This Library</h3>
+      <div class="modal-links">
+        <a href="lib-template.html">📋 Template</a> — single-screen dashboard with sparklines in the capability table
+        <a href="lib-components.html">🧩 Components</a> — small multiples molecule and sparkline integration
+        <a href="lib-charts.html">📊 Chart Library</a> — small multiples anatomy with shared Y-scale
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MODAL: PREATTENTIVE ATTRIBUTES ─────────────────────── -->
+<div class="modal-overlay" id="modal-preattentive" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('modal--open')">✕</button>
+    <div class="modal-eyebrow">03 / PREATTENTIVE · Deep Dive</div>
+    <h2 class="modal-title">Preattentive Attributes</h2>
+    <div class="modal-formula">Length &gt; Position &gt; Orientation &gt; Area &gt; Angle &gt; Hue</div>
+
+    <div class="modal-section">
+      <h3>What Is Preattentive Processing?</h3>
+      <p>Preattentive processing is a fast, subconscious visual scan performed by the <strong>visual cortex</strong> that occurs automatically before the conscious mind engages. Handled by specialized neurons in iconic memory, these attributes are recognized in under a second — allowing the brain to identify patterns and group objects without conscious effort. This lets designers <strong>offload cognitive labor</strong> from the energy-intensive cerebral cortex to the faster, parallelized visual cortex, enabling viewers to perceive large quantities of information in "big visual gulps."</p>
+      <div class="modal-source">— Stephen Few, <em>Show Me the Numbers</em> (2004); Cleveland &amp; McGill (1984)</div>
+    </div>
+
+    <div class="modal-section">
+      <h3>The Accuracy Hierarchy</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Position &amp; Length (Highest)</strong> — The eye precisely compares endpoints of bars or heights of points along a common scale. The "absolute standard" for analytical design.</div>
+        <div class="modal-item"><strong>Orientation (Moderate)</strong> — The brain detects changes in slope, but is less precise for magnitude than position or length.</div>
+        <div class="modal-item"><strong>Area &amp; Angle (Low)</strong> — Humans systematically struggle with 2D areas (bubbles) and angles (pie slices). Perception follows a power law where perceived area grows slower than actual area.</div>
+        <div class="modal-item"><strong>Color Intensity / Hue (Lowest)</strong> — Excellent for categorical grouping but "very low" accuracy for judging magnitude. A shade of gray looks different depending on surrounding colors.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Encoding Preferences</h3>
+      <ol class="modal-list">
+        <li><strong>Bars over pies.</strong> The brain compares linear lengths much more accurately than angles or areas of wedges.</li>
+        <li><strong>Position over size.</strong> For primary quantities, position on a common scale should always be prioritized over the size of objects like bubbles.</li>
+        <li><strong>Saturation over hue for continuous data.</strong> Darker tones are naturally perceived as representing higher values, whereas different hues are only perceived as categorically different.</li>
+        <li><strong>Limit to 4–5 distinct values.</strong> Beyond this, viewers switch from fast preattentive processing to slower, sequential attentive processing that taxes working memory (3–4 chunks).</li>
+      </ol>
+    </div>
+
+    <div class="modal-section">
+      <h3>The 1+1=3 Effect</h3>
+      <p>A fundamental principle of Tuftean design: visual elements endlessly interact with their context. When two elements are placed together, a third visual activity results — the <strong>negative space</strong> between them. Dark, heavy gridlines interacting with data points create <strong>"phantom patterns"</strong> or vibrations that constitute non-information noise. Designers must edit to diminish this "surplus visual activity" by using the <strong>smallest effective difference</strong> to separate information layers.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>When to Use Each Encoding</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Length (bars)</strong> — Comparing magnitudes across categories. The default choice for ranked or part-to-whole comparisons.</div>
+        <div class="modal-item"><strong>Position (scatter, dot)</strong> — Showing relationships between two continuous variables, or precise values on a common scale.</div>
+        <div class="modal-item"><strong>Color saturation</strong> — Encoding intensity or density on a continuous scale (heatmaps). Single hue, varying saturation.</div>
+        <div class="modal-item"><strong>Color hue</strong> — Categorical grouping only. Max 4 distinct hues. Never for quantitative comparison.</div>
+      </div>
+    </div>
+
+    <div class="modal-section modal-section--quotes">
+      <h3>Key Quotes</h3>
+      <blockquote>"The eye and the visual cortex of the brain form a massively parallel processor that provides the highest-bandwidth channel into human cognitive centers."<div class="modal-source">— Stephen Few</div></blockquote>
+      <blockquote>"Data graphics are paragraphs about data and should be treated as such."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"If the statistics are boring, then you've got the wrong numbers."<div class="modal-source">— Edward Tufte</div></blockquote>
+    </div>
+
+    <div class="modal-section">
+      <h3>See It in This Library</h3>
+      <div class="modal-links">
+        <a href="lib-charts.html">📊 Chart Library</a> — bars, scatter, and small multiples chosen for their preattentive accuracy
+        <a href="lib-antipatterns.html">🚫 Anti-Patterns</a> — pie chart and bubble violations demonstrate the encoding hierarchy
+        <a href="lib-foundations.html">🎨 Foundations</a> — single-hue palette with saturation variation for data encoding
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MODAL: LIE FACTOR ─────────────────────────────────── -->
+<div class="modal-overlay" id="modal-lie-factor" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('modal--open')">✕</button>
+    <div class="modal-eyebrow">01 / LIE FACTOR · Deep Dive</div>
+    <h2 class="modal-title">Graphical Integrity</h2>
+    <div class="modal-formula">Lie Factor = Size of effect shown in graphic ÷ Size of effect in data</div>
+
+    <div class="modal-section">
+      <h3>Definition</h3>
+      <p>The Lie Factor quantifies the degree of distortion in a visual representation. It is the ratio of the percentage change shown in the graphic to the percentage change in the underlying data. A graphic tells the truth when visual change is directly proportional to numerical change.</p>
+      <div class="modal-source">— Edward Tufte, <em>The Visual Display of Quantitative Information</em> (1983)</div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Interpreting Lie Factor Values</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>LF = 1.0</strong> — A perfectly honest graphic. Visual change is directly proportional to numerical change.</div>
+        <div class="modal-item"><strong>LF &gt; 1.0</strong> — The graphic exaggerates the data. Differences appear larger than they are.</div>
+        <div class="modal-item"><strong>LF &lt; 1.0</strong> — The graphic minimizes the data. Real differences are understated.</div>
+        <div class="modal-item"><strong>Calculating</strong> — Measure % change in graphic size ÷ % change in data. Example: 783% visual change ÷ 53% data change = LF 14.8.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Real-World Violations Documented by Tufte</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>NY Times Fuel Economy (1978)</strong> — Data showed a 53% increase in MPG standards. The graphic lines changed by 783%. Lie Factor: 14.8.</div>
+        <div class="modal-item"><strong>Day Mines Inc. Annual Report (1974)</strong> — A "disappearing baseline" hid a massive financial loss by starting bars at negative $4.2M, making a deficit look like a positive trend.</div>
+        <div class="modal-item"><strong>OPEC Oil Prices (1979)</strong> — Time and Washington Post depicted 454% price increases as 4,200%+ visual changes. Lie Factors: 9.4 and 9.5.</div>
+        <div class="modal-item"><strong>The Shrinking Family Doctor</strong> — Doctor icons scaled by height and width, causing area to distort quadratically. Lie Factor: 2.8.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Zero Baselines &amp; Truncated Axes</h3>
+      <p>Bar charts encode value through <strong>linear length</strong> from a common baseline. Starting the Y-axis at a non-zero value is a mechanical deception that magnifies small differences into seemingly massive shifts. The visual lengths no longer correspond to actual values, pushing the Lie Factor away from 1.0. Truncating an axis to eliminate sections of a scale is considered <strong>graphical malpractice</strong> — it makes incremental changes appear revolutionary.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>The Area Encoding Trap</h3>
+      <p>When 2D areas represent 1D data, perception follows a power law: people see area growing more slowly than it actually does. A frequent error is scaling a bubble by its <strong>diameter</strong> rather than its <strong>surface area</strong>. Because area grows at the square of the radius (A = πr²), doubling the diameter creates a circle with 4× the area — squaring the perceived error and inflating the Lie Factor.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Rules for Maintaining LF = 1.0</h3>
+      <ol class="modal-list">
+        <li><strong>Proportional representation.</strong> Physical visual change must be directly proportional to numerical change.</li>
+        <li><strong>Zero-point rule for bars.</strong> Always start bar charts at zero. If a non-zero baseline is used for a dot plot, explicitly alert the reader.</li>
+        <li><strong>Area scaling.</strong> When using circles or bubbles, ensure the surface area matches the data value, not the diameter.</li>
+        <li><strong>Contextual honesty.</strong> Never quote data out of context — cherry-picked time windows manufacture false trends.</li>
+        <li><strong>Dimension parity.</strong> The number of information-carrying dimensions shown should not exceed the dimensions in the data.</li>
+      </ol>
+    </div>
+
+    <div class="modal-section modal-section--quotes">
+      <h3>Key Quotes</h3>
+      <blockquote>"Graphical excellence begins with telling the truth about the data."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"The representation of numbers in graphs should be proportional to the numbers they represent."<div class="modal-source">— Stephen Few</div></blockquote>
+      <blockquote>"Above all else show the data."<div class="modal-source">— Edward Tufte</div></blockquote>
+    </div>
+
+    <div class="modal-section">
+      <h3>See It in This Library</h3>
+      <div class="modal-links">
+        <a href="lib-charts.html">📊 Chart Library</a> — bar chart anatomy enforces zero baseline, scatter uses range-frame
+        <a href="lib-antipatterns.html">🚫 Anti-Patterns</a> — truncated axis and bubble area violations shown side-by-side
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MODAL: DATA-INK RATIO ──────────────────────────────── -->
+<div class="modal-overlay" id="modal-data-ink" onclick="if(event.target===this)this.classList.remove('modal--open')">
+  <div class="modal">
+    <button class="modal-close" onclick="this.closest('.modal-overlay').classList.remove('modal--open')">✕</button>
+    <div class="modal-eyebrow">02 / DATA-INK RATIO · Deep Dive</div>
+    <h2 class="modal-title">Maximise Data-Ink</h2>
+    <div class="modal-formula">Data-Ink Ratio = Data-Ink ÷ Total ink used to print the graphic</div>
+
+    <div class="modal-section">
+      <h3>Definition</h3>
+      <p>Tufte defines <strong>data-ink</strong> as the "non-erasable core of a graphic" — the ink that changes in direct response to variations in the underlying numbers. Any ink that does not represent data is non-data-ink. A ratio of <strong>1.0</strong> represents the ideal state where every drop of ink serves a functional, informative purpose.</p>
+      <div class="modal-source">— Edward Tufte, <em>The Visual Display of Quantitative Information</em> (1983)</div>
+    </div>
+
+    <div class="modal-section">
+      <h3>The Five Erasure Principles</h3>
+      <ol class="modal-list">
+        <li><strong>Above all else show the data.</strong> The primary focus must always remain on the quantitative information itself.</li>
+        <li><strong>Maximize the data-ink ratio.</strong> Ensure the greatest possible share of ink is devoted to data.</li>
+        <li><strong>Erase non-data-ink.</strong> Ruthlessly remove elements that do not carry statistical information.</li>
+        <li><strong>Erase redundant data-ink.</strong> Prune ink that repeats information already presented elsewhere.</li>
+        <li><strong>Revise and edit.</strong> View the design process as an iterative act of refinement.</li>
+      </ol>
+    </div>
+
+    <div class="modal-section">
+      <h3>What to Eliminate</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Frames & Borders</strong> — Heavy outer borders that "imprison" the data. Replace with open margins.</div>
+        <div class="modal-item"><strong>Heavy Gridlines</strong> — Dark grid lines create moiré vibrations that fatigue the eye. Mute, thin, or remove.</div>
+        <div class="modal-item"><strong>3D Effects</strong> — False perspective makes comparisons difficult due to occlusion. Never use.</div>
+        <div class="modal-item"><strong>Gradients & Shadows</strong> — Glossy fills add noise without information, skewing value perception.</div>
+        <div class="modal-item"><strong>Redundant Labels</strong> — Don't repeat units ($, %) in every cell. Move to headers or titles.</div>
+        <div class="modal-item"><strong>"Ducks"</strong> — Graphics where the design subsumes the data, becoming sculpture rather than analysis.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Cognitive Load Connection</h3>
+      <p>Every extra visual element adds <strong>cognitive load</strong>, forcing the viewer to decide whether each mark matters. Humans hold only 3–4 chunks in working memory at once. High data-ink designs chunk information into larger patterns, enabling comparison and insight without context switching or scrolling.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Rules by Chart Type</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Bar Charts</strong> — Y-axis starts at zero (Lie Factor 1.0). Horizontal bars when labels are long.</div>
+        <div class="modal-item"><strong>Line Charts</strong> — Feature the shape of change over time. Max 4–5 series; use small multiples beyond that.</div>
+        <div class="modal-item"><strong>Scatter Plots</strong> — Use range-frame axes extending only to data limits, showing the range explicitly.</div>
+        <div class="modal-item"><strong>Tables</strong> — Right-justify numbers, align by decimal. Embed sparklines for historical context.</div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>When Non-Data Ink Is Justified</h3>
+      <p>Some non-data ink serves a purpose. Reference lines (targets, averages) provide critical context — Few argues "measures only become meaningful when compared to yardsticks." Non-data ink that helps engage the audience, draw attention, or make the message memorable is not junk.</p>
+    </div>
+
+    <div class="modal-section modal-section--quotes">
+      <h3>Key Quotes</h3>
+      <blockquote>"Above all else show the data."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"If the statistics are boring, then you've got the wrong numbers."<div class="modal-source">— Edward Tufte</div></blockquote>
+      <blockquote>"Nothing that supports the chart's message in a meaningful way is junk."<div class="modal-source">— Stephen Few</div></blockquote>
+      <blockquote>"Perfection is finally attained not when there is no longer anything to add, but when there is no longer anything to take away."<div class="modal-source">— Antoine de Saint-Exupéry (quoted by Few)</div></blockquote>
+    </div>
+
+    <div class="modal-section">
+      <h3>See It in This Library</h3>
+      <div class="modal-links">
+        <a href="lib-charts.html">📊 Chart Library</a> — every chart applies range-frame axes and direct labels
+        <a href="lib-antipatterns.html">🚫 Anti-Patterns</a> — side-by-side violations of data-ink principles
+        <a href="lib-foundations.html">🎨 Foundations</a> — muted palette designed to minimize non-data ink
+      </div>
+    </div>
+
   </div>
 </div>
 

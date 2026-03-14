@@ -41,12 +41,16 @@
 .cover-stat-val { font-size: var(--type-page-title-size); font-weight: var(--type-page-title-weight); line-height: 1; margin-bottom: 4px; }
 .cover-stat-lbl { font-size: var(--type-label-size); color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
 
+/* ── PRINCIPLE GRID ─────────────────────────────────────── */
+.principle-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+
 /* ── PRINCIPLE CARD ──────────────────────────────────────── */
 .principle-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   padding: 24px;
-  flex: 1; min-width: 260px;
 }
 .principle-number {
   font-family: var(--font-mono);
@@ -72,14 +76,139 @@
 }
 .principle-rule strong { color: var(--text-2); font-weight: 600; }
 
+/* ── CLICKABLE PRINCIPLE CARD ──────────────────────────────── */
+.principle-card--clickable { cursor: pointer; transition: border-color 0.15s; }
+.principle-card--clickable:hover { border-color: var(--bar-main); }
+.principle-cta {
+  margin-top: 12px;
+  font-family: var(--font-mono); font-size: var(--type-annotation-size);
+  color: var(--cobalt-hi); letter-spacing: 0.02em;
+}
+
+/* ── MODAL ──────────────────────────────────────────────────── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 2000;
+  background: rgba(26,25,23,0);
+  backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px);
+  overflow-y: auto; padding: 40px 24px;
+  transition: background 0.25s ease, backdrop-filter 0.25s ease, -webkit-backdrop-filter 0.25s ease;
+}
+.modal-overlay.modal--open {
+  display: flex; justify-content: center; align-items: flex-start;
+  animation: overlayFadeIn 0.25s ease forwards;
+}
+.modal-overlay.modal--open .modal {
+  animation: modalSlideUp 0.3s ease forwards;
+}
+@keyframes overlayFadeIn {
+  from { background: rgba(26,25,23,0); backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); }
+  to { background: rgba(26,25,23,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+}
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modal {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  max-width: 720px; width: 100%; padding: 40px;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none; cursor: pointer;
+  font-size: 18px; color: var(--text-3); line-height: 1;
+}
+.modal-close:hover { color: var(--text-1); }
+.modal-eyebrow {
+  font-family: var(--font-mono); font-size: var(--type-label-size);
+  color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.modal-title {
+  font-size: var(--type-page-title-size); font-weight: var(--type-page-title-weight);
+  color: var(--text-1); margin-bottom: 8px;
+}
+.modal-formula {
+  font-family: var(--font-mono); font-size: var(--type-body-size);
+  color: var(--cobalt-hi); background: #f0f3f8;
+  padding: 8px 12px; margin-bottom: 32px; display: inline-block;
+}
+
+/* ── MODAL SECTIONS ────────────────────────────────────────── */
+.modal-section { margin-bottom: 28px; }
+.modal-section h3 {
+  font-size: var(--type-heading-section-size); font-weight: var(--type-heading-section-weight);
+  color: var(--text-1); margin-bottom: 8px;
+  padding-bottom: 6px; border-bottom: 1px solid var(--border);
+}
+.modal-section p {
+  font-size: var(--type-body-size); color: var(--text-2);
+  line-height: 1.7; margin-bottom: 8px;
+}
+.modal-section p strong { color: var(--text-1); }
+.modal-source {
+  font-size: var(--type-annotation-size); font-family: var(--font-mono);
+  color: var(--text-3); margin-top: 4px;
+}
+
+/* ── MODAL LIST ────────────────────────────────────────────── */
+.modal-list {
+  list-style: decimal; padding-left: 24px;
+  font-size: var(--type-body-size); color: var(--text-2); line-height: 1.7;
+}
+.modal-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bg-table-alt);
+}
+.modal-list li::marker {
+  font-family: var(--font-mono); font-weight: 500;
+  color: var(--cobalt-hi);
+}
+.modal-list li strong { color: var(--text-1); }
+
+/* ── MODAL GRID ────────────────────────────────────────────── */
+.modal-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.modal-item {
+  font-size: var(--type-body-size); color: var(--text-2); line-height: 1.6;
+  padding: 12px; background: var(--bg-page); border: 1px solid var(--border);
+}
+.modal-item strong { color: var(--text-1); display: block; margin-bottom: 2px; }
+
+/* ── MODAL QUOTES ──────────────────────────────────────────── */
+.modal-section--quotes blockquote {
+  font-size: var(--type-body-size); font-style: italic;
+  color: var(--text-2); line-height: 1.6;
+  border-left: 2px solid var(--cobalt-hi); padding: 8px 0 8px 16px;
+  margin: 0 0 12px 0;
+}
+
+/* ── MODAL LINKS ───────────────────────────────────────────── */
+.modal-links {
+  display: flex; flex-direction: column; gap: 8px;
+  font-size: var(--type-body-size); color: var(--text-2); line-height: 1.6;
+}
+.modal-links a {
+  color: var(--cobalt-hi); text-decoration: none; font-weight: 500;
+}
+.modal-links a:hover { text-decoration: underline; }
+
 /* ── PAGE INDEX ──────────────────────────────────────────── */
 .page-index {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+a.page-card {
+  text-decoration: none; color: inherit; display: block;
 }
 .page-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   padding: 20px;
+  transition: border-color 0.15s;
+}
+.page-card:hover {
+  border-color: var(--bar-main);
 }
 .page-card-num {
   font-family: var(--font-mono);
@@ -100,7 +229,7 @@
   .cover-right { width: 100%; display: flex; gap: 16px; flex-wrap: wrap; }
   .cover-stat { flex: 1; min-width: 120px; }
   .cover-title { font-size: 32px; }
-  .principle-card { min-width: 280px; }
+  .principle-grid { grid-template-columns: repeat(2, 1fr); }
   .page-index { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -111,6 +240,10 @@
   .cover-desc { font-size: 13px; }
   .cover-right { width: 100%; }
   .cover-stat-val { font-size: 22px; }
-  .principle-card { min-width: 0; }
+  .principle-grid { grid-template-columns: 1fr; }
   .page-index { grid-template-columns: 1fr; }
+  .modal-overlay { padding: 16px; }
+  .modal { padding: 24px; }
+  .modal-title { font-size: 22px; }
+  .modal-grid { grid-template-columns: 1fr; }
 }
