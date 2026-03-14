@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Few/Tufte Design Library · 📊 Chart Library</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  :root {
+    --bg: #f0eeeb; --surface: #ffffff; --border: #d8d4ce;
+    --t1: #1a1917; --t2: #5a5650; --t3: #9a948e;
+    --bar: #4a4845; --bar-dim: #b0aaa4;
+    --warn: #c97b2e; --crit: #c0392b; --yes: #2a7a4a;
+    --cob-lo: #8099b8; --cob-hi: #1a4db8;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f5f5f5; font-family: var(--sans); color: var(--t1); padding: 48px; padding-top: 0; min-width: 1600px; }
+
+  /* ── SITE NAV ──────────────────────────────────────────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(245,245,245,0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    margin: 0 -48px 48px;
+  }
+  .site-nav-logo {
+    font-size: 15px; font-weight: 700; color: var(--t1);
+    letter-spacing: -0.01em; text-decoration: none;
+  }
+  .site-nav-links { display: flex; gap: 32px; list-style: none; }
+  .site-nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--t2);
+    text-decoration: none; letter-spacing: 0.01em;
+    padding: 4px 0;
+  }
+  .site-nav-links a:hover { color: var(--t1); }
+  .site-nav-links a.active { color: var(--t1); font-weight: 600; }
+
+  .page-header { margin-bottom: 56px; }
+  .page-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t3); margin-bottom: 6px; }
+  .page-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .page-subtitle { font-size: 13px; color: var(--t2); line-height: 1.6; max-width: 640px; }
+
+  .section { margin-bottom: 56px; }
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t3); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 24px; }
+
+  /* ── CHART FRAME ──────────────────────────────────────── */
+  .chart-row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 40px; }
+
+  .chart-frame {
+    background: var(--surface); border: 1px solid var(--border); padding: 20px;
+    flex: 1; min-width: 420px;
+  }
+  .chart-frame-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t3); margin-bottom: 4px; }
+  .chart-frame-name { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 16px; }
+
+  .annot-group { margin-top: 16px; display: flex; flex-direction: column; gap: 3px; }
+  .annotation { font-size: 9px; font-family: var(--mono); color: var(--cob-hi); border-left: 2px solid var(--cob-hi); padding-left: 8px; }
+
+  /* ── DO / DONT PAIR ───────────────────────────────────── */
+  .do-dont { display: flex; gap: 16px; }
+  .do-frame, .dont-frame { flex: 1; padding: 12px; }
+  .do-frame { background: #f0faf4; border: 1px solid #8ccba4; }
+  .dont-frame { background: #fdf0ee; border: 1px solid #e8a09a; }
+  .do-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--yes); margin-bottom: 8px; }
+  .dont-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--crit); margin-bottom: 8px; }
+
+  svg { display: block; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-logo">Few / Tufte</a>
+  <ul class="site-nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="lib-foundations.html">Foundations</a></li>
+    <li><a href="lib-components.html">Components</a></li>
+    <li><a href="lib-charts.html" class="active">Charts</a></li>
+    <li><a href="lib-antipatterns.html">Anti-Patterns</a></li>
+    <li><a href="lib-template.html">Template</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-label">Few / Tufte Design Library · Page 4 of 6</div>
+  <div class="page-title">📊 Chart Library</div>
+  <div class="page-subtitle">Ten chart types with anatomy annotations and ❌/✅ do/don't pairs. Each chart implements a specific task from the Visual Selection Decision Framework v3.</div>
+</div>
+
+<!-- ── 1. HORIZONTAL BAR ───────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Chart Type 1 — Horizontal Bar Chart · Task: Comparison (Ranked Items)</div>
+  <div class="chart-row">
+    <div class="chart-frame" style="flex:2; min-width:560px;">
+      <div class="chart-frame-label">Anatomy</div>
+      <div class="chart-frame-name">Horizontal Bar — Monthly Visits (sorted descending)</div>
+      <svg width="100%" height="310" viewBox="0 0 700 310">
+        <!-- Range-frame Y axis line -->
+        <line x1="140" y1="8" x2="140" y2="300" stroke="#9a948e" stroke-width="1"/>
+        <!-- Zero baseline annotation tick -->
+
+        <!-- Bars -->
+        <!-- ChatGPT 5846 -->
+        <text x="133" y="36" text-anchor="end" font-size="11" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
+        <rect x="140" y="20" width="500" height="22" fill="#4a4845"/>
+        <text x="633" y="35" text-anchor="end" font-size="10" fill="#fff" font-weight="500" font-family="'IBM Plex Mono',monospace">5.8B</text>
+
+        <!-- Gemini 723 -->
+        <text x="133" y="71" text-anchor="end" font-size="11" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
+        <rect x="140" y="55" width="62" height="22" fill="#4a4845"/>
+        <text x="209" y="70" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Mono',monospace">723M</text>
+
+        <!-- DeepSeek 319 -->
+        <text x="133" y="106" text-anchor="end" font-size="11" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
+        <rect x="140" y="90" width="27" height="22" fill="#4a4845"/>
+        <text x="174" y="105" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Mono',monospace">319M</text>
+
+        <!-- Perplexity -->
+        <text x="133" y="141" text-anchor="end" font-size="11" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Perplexity</text>
+        <rect x="140" y="125" width="13" height="22" fill="#4a4845"/>
+        <text x="160" y="140" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Mono',monospace">148M</text>
+
+        <!-- Claude -->
+        <text x="133" y="176" text-anchor="end" font-size="11" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
+        <rect x="140" y="160" width="13" height="22" fill="#4a4845"/>
+        <text x="160" y="175" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Mono',monospace">148M</text>
+
+        <!-- Google AI Studio -->
+        <text x="133" y="211" text-anchor="end" font-size="11" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">G.AI Studio</text>
+        <rect x="140" y="195" width="8" height="22" fill="#4a4845"/>
+        <text x="155" y="210" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Mono',monospace">99M</text>
+
+        <!-- Callout arrows / annotations -->
+        <!-- Sort order -->
+        <line x1="640" y1="31" x2="670" y2="31" stroke="#1a4db8" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="672" y="35" font-size="9" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① sorted desc</text>
+
+        <!-- Zero baseline -->
+        <line x1="140" y1="240" x2="140" y2="260" stroke="#1a4db8" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="145" y="255" font-size="9" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② zero baseline (Lie Factor = 1.0)</text>
+
+        <!-- Range-frame axis -->
+        <text x="3" y="100" font-size="9" fill="#1a4db8" font-family="'IBM Plex Mono',monospace" transform="rotate(-90,24,100)">③ range-frame</text>
+
+        <!-- Direct label -->
+        <line x1="634" y1="35" x2="634" y2="60" stroke="#1a4db8" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="640" y="75" font-size="9" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">④ direct label</text>
+
+        <!-- Color role -->
+        <text x="672" y="90" font-size="9" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">⑤ bar/main</text>
+      </svg>
+      <div class="annot-group">
+        <div class="annotation">① Sort descending by value — enables immediate rank reading</div>
+        <div class="annotation">② Zero baseline mandatory — Lie Factor = 1.0</div>
+        <div class="annotation">③ Range-frame axis: tick at min value, tick at max value only</div>
+        <div class="annotation">④ Label inside bar if bw &gt; 72px, else outside — no axis needed</div>
+        <div class="annotation">⑤ Single hue: bar/main #4a4845 — no color legend required</div>
+      </div>
+    </div>
+
+    <div class="chart-frame" style="min-width:300px;">
+      <div class="chart-frame-label">Do / Don't</div>
+      <div class="chart-frame-name">Common Bar Chart Errors</div>
+      <div class="do-dont" style="flex-direction:column; gap:12px;">
+        <div class="do-frame">
+          <div class="do-label">✅ Do — Sorted, zero-based, direct label</div>
+          <svg width="100%" height="80" viewBox="0 0 260 80">
+            <line x1="60" y1="4" x2="60" y2="76" stroke="#9a948e" stroke-width="1"/>
+            <rect x="60" y="8" width="160" height="14" fill="#4a4845"/>
+            <text x="223" y="20" font-size="8" fill="#fff" font-family="'IBM Plex Mono',monospace">160</text>
+            <rect x="60" y="28" width="100" height="14" fill="#4a4845"/>
+            <text x="163" y="40" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">100</text>
+            <rect x="60" y="48" width="60" height="14" fill="#4a4845"/>
+            <text x="123" y="60" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">60</text>
+            <rect x="60" y="68" width="30" height="8" fill="#4a4845"/>
+            <text x="93" y="76" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">30</text>
+          </svg>
+        </div>
+        <div class="dont-frame">
+          <div class="dont-label">❌ Don't — Non-zero baseline (Lie Factor &gt; 1)</div>
+          <svg width="100%" height="80" viewBox="0 0 260 80">
+            <!-- Truncated axis starting at 50 -->
+            <line x1="60" y1="4" x2="60" y2="76" stroke="#9a948e" stroke-width="1"/>
+            <text x="50" y="76" text-anchor="end" font-size="7" fill="#c0392b" font-family="'IBM Plex Mono',monospace">50</text>
+            <text x="50" y="8" text-anchor="end" font-size="7" fill="#c0392b" font-family="'IBM Plex Mono',monospace">160</text>
+            <!-- Bars look very similar in height due to truncation -->
+            <rect x="60" y="8" width="130" height="14" fill="#c0392b" opacity="0.6"/>
+            <rect x="60" y="28" width="100" height="14" fill="#c0392b" opacity="0.6"/>
+            <rect x="60" y="48" width="60" height="14" fill="#c0392b" opacity="0.6"/>
+            <rect x="60" y="68" width="8" height="8" fill="#c0392b" opacity="0.6"/>
+            <text x="135" y="82" font-size="7" fill="#c0392b" font-family="'IBM Plex Sans',sans-serif" text-anchor="middle">axis starts at 50 → differences exaggerated</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 2. SLOPE / LINE CHART ──────────────────────────── -->
+<div class="section">
+  <div class="section-title">Chart Type 2 — Slope / Line Chart · Task: Trend Over Time</div>
+  <div class="chart-row">
+    <div class="chart-frame" style="flex:2; min-width:480px;">
+      <div class="chart-frame-label">Anatomy</div>
+      <div class="chart-frame-name">User Growth 2023→2025 — Slope chart, log Y, shared scale</div>
+      <svg width="100%" height="200" viewBox="0 0 600 200">
+        <!-- Y axis -->
+        <line x1="10" y1="10" x2="10" y2="185" stroke="#9a948e" stroke-width="1"/>
+        <!-- Year guide lines -->
+        <line x1="60" y1="10" x2="60" y2="185" stroke="#d8d4ce" stroke-width="0.5"/>
+        <line x1="310" y1="10" x2="310" y2="185" stroke="#d8d4ce" stroke-width="0.5"/>
+        <line x1="560" y1="10" x2="560" y2="185" stroke="#d8d4ce" stroke-width="0.5"/>
+        <!-- Year labels -->
+        <text x="60" y="197" text-anchor="middle" font-size="9" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2023</text>
+        <text x="310" y="197" text-anchor="middle" font-size="9" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2024</text>
+        <text x="560" y="197" text-anchor="middle" font-size="9" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2025</text>
+        <!-- ChatGPT line -->
+        <polyline points="60,130 310,80 560,30" fill="none" stroke="#4a4845" stroke-width="2"/>
+        <text x="565" y="33" font-size="9" fill="#4a4845" font-weight="600" font-family="'IBM Plex Sans',sans-serif">ChatGPT 388M</text>
+        <!-- Claude line -->
+        <polyline points="60,175 310,165 560,145" fill="none" stroke="#4a4845" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="565" y="148" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">Claude 20M</text>
+        <!-- DeepSeek line (launches 2024) -->
+        <polyline points="310,175 560,143" fill="none" stroke="#b0aaa4" stroke-width="1.5"/>
+        <text x="565" y="146" font-size="8" fill="#b0aaa4" font-family="'IBM Plex Sans',sans-serif">DeepSeek 49.5M</text>
+        <!-- Annotations -->
+        <text x="12" y="130" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① year guides (muted)</text>
+        <text x="12" y="150" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② log Y scale</text>
+        <text x="12" y="170" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">③ end-value labels only</text>
+      </svg>
+      <div class="annot-group">
+        <div class="annotation">① Year guide lines: border/default 0.5px — visual structure without chartjunk</div>
+        <div class="annotation">② Log Y scale when values span multiple orders of magnitude</div>
+        <div class="annotation">③ End-value labels replace axis ticks — direct, no legend</div>
+        <div class="annotation">④ No dots on data points — line alone is sufficient</div>
+        <div class="annotation">⑤ Dashes distinguish overlapping series without color legend</div>
+      </div>
+    </div>
+
+    <div class="chart-frame" style="min-width:260px;">
+      <div class="chart-frame-label">Do / Don't</div>
+      <div class="chart-frame-name">Spaghetti vs. Clarity</div>
+      <div class="do-frame" style="margin-bottom:12px;">
+        <div class="do-label">✅ Do — Label ends, no dots, max 5 series</div>
+        <svg width="100%" height="70" viewBox="0 0 240 70">
+          <polyline points="10,55 120,35 230,10" fill="none" stroke="#4a4845" stroke-width="2"/>
+          <polyline points="10,60 120,55 230,45" fill="none" stroke="#4a4845" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <text x="232" y="13" font-size="8" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">A</text>
+          <text x="232" y="48" font-size="8" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">B</text>
+        </svg>
+      </div>
+      <div class="dont-frame">
+        <div class="dont-label">❌ Don't — Spaghetti with legend (eye travel)</div>
+        <svg width="100%" height="70" viewBox="0 0 240 70">
+          <polyline points="10,20 60,45 120,15 180,50 230,25" fill="none" stroke="#e74c3c" stroke-width="1.5"/>
+          <polyline points="10,50 60,20 120,45 180,15 230,55" fill="none" stroke="#3498db" stroke-width="1.5"/>
+          <polyline points="10,35 60,60 120,30 180,55 230,20" fill="none" stroke="#2ecc71" stroke-width="1.5"/>
+          <polyline points="10,60 60,35 120,55 180,30 230,45" fill="none" stroke="#f39c12" stroke-width="1.5"/>
+          <polyline points="10,15 60,50 120,20 180,45 230,35" fill="none" stroke="#9b59b6" stroke-width="1.5"/>
+          <text x="5" y="68" font-size="7" fill="#c0392b" font-family="'IBM Plex Sans',sans-serif">rainbow palette + legend = eye travel</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. SCATTER PLOT ────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Chart Type 3 — Scatter Plot · Task: Relationship / Correlation</div>
+  <div class="chart-row">
+    <div class="chart-frame" style="flex:2; min-width:480px;">
+      <div class="chart-frame-label">Anatomy</div>
+      <div class="chart-frame-name">Revenue vs. Monthly Visits — range-frame axes, direct labels</div>
+      <svg width="100%" height="240" viewBox="0 0 600 240">
+        <!-- Range-frame axes -->
+        <line x1="60" y1="200" x2="540" y2="200" stroke="#9a948e" stroke-width="1"/>
+        <line x1="60" y1="10" x2="60" y2="200" stroke="#9a948e" stroke-width="1"/>
+        <!-- Regression line -->
+        <line x1="60" y1="190" x2="520" y2="40" stroke="#d8d4ce" stroke-width="1" stroke-dasharray="4,2"/>
+        <!-- Data points -->
+        <!-- ChatGPT: visits=5846, rev=3200 → x≈520, y≈30 -->
+        <circle cx="520" cy="30" r="5" fill="#4a4845"/>
+        <text x="527" y="33" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
+        <!-- Gemini: visits=723, rev=450 → x≈120, y≈80 -->
+        <circle cx="120" cy="80" r="4" fill="#4a4845"/>
+        <text x="127" y="83" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
+        <!-- DeepSeek: visits=319, rev=120 → x≈95, y≈155 -->
+        <circle cx="95" cy="155" r="4" fill="#4a4845"/>
+        <text x="102" y="158" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
+        <!-- Claude: visits=148, rev=700 → x≈75, y≈60 — high rev outlier -->
+        <circle cx="75" cy="60" r="4" fill="#4a4845"/>
+        <text x="82" y="63" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">Claude ①</text>
+        <!-- Perplexity: visits=148, rev=80 → x≈75, y≈170 -->
+        <circle cx="75" cy="170" r="3" fill="#b0aaa4"/>
+        <text x="82" y="173" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Sans',sans-serif">Perplexity</text>
+        <!-- Axis labels -->
+        <text x="300" y="218" text-anchor="middle" font-size="9" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Monthly Visits →</text>
+        <text x="20" y="110" text-anchor="middle" font-size="9" fill="#9a948e" font-family="'IBM Plex Mono',monospace" transform="rotate(-90,20,110)">Revenue →</text>
+        <!-- Regression label -->
+        <text x="350" y="110" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace" transform="rotate(-20,350,110)">trend</text>
+        <!-- Annotations -->
+        <text x="65" y="230" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② range-frame axis</text>
+        <text x="280" y="70" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">③ regression line</text>
+        <text x="5" y="35" font-size="8" fill="#c97b2e" font-family="'IBM Plex Mono',monospace">① outlier label</text>
+      </svg>
+      <div class="annot-group">
+        <div class="annotation">① Outlier labels call out anomalies — Claude: high rev / low visits</div>
+        <div class="annotation">② Range-frame: axis tick only at min and max data values</div>
+        <div class="annotation">③ Regression line: border/default dashed — context, not decoration</div>
+        <div class="annotation">④ Direct labels on dots — no legend required</div>
+      </div>
+    </div>
+
+    <div class="chart-frame" style="min-width:260px;">
+      <div class="chart-frame-label">Do / Don't</div>
+      <div class="chart-frame-name">Scatter Errors</div>
+      <div class="do-frame" style="margin-bottom:12px;">
+        <div class="do-label">✅ Do — Range-frame, direct labels</div>
+        <svg width="100%" height="70" viewBox="0 0 240 70">
+          <line x1="20" y1="60" x2="220" y2="60" stroke="#9a948e" stroke-width="1"/>
+          <line x1="20" y1="10" x2="20" y2="60" stroke="#9a948e" stroke-width="1"/>
+          <circle cx="80" cy="40" r="4" fill="#4a4845"/>
+          <text x="87" y="43" font-size="8" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">Tool A</text>
+          <circle cx="160" cy="20" r="4" fill="#4a4845"/>
+          <text x="167" y="23" font-size="8" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">Tool B</text>
+        </svg>
+      </div>
+      <div class="dont-frame">
+        <div class="dont-label">❌ Don't — Bubble (area decodes as diameter²)</div>
+        <svg width="100%" height="70" viewBox="0 0 240 70">
+          <circle cx="80" cy="40" r="18" fill="#e74c3c" opacity="0.4"/>
+          <circle cx="160" cy="20" r="10" fill="#3498db" opacity="0.4"/>
+          <text x="80" y="44" text-anchor="middle" font-size="7" fill="#c0392b" font-family="'IBM Plex Sans',sans-serif">2×dia→4×area</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 4. DIVERGING BAR ────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Chart Type 4 — Diverging Bar · Task: Part-to-Whole Comparison (Enterprise vs. Consumer)</div>
+  <div class="chart-row">
+    <div class="chart-frame" style="min-width:460px;">
+      <div class="chart-frame-label">Anatomy</div>
+      <div class="chart-frame-name">Enterprise vs. Consumer Split — center-aligned, % labels</div>
+      <svg width="100%" height="220" viewBox="0 0 580 220">
+        <!-- Center line -->
+        <line x1="290" y1="10" x2="290" y2="210" stroke="#9a948e" stroke-width="1"/>
+        <text x="148" y="8" text-anchor="middle" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">← Enterprise</text>
+        <text x="432" y="8" text-anchor="middle" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Consumer →</text>
+
+        <!-- G.AI Studio: 60/40 -->
+        <text x="283" y="32" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">G.AI Studio</text>
+        <rect x="50" y="18" width="240" height="18" fill="#4a4845"/>
+        <text x="47" y="30" text-anchor="end" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">60%</text>
+        <rect x="290" y="18" width="120" height="18" fill="#b0aaa4"/>
+        <text x="413" y="30" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Mono',monospace">40%</text>
+
+        <!-- Claude: 40/60 -->
+        <text x="283" y="57" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
+        <rect x="130" y="43" width="160" height="18" fill="#4a4845"/>
+        <text x="127" y="55" text-anchor="end" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">40%</text>
+        <rect x="290" y="43" width="182" height="18" fill="#b0aaa4"/>
+        <text x="475" y="55" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Mono',monospace">60%</text>
+
+        <!-- ChatGPT: 35/65 -->
+        <text x="283" y="82" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
+        <rect x="148" y="68" width="142" height="18" fill="#4a4845"/>
+        <text x="145" y="80" text-anchor="end" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">35%</text>
+        <rect x="290" y="68" width="200" height="18" fill="#b0aaa4"/>
+        <text x="493" y="80" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Mono',monospace">65%</text>
+
+        <!-- Gemini: 30/70 -->
+        <text x="283" y="107" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
+        <rect x="172" y="93" width="118" height="18" fill="#4a4845"/>
+        <text x="169" y="105" text-anchor="end" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">30%</text>
+        <rect x="290" y="93" width="220" height="18" fill="#b0aaa4"/>
+        <text x="513" y="105" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Mono',monospace">70%</text>
+
+        <!-- DeepSeek: 25/75 -->
+        <text x="283" y="132" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
+        <rect x="193" y="118" width="97" height="18" fill="#4a4845"/>
+        <text x="190" y="130" text-anchor="end" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">25%</text>
+        <rect x="290" y="118" width="230" height="18" fill="#b0aaa4"/>
+        <text x="523" y="130" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Mono',monospace">75%</text>
+
+        <!-- Annotations -->
+        <text x="290" y="160" text-anchor="middle" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① center baseline</text>
+        <text x="290" y="175" text-anchor="middle" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② bar/main left · bar/dim right</text>
+        <text x="290" y="190" text-anchor="middle" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">③ % labels both sides</text>
+        <text x="290" y="205" text-anchor="middle" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">④ sorted by enterprise %</text>
+      </svg>
+    </div>
+
+    <!-- 5. DEVIATION BAR -->
+    <div class="chart-frame" style="min-width:300px;">
+      <div class="chart-frame-label">Chart Type 5 — Deviation Bar · Task: Performance vs. Target (MoM Growth)</div>
+      <div class="chart-frame-name">Month-over-Month Growth — zero baseline, red for negative</div>
+      <svg width="100%" height="220" viewBox="0 0 320 220">
+        <line x1="140" y1="10" x2="140" y2="205" stroke="#9a948e" stroke-width="1"/>
+        <text x="140" y="215" text-anchor="middle" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">0%</text>
+
+        <!-- Claude +18.6 -->
+        <text x="133" y="35" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
+        <rect x="140" y="22" width="100" height="16" fill="#4a4845"/>
+        <text x="243" y="34" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">+18.6%</text>
+
+        <!-- G.AI Studio +12.5 -->
+        <text x="133" y="57" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">G.AI Studio</text>
+        <rect x="140" y="44" width="67" height="16" fill="#4a4845"/>
+        <text x="210" y="56" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">+12.5%</text>
+
+        <!-- Perplexity +5.4 -->
+        <text x="133" y="79" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Perplexity</text>
+        <rect x="140" y="66" width="29" height="16" fill="#4a4845"/>
+        <text x="172" y="78" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">+5.4%</text>
+
+        <!-- ChatGPT +2.2 -->
+        <text x="133" y="101" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
+        <rect x="140" y="88" width="12" height="16" fill="#4a4845"/>
+        <text x="155" y="100" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">+2.2%</text>
+
+        <!-- Quark -1.2 -->
+        <text x="133" y="123" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Quark AI</text>
+        <rect x="115" y="110" width="25" height="16" fill="#c0392b"/>
+        <text x="112" y="122" text-anchor="end" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">-1.2%</text>
+
+        <!-- Meta -3.8 -->
+        <text x="133" y="145" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Meta AI</text>
+        <rect x="96" y="132" width="44" height="16" fill="#c0392b"/>
+        <text x="93" y="144" text-anchor="end" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">-3.8%</text>
+
+        <!-- DeepSeek -8.9 -->
+        <text x="133" y="167" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
+        <rect x="52" y="154" width="88" height="16" fill="#c0392b"/>
+        <text x="49" y="166" text-anchor="end" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">-8.9%</text>
+
+        <!-- Annotations -->
+        <text x="160" y="190" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① bar/main = positive</text>
+        <text x="160" y="205" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② accent/critical = negative</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ── 6. BULLET GRAPH ────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Chart Type 6 — Bullet Graph · Task: Performance vs. Budget (Few, 2006)</div>
+  <div class="chart-row">
+    <div class="chart-frame" style="min-width:560px;">
+      <div class="chart-frame-label">Anatomy</div>
+      <div class="chart-frame-name">Tool Spend vs. Budget — replaces gauges/speedometers</div>
+      <svg width="100%" height="200" viewBox="0 0 640 200">
+        <!-- ChatGPT: budget=200K, actual=270K -->
+        <text x="90" y="28" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
+        <!-- Qualitative bands: poor / ok / good -->
+        <rect x="95" y="15" width="133" height="20" fill="#e8e5e0"/>
+        <rect x="228" y="15" width="133" height="20" fill="#d8d4ce"/>
+        <rect x="361" y="15" width="133" height="20" fill="#c8c4be"/>
+        <!-- Actual bar -->
+        <rect x="95" y="19" width="362" height="12" fill="#4a4845"/>
+        <!-- Budget marker (vertical line) -->
+        <line x1="362" y1="13" x2="362" y2="37" stroke="#1a1917" stroke-width="3"/>
+        <text x="363" y="11" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Budget $200K</text>
+        <text x="460" y="30" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">$270K (+35%) ①</text>
+
+        <!-- Claude: budget=100K, actual=130K -->
+        <text x="90" y="68" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
+        <rect x="95" y="55" width="133" height="20" fill="#e8e5e0"/>
+        <rect x="228" y="55" width="133" height="20" fill="#d8d4ce"/>
+        <rect x="361" y="55" width="133" height="20" fill="#c8c4be"/>
+        <rect x="95" y="59" width="175" height="12" fill="#4a4845"/>
+        <line x1="228" y1="53" x2="228" y2="77" stroke="#1a1917" stroke-width="3"/>
+        <text x="229" y="51" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Budget $100K</text>
+        <text x="275" y="70" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">$130K (+30%)</text>
+
+        <!-- Gemini: budget=120K, actual=95K -->
+        <text x="90" y="108" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
+        <rect x="95" y="95" width="133" height="20" fill="#e8e5e0"/>
+        <rect x="228" y="95" width="133" height="20" fill="#d8d4ce"/>
+        <rect x="361" y="95" width="133" height="20" fill="#c8c4be"/>
+        <rect x="95" y="99" width="128" height="12" fill="#4a4845"/>
+        <line x1="276" y1="93" x2="276" y2="117" stroke="#1a1917" stroke-width="3"/>
+        <text x="277" y="91" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Budget $120K</text>
+        <text x="228" y="120" font-size="9" fill="#2a7a4a" font-family="'IBM Plex Mono',monospace">$95K (−21%)</text>
+
+        <!-- Annotations -->
+        <text x="95" y="150" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① actual bar: bar/main</text>
+        <text x="95" y="163" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② perpendicular budget marker: 3px text-1</text>
+        <text x="95" y="176" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">③ qualitative bands: 3 muted grays (poor/ok/good)</text>
+        <text x="95" y="189" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">④ no gauge — bullet replaces speedometer (Few 2006)</text>
+      </svg>
+    </div>
+
+    <!-- 7. HEATMAP -->
+    <div class="chart-frame" style="min-width:360px;">
+      <div class="chart-frame-label">Chart Type 7 — Heatmap / Adoption Matrix · Task: Part-to-Whole across dimensions</div>
+      <div class="chart-frame-name">Dept × Tool — saturation-encoded cells</div>
+      <svg width="100%" height="200" viewBox="0 0 400 200">
+        <!-- Column headers -->
+        <text x="105" y="14" text-anchor="middle" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">ChatGPT</text>
+        <text x="165" y="14" text-anchor="middle" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">Claude</text>
+        <text x="225" y="14" text-anchor="middle" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">Gemini</text>
+        <text x="285" y="14" text-anchor="middle" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">Copilot</text>
+        <text x="345" y="14" text-anchor="middle" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">Perplexity</text>
+
+        <!-- Rows -->
+        <text x="70" y="34" text-anchor="end" font-size="9" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Eng</text>
+        <rect x="75" y="20" width="55" height="20" fill="#4a4845" opacity="0.95"/>
+        <rect x="135" y="20" width="55" height="20" fill="#4a4845" opacity="0.7"/>
+        <rect x="195" y="20" width="55" height="20" fill="#4a4845" opacity="0.4"/>
+        <rect x="255" y="20" width="55" height="20" fill="#4a4845" opacity="0.85"/>
+        <rect x="315" y="20" width="55" height="20" fill="#4a4845" opacity="0.3"/>
+
+        <text x="70" y="59" text-anchor="end" font-size="9" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Mktg</text>
+        <rect x="75" y="45" width="55" height="20" fill="#4a4845" opacity="0.8"/>
+        <rect x="135" y="45" width="55" height="20" fill="#4a4845" opacity="0.5"/>
+        <rect x="195" y="45" width="55" height="20" fill="#4a4845" opacity="0.6"/>
+        <rect x="255" y="45" width="55" height="20" fill="#4a4845" opacity="0.2"/>
+        <rect x="315" y="45" width="55" height="20" fill="#4a4845" opacity="0.7"/>
+
+        <text x="70" y="84" text-anchor="end" font-size="9" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Finance</text>
+        <rect x="75" y="70" width="55" height="20" fill="#4a4845" opacity="0.6"/>
+        <rect x="135" y="70" width="55" height="20" fill="#4a4845" opacity="0.8"/>
+        <rect x="195" y="70" width="55" height="20" fill="#4a4845" opacity="0.3"/>
+        <rect x="255" y="70" width="55" height="20" fill="#4a4845" opacity="0.5"/>
+        <rect x="315" y="70" width="55" height="20" fill="#4a4845" opacity="0.2"/>
+
+        <text x="70" y="109" text-anchor="end" font-size="9" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Legal</text>
+        <rect x="75" y="95" width="55" height="20" fill="#4a4845" opacity="0.4"/>
+        <rect x="135" y="95" width="55" height="20" fill="#4a4845" opacity="0.9"/>
+        <rect x="195" y="95" width="55" height="20" fill="#4a4845" opacity="0.2"/>
+        <rect x="255" y="95" width="55" height="20" fill="#4a4845" opacity="0.1"/>
+        <rect x="315" y="95" width="55" height="20" fill="#4a4845" opacity="0.3"/>
+
+        <text x="70" y="134" text-anchor="end" font-size="9" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Design</text>
+        <rect x="75" y="120" width="55" height="20" fill="#4a4845" opacity="0.7"/>
+        <rect x="135" y="120" width="55" height="20" fill="#4a4845" opacity="0.4"/>
+        <rect x="195" y="120" width="55" height="20" fill="#4a4845" opacity="0.5"/>
+        <rect x="255" y="120" width="55" height="20" fill="#4a4845" opacity="0.3"/>
+        <rect x="315" y="120" width="55" height="20" fill="#4a4845" opacity="0.6"/>
+
+        <!-- Legend: saturation scale -->
+        <text x="75" y="158" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Low adoption</text>
+        <rect x="75" y="162" width="30" height="10" fill="#4a4845" opacity="0.15"/>
+        <rect x="107" y="162" width="30" height="10" fill="#4a4845" opacity="0.4"/>
+        <rect x="139" y="162" width="30" height="10" fill="#4a4845" opacity="0.65"/>
+        <rect x="171" y="162" width="30" height="10" fill="#4a4845" opacity="0.9"/>
+        <text x="205" y="170" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">High</text>
+
+        <!-- Annotations -->
+        <text x="75" y="185" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① single hue: saturation-only variation</text>
+        <text x="75" y="197" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② no color legend — gradient strip inline</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

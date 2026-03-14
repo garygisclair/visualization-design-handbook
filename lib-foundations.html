@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Few/Tufte Design Library · 🎨 Foundations</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  :root {
+    /* ── DESIGN TOKENS ─────────────────────────────────────── */
+    --bg-page:        #f0eeeb;
+    --bg-surface:     #ffffff;
+    --bg-header:      #1a1917;
+    --bg-table-head:  #e8e5e0;
+    --bg-table-alt:   #faf9f7;
+    --border:         #d8d4ce;
+    --text-1:         #1a1917;
+    --text-2:         #5a5650;
+    --text-3:         #9a948e;
+    --bar-main:       #4a4845;
+    --bar-dim:        #b0aaa4;
+    --accent-warn:    #c97b2e;
+    --accent-crit:    #c0392b;
+    --cobalt-lo:      #8099b8;
+    --cobalt-hi:      #1a4db8;
+    --badge-yes:      #2a7a4a;
+    /* ── CANVAS ──────────────────────────────────────────────── */
+    --canvas:         #f5f5f5;
+    --frame-gap:      48px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--canvas);
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--text-1);
+    padding: 48px; padding-top: 0;
+    min-width: 1400px;
+  }
+
+  /* ── SITE NAV ──────────────────────────────────────────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(245,245,245,0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    margin: 0 -48px 48px;
+  }
+  .site-nav-logo {
+    font-size: 15px; font-weight: 700; color: var(--text-1);
+    letter-spacing: -0.01em; text-decoration: none;
+  }
+  .site-nav-links { display: flex; gap: 32px; list-style: none; }
+  .site-nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--text-2);
+    text-decoration: none; letter-spacing: 0.01em;
+    padding: 4px 0;
+  }
+  .site-nav-links a:hover { color: var(--text-1); }
+  .site-nav-links a.active { color: var(--text-1); font-weight: 600; }
+
+  /* ── PAGE HEADER ──────────────────────────────────────────── */
+  .page-header {
+    margin-bottom: 56px;
+  }
+  .page-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-3);
+    margin-bottom: 6px;
+  }
+  .page-title {
+    font-size: 28px; font-weight: 700; color: var(--text-1); line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .page-subtitle {
+    font-size: 13px; color: var(--text-2); line-height: 1.6; max-width: 600px;
+  }
+
+  /* ── SECTION ─────────────────────────────────────────────── */
+  .section { margin-bottom: var(--frame-gap); }
+  .section-title {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-3);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px; margin-bottom: 24px;
+  }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+
+  /* ── FRAME (white background card) ──────────────────────── */
+  .frame {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+  }
+  .frame-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-3);
+    margin-bottom: 16px;
+  }
+
+  /* ── COLOR TOKENS ────────────────────────────────────────── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    min-width: 600px;
+  }
+  .color-token { display: flex; flex-direction: column; gap: 6px; }
+  .color-chip {
+    width: 100%; height: 48px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .color-token-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--text-2); line-height: 1.3;
+  }
+  .color-token-hex {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--text-3);
+  }
+  .color-token-role {
+    font-size: 9px; color: var(--text-3);
+  }
+
+  /* ── TYPE SCALE ──────────────────────────────────────────── */
+  .type-scale { min-width: 700px; }
+  .type-row {
+    display: flex; align-items: baseline; gap: 24px;
+    padding: 12px 0; border-bottom: 1px solid var(--bg-table-alt);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta {
+    width: 200px; flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-3);
+    line-height: 1.5;
+  }
+  .type-token-name {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--text-2); font-weight: 500;
+  }
+  .type-preview { flex: 1; }
+
+  /* ── SPACING ─────────────────────────────────────────────── */
+  .spacing-row {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 12px;
+  }
+  .spacing-bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .spacing-bar { height: 16px; background: var(--cobalt-lo); }
+  .spacing-token-name {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--text-2); width: 72px;
+  }
+  .spacing-px {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-3);
+    width: 40px;
+  }
+
+  /* ── SEMANTIC LAYER ──────────────────────────────────────── */
+  .semantic-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    min-width: 480px;
+  }
+  .semantic-row {
+    display: flex; align-items: center; gap: 12px; padding: 8px 0;
+    border-bottom: 1px solid var(--bg-table-alt);
+  }
+  .semantic-chip { width: 32px; height: 32px; border: 1px solid rgba(0,0,0,0.08); }
+  .semantic-info { flex: 1; }
+  .semantic-name {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    color: var(--text-2); font-weight: 500;
+  }
+  .semantic-role { font-size: 9px; color: var(--text-3); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-logo">Few / Tufte</a>
+  <ul class="site-nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="lib-foundations.html" class="active">Foundations</a></li>
+    <li><a href="lib-components.html">Components</a></li>
+    <li><a href="lib-charts.html">Charts</a></li>
+    <li><a href="lib-antipatterns.html">Anti-Patterns</a></li>
+    <li><a href="lib-template.html">Template</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-label">Few / Tufte Design Library · Page 2 of 6</div>
+  <div class="page-title">🎨 Foundations</div>
+  <div class="page-subtitle">Design tokens that encode every visual decision: color roles, type scale, and spacing grid. All downstream components reference these tokens — change the token, update the system.</div>
+</div>
+
+<!-- ── SECTION 1: COLOR TOKENS ────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Color Tokens — 16 total</div>
+  <div class="row">
+
+    <!-- Background Group -->
+    <div class="frame">
+      <div class="frame-label">Backgrounds</div>
+      <div class="color-grid" style="grid-template-columns: repeat(2,1fr); min-width:320px;">
+        <div class="color-token">
+          <div class="color-chip" style="background:#f0eeeb;"></div>
+          <div class="color-token-name">bg/page</div>
+          <div class="color-token-hex">#f0eeeb</div>
+          <div class="color-token-role">Warm beige page bg</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#ffffff;"></div>
+          <div class="color-token-name">bg/surface</div>
+          <div class="color-token-hex">#ffffff</div>
+          <div class="color-token-role">Cards, panels</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#1a1917;"></div>
+          <div class="color-token-name">bg/header</div>
+          <div class="color-token-hex">#1a1917</div>
+          <div class="color-token-role">Fixed header bar</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#e8e5e0;"></div>
+          <div class="color-token-name">bg/table-head</div>
+          <div class="color-token-hex">#e8e5e0</div>
+          <div class="color-token-role">Sticky thead</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#faf9f7;"></div>
+          <div class="color-token-name">bg/table-row-alt</div>
+          <div class="color-token-hex">#faf9f7</div>
+          <div class="color-token-role">Even row stripe</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#d8d4ce;"></div>
+          <div class="color-token-name">border/default</div>
+          <div class="color-token-hex">#d8d4ce</div>
+          <div class="color-token-role">Borders, grid lines</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Group -->
+    <div class="frame">
+      <div class="frame-label">Text</div>
+      <div class="color-grid" style="grid-template-columns: repeat(1,1fr); min-width:200px;">
+        <div class="color-token">
+          <div class="color-chip" style="background:#1a1917;"></div>
+          <div class="color-token-name">text/primary</div>
+          <div class="color-token-hex">#1a1917</div>
+          <div class="color-token-role">Headings, primary labels</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#5a5650;"></div>
+          <div class="color-token-name">text/secondary</div>
+          <div class="color-token-hex">#5a5650</div>
+          <div class="color-token-role">Body, chart labels</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#9a948e;"></div>
+          <div class="color-token-name">text/tertiary</div>
+          <div class="color-token-hex">#9a948e</div>
+          <div class="color-token-role">Hints, axis labels</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data / Bars Group -->
+    <div class="frame">
+      <div class="frame-label">Data Encoding</div>
+      <div class="color-grid" style="grid-template-columns: repeat(1,1fr); min-width:200px;">
+        <div class="color-token">
+          <div class="color-chip" style="background:#4a4845;"></div>
+          <div class="color-token-name">bar/main</div>
+          <div class="color-token-hex">#4a4845</div>
+          <div class="color-token-role">Primary bars, lines, dots</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#b0aaa4;"></div>
+          <div class="color-token-name">bar/dim</div>
+          <div class="color-token-hex">#b0aaa4</div>
+          <div class="color-token-role">Secondary / consumer bars</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#8099b8;"></div>
+          <div class="color-token-name">cobalt/lo</div>
+          <div class="color-token-hex">#8099b8</div>
+          <div class="color-token-role">Token input (low sat)</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#1a4db8;"></div>
+          <div class="color-token-name">cobalt/hi</div>
+          <div class="color-token-hex">#1a4db8</div>
+          <div class="color-token-role">Token output (high sat)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accent / Badge Group -->
+    <div class="frame">
+      <div class="frame-label">Accents &amp; Badges</div>
+      <div class="color-grid" style="grid-template-columns: repeat(1,1fr); min-width:200px;">
+        <div class="color-token">
+          <div class="color-chip" style="background:#c97b2e;"></div>
+          <div class="color-token-name">accent/warn</div>
+          <div class="color-token-hex">#c97b2e</div>
+          <div class="color-token-role">Warning, "Limited" badges</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#c0392b;"></div>
+          <div class="color-token-name">accent/critical</div>
+          <div class="color-token-hex">#c0392b</div>
+          <div class="color-token-role">Neg. growth, over-budget</div>
+        </div>
+        <div class="color-token">
+          <div class="color-chip" style="background:#2a7a4a;"></div>
+          <div class="color-token-name">badge/yes</div>
+          <div class="color-token-hex">#2a7a4a</div>
+          <div class="color-token-role">Positive capability</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SECTION 2: THEME SWATCHES ─────────────────────────── -->
+<div class="section">
+  <div class="section-title">Theme Variants</div>
+  <div class="row">
+
+    <!-- Warm Beige Theme -->
+    <div class="frame" style="min-width:320px;">
+      <div class="frame-label">Theme A — Warm Beige (primary)</div>
+      <div style="display:flex; gap:0; margin-bottom:12px; height:40px;">
+        <div style="flex:1; background:#f0eeeb;"></div>
+        <div style="flex:1; background:#ffffff; border:1px solid #d8d4ce;"></div>
+        <div style="flex:1; background:#1a1917;"></div>
+        <div style="flex:1; background:#4a4845;"></div>
+        <div style="flex:1; background:#b0aaa4;"></div>
+      </div>
+      <div style="font-size:10px; color:var(--text-2); line-height:1.6;">
+        Warm, editorial. Used in ai-market-report.html.<br>
+        Best for: analyst briefs, data journalism, print-adjacent reports.
+      </div>
+    </div>
+
+    <!-- Steel Blue Theme -->
+    <div class="frame" style="min-width:320px;">
+      <div class="frame-label">Theme B — Steel Blue (alternate)</div>
+      <div style="display:flex; gap:0; margin-bottom:12px; height:40px;">
+        <div style="flex:1; background:#fafaf8;"></div>
+        <div style="flex:1; background:#ffffff; border:1px solid #e0e4e8;"></div>
+        <div style="flex:1; background:#1e2a38;"></div>
+        <div style="flex:1; background:#2563a8;"></div>
+        <div style="flex:1; background:#a8bed6;"></div>
+      </div>
+      <div style="font-size:10px; color:var(--text-2); line-height:1.6;">
+        Cooler, command-centre feel. For leadership frameworks.<br>
+        Best for: executive dashboards, ops monitoring.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SECTION 3: TYPOGRAPHY SCALE ───────────────────────── -->
+<div class="section">
+  <div class="section-title">Typography Scale — IBM Plex Sans + IBM Plex Mono</div>
+  <div class="frame type-scale">
+    <div class="frame-label">Token → Specimen</div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/heading-section</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 14px · 600</div>
+      </div>
+      <div class="type-preview" style="font-size:14px; font-weight:600; color:var(--text-1);">Market Scale — Monthly Visits</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/heading-panel</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 11px · 600</div>
+      </div>
+      <div class="type-preview" style="font-size:11px; font-weight:600; color:var(--text-1);">ChatGPT — User Growth</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/subtitle</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 11px · 400</div>
+      </div>
+      <div class="type-preview" style="font-size:11px; font-weight:400; color:var(--text-3);">ChatGPT commands 5.8B monthly visits — nearly 8× its nearest rival.</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/kpi-value</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 22px · 700</div>
+      </div>
+      <div class="type-preview" style="font-size:22px; font-weight:700; color:var(--text-1);">ChatGPT</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/kpi-label</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 9px · 400 · 0.1em</div>
+      </div>
+      <div class="type-preview" style="font-size:9px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-3);">Largest Tool by MAU</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/table-header</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 9px · 600 · 0.08em</div>
+      </div>
+      <div class="type-preview" style="font-size:9px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-1);">Tool · Company · Category · MAU · API</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/body</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 11px · 400</div>
+      </div>
+      <div class="type-preview" style="font-size:11px; font-weight:400; color:var(--text-2);">Standard table cell text and chart annotation copy.</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/mono-number</div>
+        <div style="margin-top:3px;">IBM Plex Mono · 11px · 400</div>
+      </div>
+      <div class="type-preview" style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-2);">$3.2B · 388M · 43.9%</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/chart-axis</div>
+        <div style="margin-top:3px;">IBM Plex Mono · 10px · 400</div>
+      </div>
+      <div class="type-preview" style="font-size:10px; font-family:'IBM Plex Mono',monospace; color:var(--text-3);">0 · 1B · 2B · 3B · 4B · 5B · 6B</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/badge</div>
+        <div style="margin-top:3px;">IBM Plex Sans · 9px · 500 · 0.05em</div>
+      </div>
+      <div class="type-preview" style="display:flex; gap:8px; align-items:center;">
+        <span style="font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:1px 5px;border:1px solid #2a7a4a;color:#2a7a4a;">YES</span>
+        <span style="font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:1px 5px;border:1px solid #c97b2e;color:#c97b2e;">LIMITED</span>
+        <span style="font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:1px 5px;border:1px solid #9a948e;color:#9a948e;">NO</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 4: SPACING GRID ────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Spacing Grid — 8px Base Unit</div>
+  <div class="frame">
+    <div class="frame-label">Token → Pixel → Visual</div>
+    <div style="padding-top:8px;">
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/4</div>
+        <div class="spacing-px">4px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/8</div>
+        <div class="spacing-px">8px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/12</div>
+        <div class="spacing-px">12px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/16</div>
+        <div class="spacing-px">16px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/20</div>
+        <div class="spacing-px">20px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:20px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/24</div>
+        <div class="spacing-px">24px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/32</div>
+        <div class="spacing-px">32px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/40</div>
+        <div class="spacing-px">40px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:40px;"></div></div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-token-name">space/64</div>
+        <div class="spacing-px">64px</div>
+        <div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px;"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

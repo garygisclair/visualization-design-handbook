@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Few/Tufte Design Library · 📖 About</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  :root {
+    --bg-header: #1a1917;
+    --text-1: #1a1917; --text-2: #5a5650; --text-3: #9a948e;
+    --border: #d8d4ce; --surface: #ffffff; --bg: #f0eeeb;
+    --accent-warm: #c97b2e; --accent-crit: #c0392b; --bar-main: #4a4845;
+    --cobalt-hi: #1a4db8; --badge-yes: #2a7a4a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f5f5f5; font-family: 'IBM Plex Sans', sans-serif; color: var(--text-1); padding: 24px; padding-top: 0; max-width: 1440px; margin: 0 auto; }
+
+  /* ── SITE NAV ──────────────────────────────────────────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(245,245,245,0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    min-height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+    margin: 0 -24px 32px;
+    flex-wrap: wrap; gap: 4px 0;
+  }
+  .site-nav-logo {
+    font-size: 15px; font-weight: 700; color: var(--text-1);
+    letter-spacing: -0.01em; text-decoration: none;
+  }
+  .site-nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+  .site-nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--text-2);
+    text-decoration: none; letter-spacing: 0.01em;
+    padding: 4px 0; white-space: nowrap;
+  }
+  .site-nav-links a:hover { color: var(--text-1); }
+  .site-nav-links a.active { color: var(--text-1); font-weight: 600; }
+
+  /* ── COVER FRAME ─────────────────────────────────────────── */
+  .cover {
+    background: var(--bg-header);
+    color: #fff;
+    padding: 64px;
+    margin-bottom: 48px;
+    display: flex;
+    gap: 64px;
+    align-items: flex-start;
+    min-height: 320px;
+  }
+  .cover-left { flex: 1; }
+  .cover-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+  }
+  .cover-title {
+    font-size: 40px; font-weight: 700; line-height: 1.15;
+    margin-bottom: 12px; letter-spacing: -0.01em;
+  }
+  .cover-version {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+  }
+  .cover-desc {
+    font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7);
+    max-width: 480px;
+  }
+  .cover-right { width: 280px; flex-shrink: 0; }
+  .cover-stat {
+    border-left: 2px solid rgba(255,255,255,0.15);
+    padding: 12px 0 12px 20px;
+    margin-bottom: 8px;
+  }
+  .cover-stat-val { font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .cover-stat-lbl { font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ── SECTION ─────────────────────────────────────────────── */
+  .section { margin-bottom: 48px; }
+  .section-title {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-3);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px; margin-bottom: 24px;
+  }
+  .row { display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap; }
+
+  /* ── PRINCIPLE CARD ──────────────────────────────────────── */
+  .principle-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    flex: 1; min-width: 260px;
+  }
+  .principle-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--text-3); margin-bottom: 8px;
+  }
+  .principle-title {
+    font-size: 14px; font-weight: 600; color: var(--text-1);
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .principle-formula {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--cobalt-hi);
+    background: #f0f3f8;
+    padding: 6px 10px; margin-bottom: 12px;
+    display: inline-block;
+  }
+  .principle-body {
+    font-size: 14px; color: var(--text-2); line-height: 1.65;
+  }
+  .principle-rule {
+    margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
+    font-size: 10px; color: var(--text-3); line-height: 1.5;
+  }
+  .principle-rule strong { color: var(--text-2); font-weight: 600; }
+
+  /* ── SOURCE TABLE ────────────────────────────────────────── */
+  .source-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .source-table th {
+    background: #e8e5e0; font-weight: 600; font-size: 9px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border);
+  }
+  .source-table td {
+    padding: 8px 12px; border-bottom: 1px solid #ede9e4; color: var(--text-2);
+  }
+  .source-table tr:nth-child(even) td { background: #faf9f7; }
+  .source-table td:first-child { font-weight: 500; color: var(--text-1); }
+
+  /* ── PAGE INDEX ──────────────────────────────────────────── */
+  .page-index {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .page-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px 20px 20px 20px;
+  }
+  .page-card-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--text-3); margin-bottom: 6px;
+  }
+  .page-card-name { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .page-card-desc { font-size: 10px; color: var(--text-2); line-height: 1.5; }
+
+  /* ── TABLE SCROLL WRAPPER ──────────────────────────────── */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ── LARGE (≥1024px) ───────────────────────────────────── */
+  @media (min-width: 1024px) {
+    body { padding: 48px; padding-top: 0; }
+    .site-nav { padding: 0 48px; margin: 0 -48px 48px; }
+    .site-nav-links { gap: 32px; }
+    .cover { padding: 64px; gap: 64px; }
+    .section { margin-bottom: 48px; }
+    .page-index { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ── MEDIUM (640px – 1023px) ────────────────────────────── */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .cover { padding: 40px; gap: 40px; flex-direction: column; }
+    .cover-right { width: 100%; display: flex; gap: 16px; flex-wrap: wrap; }
+    .cover-stat { flex: 1; min-width: 120px; }
+    .cover-title { font-size: 32px; }
+    .principle-card { min-width: 280px; }
+    .page-index { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── SMALL (<640px) ────────────────────────────────────── */
+  @media (max-width: 639px) {
+    body { padding: 16px; padding-top: 0; }
+    .site-nav {
+      padding: 8px 16px; margin: 0 -16px 24px;
+      flex-direction: column; align-items: flex-start;
+      gap: 8px; min-height: auto; padding-bottom: 12px;
+    }
+    .site-nav-links { gap: 12px; }
+    .site-nav-links a { font-size: 12px; }
+    .cover {
+      flex-direction: column; padding: 24px; gap: 24px;
+      min-height: auto;
+    }
+    .cover-title { font-size: 24px; }
+    .cover-desc { font-size: 13px; }
+    .cover-right { width: 100%; }
+    .cover-stat-val { font-size: 22px; }
+    .row { flex-direction: column; }
+    .principle-card { min-width: 0; }
+    .page-index { grid-template-columns: 1fr; }
+    .section { margin-bottom: 32px; }
+    .section-title { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-logo">Visualization Design Handbook</a>
+  <ul class="site-nav-links">
+    <li><a href="index.html" class="active">About</a></li>
+    <li><a href="lib-foundations.html">Foundations</a></li>
+    <li><a href="lib-components.html">Components</a></li>
+    <li><a href="lib-charts.html">Charts</a></li>
+    <li><a href="lib-antipatterns.html">Anti-Patterns</a></li>
+    <li><a href="lib-template.html">Template</a></li>
+  </ul>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-left">
+    <div class="cover-eyebrow">Figma UI Design Library · v1.0 · March 2026</div>
+    <div class="cover-title">Few / Tufte<br>Design Library</div>
+    <div class="cover-version">visual-selection-framework-v3.md</div>
+    <div class="cover-desc">
+      A systematic design library encoding the visual principles of Edward Tufte and Stephen Few. Every token, component, and chart type implements graphical integrity — maximising data-ink ratio, eliminating chartjunk, and enforcing a Lie Factor of 1.0.
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-stat">
+      <div class="cover-stat-val">16</div>
+      <div class="cover-stat-lbl">Color Tokens</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">10</div>
+      <div class="cover-stat-lbl">Type Tokens</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">20</div>
+      <div class="cover-stat-lbl">Components</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">10</div>
+      <div class="cover-stat-lbl">Chart Types</div>
+    </div>
+    <div class="cover-stat">
+      <div class="cover-stat-val">8</div>
+      <div class="cover-stat-lbl">Anti-Pattern Pairs</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRINCIPLES -->
+<div class="section">
+  <div class="section-title">Core Principles</div>
+  <div class="row">
+
+    <div class="principle-card">
+      <div class="principle-number">01 / LIE FACTOR</div>
+      <div class="principle-title">Graphical Integrity</div>
+      <div class="principle-formula">Lie Factor = Effect in graphic ÷ Effect in data</div>
+      <div class="principle-body">
+        Every bar, axis, and area must be proportional to the data it represents. A Lie Factor of 1.0 is the standard; anything above 1.0 overstates, anything below understates.
+      </div>
+      <div class="principle-rule">
+        <strong>Rule:</strong> Y-axis always starts at zero for bar charts. Never truncate bars to exaggerate differences. Bubble area, not diameter, encodes value.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-number">02 / DATA-INK RATIO</div>
+      <div class="principle-title">Maximise Data-Ink</div>
+      <div class="principle-formula">Data-Ink Ratio = Data-ink ÷ Total ink in graphic</div>
+      <div class="principle-body">
+        Every pixel serves the data. Erase everything that doesn't encode information: tick marks, grid backgrounds, decorative borders, redundant labels, gradient fills, drop shadows.
+      </div>
+      <div class="principle-rule">
+        <strong>Rule:</strong> Prefer range-frame axes. Use no fill or single-hue fills. Remove legends when direct labels are possible. No 3D — ever.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-number">03 / PREATTENTIVE</div>
+      <div class="principle-title">Preattentive Attributes</div>
+      <div class="principle-formula">Length &gt; Area &gt; Angle &gt; Hue</div>
+      <div class="principle-body">
+        The visual cortex processes length and 2D position before conscious thought. Design exploits this: bars (length) are decoded faster and more accurately than pie wedges (angle) or bubbles (area).
+      </div>
+      <div class="principle-rule">
+        <strong>Rule:</strong> Prefer bars over pies. Use position over size. Use saturation over hue when encoding continuous scale. Limit to ≤4 distinct hues per chart.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-number">04 / CHARTJUNK</div>
+      <div class="principle-title">Eliminate Administrative Debris</div>
+      <div class="principle-formula">Chartjunk = Non-data ink − erasable structure</div>
+      <div class="principle-body">
+        Tufte coined "chartjunk" for all visual elements that obscure the data signal: moiré patterns, heavy gridlines, decorative pictograms, 3D extrusions, and color noise.
+      </div>
+      <div class="principle-rule">
+        <strong>Rule:</strong> Gridlines in #d8d4ce only. No fills behind charts. No icons in charts. No gradient axes. Anti-patterns page shows every rule violation.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-number">05 / DIRECT LABELS</div>
+      <div class="principle-title">No Legends — Label Directly</div>
+      <div class="principle-formula">Eye travel = Legend lookups × distance²</div>
+      <div class="principle-body">
+        Legends force readers to look away from the data, decode a color mapping, then look back. Direct labels — placed adjacent to the element they describe — eliminate this cognitive tax.
+      </div>
+      <div class="principle-rule">
+        <strong>Rule:</strong> Label bar ends directly. Label line ends at rightmost point. Label map regions inline. Use badge cells in tables instead of separate legend keys.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-number">06 / MACRO / MICRO</div>
+      <div class="principle-title">Overview + Detail Simultaneously</div>
+      <div class="principle-formula">Sparkline: word-sized · data-intense · context-rich</div>
+      <div class="principle-body">
+        Tufte's principle of "micro/macro readings" — the design should work at multiple scales: readable as a whole gestalt and inspectable at each individual data point without switching views.
+      </div>
+      <div class="principle-rule">
+        <strong>Rule:</strong> Embed sparklines in tables alongside numeric values. Use small multiples with a shared Y-scale. Avoid modals unless the data cannot fit the primary view.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SOURCE BIBLIOGRAPHY -->
+<div class="section">
+  <div class="section-title">Source Bibliography</div>
+  <div class="table-wrap">
+  <table class="source-table">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Work</th>
+        <th>Year</th>
+        <th>Key Contribution to This Library</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Edward R. Tufte</td>
+        <td>The Visual Display of Quantitative Information</td>
+        <td>1983</td>
+        <td>Data-ink ratio, chartjunk, lie factor, sparklines, range-frame axes</td>
+      </tr>
+      <tr>
+        <td>Edward R. Tufte</td>
+        <td>Envisioning Information</td>
+        <td>1990</td>
+        <td>Small multiples, micro/macro readings, color restraint</td>
+      </tr>
+      <tr>
+        <td>Stephen Few</td>
+        <td>Show Me the Numbers</td>
+        <td>2004</td>
+        <td>Perceptual encoding hierarchy, table design rules, direct labels</td>
+      </tr>
+      <tr>
+        <td>Stephen Few</td>
+        <td>Information Dashboard Design</td>
+        <td>2006</td>
+        <td>Bullet graph, dashboard layout, single-screen constraint, KPI hierarchy</td>
+      </tr>
+      <tr>
+        <td>Few / Tufte</td>
+        <td>Visual Selection Decision Framework v3</td>
+        <td>2026</td>
+        <td>1+1=3 effect, horizontal tendency, Shneiderman mantra, quartile plot, range-frame scatter</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- PAGE INDEX -->
+<div class="section">
+  <div class="section-title">Library Structure — 6 Pages</div>
+  <div class="page-index">
+    <div class="page-card">
+      <div class="page-card-num">Page 1</div>
+      <div class="page-card-name">📖 About</div>
+      <div class="page-card-desc">Cover, principles (Lie Factor, Data-Ink, anti-patterns), bibliography, page index.</div>
+    </div>
+    <div class="page-card">
+      <div class="page-card-num">Page 2</div>
+      <div class="page-card-name">🎨 Foundations</div>
+      <div class="page-card-desc">16 color tokens, 10 type tokens, 9 spacing tokens, 2 theme variants.</div>
+    </div>
+    <div class="page-card">
+      <div class="page-card-num">Page 3</div>
+      <div class="page-card-name">🧩 Components</div>
+      <div class="page-card-desc">4 atoms, 6 molecules, badge variants, KPI chips/cards, table row, section header.</div>
+    </div>
+    <div class="page-card">
+      <div class="page-card-num">Page 4</div>
+      <div class="page-card-name">📊 Chart Library</div>
+      <div class="page-card-desc">10 chart types, each with anatomy callouts and ❌/✅ do/don't pair.</div>
+    </div>
+    <div class="page-card">
+      <div class="page-card-num">Page 5</div>
+      <div class="page-card-name">📋 Template</div>
+      <div class="page-card-desc">Full dashboard assembled from components — mirrors ai-market-report section order.</div>
+    </div>
+    <div class="page-card">
+      <div class="page-card-num">Page 6</div>
+      <div class="page-card-name">🚫 Anti-Patterns</div>
+      <div class="page-card-desc">8 side-by-side ❌ wrong / ✅ right pairs with rule citations.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

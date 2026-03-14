@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Few/Tufte Design Library · 🧩 Components</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  :root {
+    --bg: #f0eeeb; --surface: #ffffff; --header: #1a1917;
+    --border: #d8d4ce; --table-head: #e8e5e0; --table-alt: #faf9f7;
+    --t1: #1a1917; --t2: #5a5650; --t3: #9a948e;
+    --bar: #4a4845; --bar-dim: #b0aaa4;
+    --warn: #c97b2e; --crit: #c0392b; --yes: #2a7a4a;
+    --cob-lo: #8099b8; --cob-hi: #1a4db8;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f5f5f5; font-family: var(--sans); color: var(--t1); padding: 48px; padding-top: 0; min-width: 1400px; }
+
+  /* ── SITE NAV ──────────────────────────────────────────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(245,245,245,0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    margin: 0 -48px 48px;
+  }
+  .site-nav-logo {
+    font-size: 15px; font-weight: 700; color: var(--t1);
+    letter-spacing: -0.01em; text-decoration: none;
+  }
+  .site-nav-links { display: flex; gap: 32px; list-style: none; }
+  .site-nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--t2);
+    text-decoration: none; letter-spacing: 0.01em;
+    padding: 4px 0;
+  }
+  .site-nav-links a:hover { color: var(--t1); }
+  .site-nav-links a.active { color: var(--t1); font-weight: 600; }
+
+  .page-header { margin-bottom: 56px; }
+  .page-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t3); margin-bottom: 6px; }
+  .page-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .page-subtitle { font-size: 13px; color: var(--t2); line-height: 1.6; max-width: 640px; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t3); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 24px; }
+  .row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+
+  /* ── COMPONENT FRAME ──────────────────────────────────── */
+  .comp-frame {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+  .comp-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--t3); margin-bottom: 16px; }
+  .comp-name { font-size: 9px; font-family: var(--mono); color: var(--t3); margin-top: 8px; }
+
+  /* ── ATOM: BADGE ─────────────────────────────────────── */
+  .badge {
+    display: inline-block; padding: 1px 5px; font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    border: 1px solid currentColor; font-family: var(--sans);
+  }
+  .b-yes     { color: var(--yes); }
+  .b-limited { color: var(--warn); }
+  .b-no      { color: var(--t3); }
+  .b-vh      { color: var(--cob-hi); }
+  .b-h       { color: var(--bar); }
+  .b-m       { color: var(--t3); }
+
+  /* ── ATOM: KPI CHIP (header) ─────────────────────────── */
+  .kpi-chip {
+    display: inline-flex; flex-direction: column; align-items: center;
+    padding: 3px 10px; border: 1px solid rgba(255,255,255,0.2);
+    gap: 1px; background: var(--header);
+  }
+  .kpi-chip .val { font-family: var(--mono); font-size: 12px; color: #fff; font-weight: 500; line-height: 1; }
+  .kpi-chip .lbl { font-size: 8px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1; }
+
+  /* ── ATOM: KPI CARD ──────────────────────────────────── */
+  .kpi-card {
+    flex: 1 1 180px; background: var(--surface); border: 1px solid var(--border); padding: 16px 20px;
+  }
+  .kpi-card .card-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--t3); }
+  .kpi-card .card-val { font-size: 22px; font-weight: 700; color: var(--t1); margin: 4px 0 3px; }
+  .kpi-card .card-sub { font-family: var(--mono); font-size: 11px; color: var(--t2); }
+
+  /* ── MOLECULE: SECTION HEADER ────────────────────────── */
+  .section-header { border-top: 1px solid var(--border); padding-top: 24px; margin-bottom: 8px; }
+  .section-header h2 { font-size: 14px; font-weight: 600; color: var(--t1); margin-bottom: 3px; }
+  .section-header .sub { font-size: 11px; color: var(--t3); line-height: 1.4; }
+
+  /* ── MOLECULE: DASHBOARD HEADER ──────────────────────── */
+  .dash-header {
+    height: 44px; background: var(--header);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; gap: 16px;
+  }
+  .dash-header h1 { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.03em; }
+  .dash-header .kpis { display: flex; gap: 8px; }
+
+  /* ── MOLECULE: SPARKLINE ─────────────────────────────── */
+  .sparkline-wrap { display: flex; align-items: center; gap: 6px; }
+  .sparkline-label { font-family: var(--mono); font-size: 10px; color: var(--t3); }
+
+  /* ── MOLECULE: TABLE ROW ─────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  thead th {
+    background: var(--table-head); font-weight: 600; font-size: 9px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  thead th.num { text-align: right; }
+  tbody tr:nth-child(even) td { background: var(--table-alt); }
+  tbody td { padding: 7px 10px; color: var(--t2); border-bottom: 1px solid #ede9e4; white-space: nowrap; }
+  tbody td.tool-name { font-weight: 500; color: var(--t1); }
+  tbody td.num { text-align: right; font-family: var(--mono); font-size: 11px; }
+
+  /* ── SM PANEL ────────────────────────────────────────── */
+  .sm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .sm-panel { background: var(--surface); padding: 12px 16px 8px; }
+  .sm-panel h3 { font-size: 11px; font-weight: 600; color: var(--t1); margin-bottom: 4px; }
+
+  /* ── ANNOTATION ──────────────────────────────────────── */
+  .annotation {
+    font-size: 9px; font-family: var(--mono); color: var(--cob-hi);
+    border-left: 2px solid var(--cob-hi); padding-left: 8px; margin-top: 8px;
+  }
+  .annot-group { display: flex; flex-direction: column; gap: 4px; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-logo">Few / Tufte</a>
+  <ul class="site-nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="lib-foundations.html">Foundations</a></li>
+    <li><a href="lib-components.html" class="active">Components</a></li>
+    <li><a href="lib-charts.html">Charts</a></li>
+    <li><a href="lib-antipatterns.html">Anti-Patterns</a></li>
+    <li><a href="lib-template.html">Template</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-label">Few / Tufte Design Library · Page 3 of 6</div>
+  <div class="page-title">🧩 Components</div>
+  <div class="page-subtitle">Atoms and molecules. Every component is a composition of tokens from the Foundations page — color, type, and spacing — with no hard-coded values.</div>
+</div>
+
+<!-- ── ATOMS ─────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Atoms</div>
+  <div class="row">
+
+    <!-- Badge Atom -->
+    <div class="comp-frame" style="min-width:300px;">
+      <div class="comp-label">Badge — 6 variants</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0 4px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span class="badge b-yes">YES</span>
+          <span class="comp-name">badge/yes</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span class="badge b-limited">LIMITED</span>
+          <span class="comp-name">badge/warn</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span class="badge b-no">NO</span>
+          <span class="comp-name">badge/no</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span class="badge b-vh">V.HIGH</span>
+          <span class="comp-name">badge/vh</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span class="badge b-h">HIGH</span>
+          <span class="comp-name">badge/hi</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <span class="badge b-m">MED</span>
+          <span class="comp-name">badge/med</span>
+        </div>
+      </div>
+      <div class="annot-group">
+        <div class="annotation">font: 9px / 500 / 0.05em tracking</div>
+        <div class="annotation">border: 1px solid currentColor</div>
+        <div class="annotation">padding: 1px 5px</div>
+      </div>
+    </div>
+
+    <!-- KPI Chip Atom -->
+    <div class="comp-frame" style="min-width:280px;">
+      <div class="comp-label">KPI Chip — header bar</div>
+      <div style="background:var(--header); padding:8px; display:flex; gap:8px; margin-bottom:4px;">
+        <div class="kpi-chip"><span class="val">10 Tools</span><span class="lbl">tracked</span></div>
+        <div class="kpi-chip"><span class="val">7.5B</span><span class="lbl">Monthly Visits</span></div>
+        <div class="kpi-chip"><span class="val">$4.9B</span><span class="lbl">Est. Revenue</span></div>
+      </div>
+      <div class="annot-group">
+        <div class="annotation">height: 44px fixed header container</div>
+        <div class="annotation">value: mono 12px / 500 / white</div>
+        <div class="annotation">label: sans 8px / 400 / 55% white</div>
+        <div class="annotation">border: 1px rgba(255,255,255,0.2)</div>
+      </div>
+    </div>
+
+    <!-- KPI Card Atom -->
+    <div class="comp-frame" style="min-width:480px;">
+      <div class="comp-label">KPI Card — body hero row</div>
+      <div style="display:flex; gap:12px; margin-bottom:4px;">
+        <div class="kpi-card">
+          <div class="card-lbl">Largest Tool by MAU</div>
+          <div class="card-val">ChatGPT</div>
+          <div class="card-sub">388M monthly active users</div>
+        </div>
+        <div class="kpi-card">
+          <div class="card-lbl">Fastest Growing</div>
+          <div class="card-val">Claude</div>
+          <div class="card-sub">+18.6% month-over-month</div>
+        </div>
+        <div class="kpi-card">
+          <div class="card-lbl">Revenue Leader</div>
+          <div class="card-val">ChatGPT</div>
+          <div class="card-sub">$3.2B estimated annual</div>
+        </div>
+      </div>
+      <div class="annot-group">
+        <div class="annotation">label: sans 9px / 400 / text-3 / 0.1em / uppercase</div>
+        <div class="annotation">value: sans 22px / 700 / text-1</div>
+        <div class="annotation">sub: mono 11px / 400 / text-2</div>
+        <div class="annotation">bg: surface / border: 1px border/default / padding: 16px 20px</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MOLECULES ─────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Molecules</div>
+  <div class="row">
+
+    <!-- Section Header Molecule -->
+    <div class="comp-frame" style="min-width:500px;">
+      <div class="comp-label">Section Header</div>
+      <div class="section-header">
+        <h2>Market Scale — Monthly Visits</h2>
+        <div class="sub">ChatGPT commands 5.8B monthly visits — nearly 8× its nearest rival. Most tools cluster below 150M.</div>
+      </div>
+      <div class="annot-group">
+        <div class="annotation">top border: 1px border/default</div>
+        <div class="annotation">h2: sans 14px / 600 / text-1</div>
+        <div class="annotation">.subtitle: sans 11px / 400 / text-3 / lh 1.4</div>
+      </div>
+    </div>
+
+    <!-- Dashboard Header Molecule -->
+    <div class="comp-frame" style="min-width:600px; padding:12px;">
+      <div class="comp-label">Dashboard Header (full width)</div>
+      <div class="dash-header">
+        <h1>Global AI Tools Market Report · 2025</h1>
+        <div class="kpis">
+          <div class="kpi-chip"><span class="val">10 Tools</span><span class="lbl">tracked</span></div>
+          <div class="kpi-chip"><span class="val">7.5B</span><span class="lbl">Monthly Visits</span></div>
+          <div class="kpi-chip"><span class="val">$4.9B</span><span class="lbl">Est. Revenue</span></div>
+        </div>
+      </div>
+      <div class="annot-group">
+        <div class="annotation">height: 44px / position: fixed / bg: bg/header</div>
+        <div class="annotation">title: sans 13px / 600 / white / 0.03em</div>
+        <div class="annotation">kpi chips: flex row / gap: 8px</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TABLE MOLECULE ─────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">Table — Full Capability Matrix</div>
+  <div class="comp-frame">
+    <div class="comp-label">Table Molecule — sticky thead, alternating rows, badge cells, sparkline cells, mono numerics</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Company</th>
+          <th>Category</th>
+          <th class="num">Market Share</th>
+          <th>API</th>
+          <th>Free Tier</th>
+          <th>Enterprise</th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tool-name">ChatGPT</td>
+          <td>OpenAI</td>
+          <td>AI Assistant</td>
+          <td class="num">69.0%</td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-vh">V.HIGH</span></td>
+          <td>
+            <svg width="60" height="16" viewBox="0 0 60 16">
+              <polyline points="0,13 20,10 40,7 60,4" fill="none" stroke="#4a4845" stroke-width="1.5"/>
+            </svg>
+          </td>
+        </tr>
+        <tr>
+          <td class="tool-name">Gemini</td>
+          <td>Google</td>
+          <td>AI Assistant</td>
+          <td class="num">8.5%</td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-h">HIGH</span></td>
+          <td>
+            <svg width="60" height="16" viewBox="0 0 60 16">
+              <polyline points="0,12 20,9 40,7 60,5" fill="none" stroke="#4a4845" stroke-width="1.5"/>
+            </svg>
+          </td>
+        </tr>
+        <tr>
+          <td class="tool-name">DeepSeek</td>
+          <td>DeepSeek AI</td>
+          <td>AI Assistant</td>
+          <td class="num">4.0%</td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-m">MED</span></td>
+          <td>
+            <svg width="60" height="16" viewBox="0 0 60 16">
+              <polyline points="0,14 20,5 40,8 60,11" fill="none" stroke="#4a4845" stroke-width="1.5"/>
+            </svg>
+          </td>
+        </tr>
+        <tr>
+          <td class="tool-name">Claude</td>
+          <td>Anthropic</td>
+          <td>AI Assistant</td>
+          <td class="num">2.0%</td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-h">HIGH</span></td>
+          <td>
+            <svg width="60" height="16" viewBox="0 0 60 16">
+              <polyline points="0,13 20,10 40,6 60,2" fill="none" stroke="#4a4845" stroke-width="1.5"/>
+            </svg>
+          </td>
+        </tr>
+        <tr>
+          <td class="tool-name">Perplexity</td>
+          <td>Perplexity AI</td>
+          <td>AI Search</td>
+          <td class="num">2.0%</td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-yes">YES</span></td>
+          <td><span class="badge b-m">MED</span></td>
+          <td>
+            <svg width="60" height="16" viewBox="0 0 60 16">
+              <polyline points="0,13 20,10 40,7 60,4" fill="none" stroke="#4a4845" stroke-width="1.5"/>
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="annot-group">
+      <div class="annotation">thead: bg/table-head / 9px / 600 / 0.08em / uppercase / sticky top:0</div>
+      <div class="annotation">even rows: bg/table-row-alt</div>
+      <div class="annotation">.tool-name: 500 / text-1  ·  .num: mono 11px / right-aligned</div>
+      <div class="annotation">sparkline: 60×16px SVG / polyline only / no dots / stroke: bar/main 1.5px</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SMALL MULTIPLES MOLECULE ─────────────────────────── -->
+<div class="section">
+  <div class="section-title">Small Multiple Panel — 2-col grid variant</div>
+  <div class="comp-frame">
+    <div class="comp-label">sm-panel · shared Y scale · 2×2 grid</div>
+    <div class="sm-grid" style="max-width:600px;">
+      <div class="sm-panel">
+        <h3>ChatGPT</h3>
+        <svg width="100%" height="80" viewBox="0 0 380 80">
+          <line x1="10" y1="70" x2="10" y2="10" stroke="#9a948e" stroke-width="1"/>
+          <line x1="10" y1="70" x2="370" y2="70" stroke="#9a948e" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <polyline points="10,65 185,40 370,18" fill="none" stroke="#4a4845" stroke-width="2"/>
+          <text x="375" y="21" font-size="9" fill="#5a5650" font-family="'IBM Plex Mono',monospace">388M</text>
+          <text x="10" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2023</text>
+          <text x="178" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2024</text>
+          <text x="358" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2025</text>
+        </svg>
+      </div>
+      <div class="sm-panel">
+        <h3>Claude</h3>
+        <svg width="100%" height="80" viewBox="0 0 380 80">
+          <line x1="10" y1="70" x2="10" y2="10" stroke="#9a948e" stroke-width="1"/>
+          <line x1="10" y1="70" x2="370" y2="70" stroke="#9a948e" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <polyline points="10,68 185,62 370,50" fill="none" stroke="#4a4845" stroke-width="2"/>
+          <text x="375" y="53" font-size="9" fill="#5a5650" font-family="'IBM Plex Mono',monospace">20M</text>
+          <text x="10" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2023</text>
+          <text x="178" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2024</text>
+          <text x="358" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2025</text>
+        </svg>
+      </div>
+      <div class="sm-panel">
+        <h3>Gemini</h3>
+        <svg width="100%" height="80" viewBox="0 0 380 80">
+          <line x1="10" y1="70" x2="10" y2="10" stroke="#9a948e" stroke-width="1"/>
+          <line x1="10" y1="70" x2="370" y2="70" stroke="#9a948e" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <polyline points="10,68 185,58 370,48" fill="none" stroke="#4a4845" stroke-width="2"/>
+          <text x="375" y="51" font-size="9" fill="#5a5650" font-family="'IBM Plex Mono',monospace">47.6M</text>
+          <text x="10" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2023</text>
+          <text x="178" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2024</text>
+          <text x="358" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2025</text>
+        </svg>
+      </div>
+      <div class="sm-panel">
+        <h3>DeepSeek</h3>
+        <svg width="100%" height="80" viewBox="0 0 380 80">
+          <line x1="10" y1="70" x2="10" y2="10" stroke="#9a948e" stroke-width="1"/>
+          <line x1="10" y1="70" x2="370" y2="70" stroke="#9a948e" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <polyline points="185,68 370,48" fill="none" stroke="#4a4845" stroke-width="2"/>
+          <text x="375" y="51" font-size="9" fill="#5a5650" font-family="'IBM Plex Mono',monospace">49.5M</text>
+          <text x="10" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2023</text>
+          <text x="178" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2024</text>
+          <text x="358" y="78" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">2025</text>
+        </svg>
+      </div>
+    </div>
+    <div class="annot-group">
+      <div class="annotation">grid-gap: 1px / background: border/default (creates hairline between panels)</div>
+      <div class="annotation">panel: bg/surface / padding: 12px 16px 8px</div>
+      <div class="annotation">shared log Y-scale across all panels — critical for accurate comparison</div>
+      <div class="annotation">line only: no dots, no fill — polyline stroke: bar/main 2px</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
