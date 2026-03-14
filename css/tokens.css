@@ -5,12 +5,15 @@
 
 :root {
   /* ── Surfaces ──────────────────────────────────────────── */
+  --bg-chrome:      #f5f5f5;
   --bg-page:        #f0eeeb;
+  --bg-panel:       #f9f9f6;
   --bg-surface:     #ffffff;
   --bg-header:      #1a1917;
   --bg-table-head:  #e8e5e0;
   --bg-table-alt:   #faf9f7;
   --border:         #d8d4ce;
+  --border-row:     #ede9e4;
 
   /* ── Text ──────────────────────────────────────────────── */
   --text-1:         #1a1917;

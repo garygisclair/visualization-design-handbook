@@ -68,7 +68,7 @@ thead th {
 }
 thead th.num { text-align: right; }
 tbody tr:nth-child(even) td { background: var(--bg-table-alt); }
-tbody td { padding: 7px 10px; color: var(--text-2); border-bottom: 1px solid #ede9e4; white-space: nowrap; }
+tbody td { padding: 7px 10px; color: var(--text-2); border-bottom: 1px solid var(--border-row); white-space: nowrap; }
 tbody td.tool-name { font-weight: 500; color: var(--text-1); }
 tbody td.num { text-align: right; font-family: var(--font-mono); font-size: var(--type-body-size); }
 
@@ -98,10 +98,13 @@ tbody td.num { text-align: right; font-family: var(--font-mono); font-size: var(
 
 /* ── SMALL (<640px) ──────────────────────────────────────── */
 @media (max-width: 639px) {
-  .comp-frame { padding: 16px; }
+  .comp-frame { padding: 16px; min-width: 0 !important; }
+  .comp-frame[style] { min-width: 0 !important; }
+  .comp-preview-row { flex-wrap: wrap; }
   .dash-header { height: auto; padding: 12px 16px; flex-wrap: wrap; }
   .kpi-card { flex: 1 1 100%; }
   .sm-grid { grid-template-columns: 1fr; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   table { font-size: 10px; }
   thead th { font-size: 8px; padding: 6px 8px; }
   tbody td { padding: 6px 8px; }

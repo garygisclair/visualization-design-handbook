@@ -97,31 +97,31 @@
       <div class="do-dont do-dont--vertical">
         <div class="do-frame">
           <div class="do-label">✅ Do — Sorted, zero-based, direct label</div>
-          <svg width="100%" height="80" viewBox="0 0 260 80">
-            <line x1="60" y1="4" x2="60" y2="76" stroke="#9a948e" stroke-width="1"/>
+          <svg width="100%" height="90" viewBox="0 0 260 90">
+            <line x1="60" y1="4" x2="60" y2="82" stroke="#9a948e" stroke-width="1"/>
             <rect x="60" y="8" width="160" height="14" fill="#4a4845"/>
-            <text x="223" y="20" font-size="8" fill="#fff" font-family="'IBM Plex Mono',monospace">160</text>
+            <text x="223" y="20" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">160</text>
             <rect x="60" y="28" width="100" height="14" fill="#4a4845"/>
             <text x="163" y="40" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">100</text>
             <rect x="60" y="48" width="60" height="14" fill="#4a4845"/>
             <text x="123" y="60" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">60</text>
-            <rect x="60" y="68" width="30" height="8" fill="#4a4845"/>
+            <rect x="60" y="68" width="30" height="14" fill="#4a4845"/>
             <text x="93" y="76" font-size="8" fill="#5a5650" font-family="'IBM Plex Mono',monospace">30</text>
           </svg>
         </div>
         <div class="dont-frame">
           <div class="dont-label">❌ Don't — Non-zero baseline (Lie Factor &gt; 1)</div>
-          <svg width="100%" height="80" viewBox="0 0 260 80">
+          <svg width="100%" height="95" viewBox="0 0 260 95">
             <!-- Truncated axis starting at 50 -->
-            <line x1="60" y1="4" x2="60" y2="76" stroke="#9a948e" stroke-width="1"/>
+            <line x1="60" y1="4" x2="60" y2="82" stroke="#9a948e" stroke-width="1"/>
             <text x="50" y="76" text-anchor="end" font-size="7" fill="#c0392b" font-family="'IBM Plex Mono',monospace">50</text>
             <text x="50" y="8" text-anchor="end" font-size="7" fill="#c0392b" font-family="'IBM Plex Mono',monospace">160</text>
             <!-- Bars look very similar in height due to truncation -->
             <rect x="60" y="8" width="130" height="14" fill="#c0392b" opacity="0.6"/>
             <rect x="60" y="28" width="100" height="14" fill="#c0392b" opacity="0.6"/>
             <rect x="60" y="48" width="60" height="14" fill="#c0392b" opacity="0.6"/>
-            <rect x="60" y="68" width="8" height="8" fill="#c0392b" opacity="0.6"/>
-            <text x="135" y="82" font-size="7" fill="#c0392b" font-family="'IBM Plex Sans',sans-serif" text-anchor="middle">axis starts at 50 → differences exaggerated</text>
+            <rect x="60" y="68" width="8" height="14" fill="#c0392b" opacity="0.6"/>
+            <text x="135" y="90" font-size="7" fill="#c0392b" font-family="'IBM Plex Sans',sans-serif" text-anchor="middle">axis starts at 50 → differences exaggerated</text>
           </svg>
         </div>
       </div>
@@ -222,7 +222,7 @@
         <text x="102" y="158" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
         <!-- Claude: visits=148, rev=700 → x≈75, y≈60 — high rev outlier -->
         <circle cx="75" cy="60" r="4" fill="#4a4845"/>
-        <text x="82" y="63" font-size="9" fill="#4a4845" font-family="'IBM Plex Sans',sans-serif">Claude ①</text>
+        <text x="82" y="63" font-size="9" font-family="'IBM Plex Sans',sans-serif"><tspan fill="#4a4845">Claude </tspan><tspan fill="#c0392b">①</tspan></text>
         <!-- Perplexity: visits=148, rev=80 → x≈75, y≈170 -->
         <circle cx="75" cy="170" r="3" fill="#b0aaa4"/>
         <text x="82" y="173" font-size="9" fill="#b0aaa4" font-family="'IBM Plex Sans',sans-serif">Perplexity</text>
@@ -233,8 +233,8 @@
         <text x="350" y="110" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace" transform="rotate(-20,350,110)">trend</text>
         <!-- Annotations -->
         <text x="65" y="230" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">② range-frame axis</text>
+        <text x="200" y="230" font-size="8" fill="#c0392b" font-family="'IBM Plex Mono',monospace">① outlier label</text>
         <text x="280" y="70" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">③ regression line</text>
-        <text x="5" y="35" font-size="8" fill="#c97b2e" font-family="'IBM Plex Mono',monospace">① outlier label</text>
       </svg>
       <div class="annot-group">
         <div class="annotation">① Outlier labels call out anomalies — Claude: high rev / low visits</div>
@@ -355,17 +355,17 @@
         <text x="155" y="100" font-size="9" fill="#4a4845" font-family="'IBM Plex Mono',monospace">+2.2%</text>
 
         <!-- Quark -1.2 -->
-        <text x="133" y="123" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Quark AI</text>
+        <text x="145" y="123" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Quark AI</text>
         <rect x="115" y="110" width="25" height="16" fill="#c0392b"/>
         <text x="112" y="122" text-anchor="end" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">-1.2%</text>
 
         <!-- Meta -3.8 -->
-        <text x="133" y="145" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Meta AI</text>
+        <text x="145" y="145" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Meta AI</text>
         <rect x="96" y="132" width="44" height="16" fill="#c0392b"/>
         <text x="93" y="144" text-anchor="end" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">-3.8%</text>
 
         <!-- DeepSeek -8.9 -->
-        <text x="133" y="167" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
+        <text x="145" y="167" text-anchor="start" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
         <rect x="52" y="154" width="88" height="16" fill="#c0392b"/>
         <text x="49" y="166" text-anchor="end" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">-8.9%</text>
 
@@ -396,7 +396,7 @@
         <!-- Budget marker (vertical line) -->
         <line x1="362" y1="13" x2="362" y2="37" stroke="#1a1917" stroke-width="3"/>
         <text x="363" y="11" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Budget $200K</text>
-        <text x="460" y="30" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">$270K (+35%) ①</text>
+        <text x="460" y="28" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">$270K (+35%) ①</text>
 
         <!-- Claude: budget=100K, actual=130K -->
         <text x="90" y="68" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
@@ -406,7 +406,7 @@
         <rect x="95" y="59" width="175" height="12" fill="#4a4845"/>
         <line x1="228" y1="53" x2="228" y2="77" stroke="#1a1917" stroke-width="3"/>
         <text x="229" y="51" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Budget $100K</text>
-        <text x="275" y="70" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">$130K (+30%)</text>
+        <text x="275" y="68" font-size="9" fill="#c0392b" font-family="'IBM Plex Mono',monospace">$130K (+30%)</text>
 
         <!-- Gemini: budget=120K, actual=95K -->
         <text x="90" y="108" text-anchor="end" font-size="10" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
@@ -416,7 +416,7 @@
         <rect x="95" y="99" width="128" height="12" fill="#4a4845"/>
         <line x1="276" y1="93" x2="276" y2="117" stroke="#1a1917" stroke-width="3"/>
         <text x="277" y="91" font-size="8" fill="#9a948e" font-family="'IBM Plex Mono',monospace">Budget $120K</text>
-        <text x="228" y="120" font-size="9" fill="#2a7a4a" font-family="'IBM Plex Mono',monospace">$95K (−21%)</text>
+        <text x="282" y="108" font-size="9" fill="#2a7a4a" font-family="'IBM Plex Mono',monospace">$95K (−21%)</text>
 
         <!-- Annotations -->
         <text x="95" y="150" font-size="8" fill="#1a4db8" font-family="'IBM Plex Mono',monospace">① actual bar: bar/main</text>

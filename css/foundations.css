@@ -7,6 +7,8 @@
   background: var(--bg-surface);
   border: 1px solid var(--border);
   padding: 24px;
+  max-width: 100%;
+  overflow: hidden;
 }
 .frame-label {
   font-size: var(--type-label-size); font-weight: var(--type-label-weight); letter-spacing: var(--type-label-spacing);
@@ -120,18 +122,21 @@
 
 /* ── MEDIUM (640px – 1023px) ─────────────────────────────── */
 @media (min-width: 640px) and (max-width: 1023px) {
-  .color-grid { grid-template-columns: repeat(3, 1fr); min-width: 0; }
-  .semantic-grid { grid-template-columns: 1fr; min-width: 0; }
-  .type-scale { min-width: 0; }
+  .color-grid { grid-template-columns: repeat(3, 1fr); min-width: 0 !important; }
+  .semantic-grid { grid-template-columns: 1fr; min-width: 0 !important; }
+  .type-scale { min-width: 0 !important; }
   .type-meta { width: 160px; }
+  .frame[style] { min-width: 0 !important; }
 }
 
 /* ── SMALL (<640px) ──────────────────────────────────────── */
 @media (max-width: 639px) {
-  .color-grid { grid-template-columns: repeat(2, 1fr); min-width: 0; }
-  .semantic-grid { grid-template-columns: 1fr; min-width: 0; }
-  .type-scale { min-width: 0; }
+  .frame { padding: 16px; }
+  .frame[style] { min-width: 0 !important; }
+  .color-grid { grid-template-columns: repeat(2, 1fr); min-width: 0 !important; }
+  .color-grid[style] { min-width: 0 !important; grid-template-columns: repeat(2, 1fr) !important; }
+  .semantic-grid { grid-template-columns: 1fr; min-width: 0 !important; }
+  .type-scale { min-width: 0 !important; }
   .type-row { flex-direction: column; gap: 8px; }
   .type-meta { width: auto; }
-  .frame { padding: 16px; }
 }

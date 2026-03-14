@@ -38,5 +38,6 @@
   .chart-frame { min-width: 0; }
   .chart-frame[style] { min-width: 0 !important; flex: 1 !important; }
   .do-dont { flex-direction: column; }
+  .do-frame, .dont-frame { width: 100%; }
   .chart-frame { padding: 16px; overflow-x: auto; }
 }

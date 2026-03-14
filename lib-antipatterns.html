@@ -30,22 +30,30 @@
       <div class="dont-label">❌ Don't</div>
       <div class="pair-title">Pie Chart</div>
       <div class="pair-rule">Angle decoding is imprecise. Humans cannot accurately judge wedge area or arc length. Playfair's "off day" — Tufte.</div>
-      <svg width="100%" height="110" viewBox="0 0 200 110">
-        <!-- Approximate pie wedges -->
-        <path d="M100,55 L100,10 A45,45 0 0,1 145,55 Z" fill="#e74c3c"/>
-        <path d="M100,55 L145,55 A45,45 0 0,1 120,98 Z" fill="#3498db"/>
-        <path d="M100,55 L120,98 A45,45 0 0,1 60,90 Z" fill="#2ecc71"/>
-        <path d="M100,55 L60,90 A45,45 0 0,1 58,20 Z" fill="#f39c12"/>
-        <path d="M100,55 L58,20 A45,45 0 0,1 100,10 Z" fill="#9b59b6"/>
-        <!-- Legend (eye travel) -->
-        <rect x="155" y="20" width="8" height="8" fill="#e74c3c"/>
-        <text x="165" y="28" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
-        <rect x="155" y="33" width="8" height="8" fill="#3498db"/>
-        <text x="165" y="41" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
-        <rect x="155" y="46" width="8" height="8" fill="#2ecc71"/>
-        <text x="165" y="54" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
-        <rect x="155" y="59" width="8" height="8" fill="#f39c12"/>
-        <text x="165" y="67" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
+      <svg width="100%" height="120" viewBox="0 0 210 120">
+        <!-- Pie: center(80,60) r=50. Slices: ChatGPT 45%, Gemini 20%, DeepSeek 15%, Claude 12%, Other 8% -->
+        <!-- Angles clockwise from 12 o'clock. x=cx+r*sin(θ), y=cy-r*cos(θ) -->
+        <!-- ChatGPT 45% = 162° → 0° to 162° -->
+        <path d="M80,10 A50,50 0 0,1 95.5,107.6 L80,60 Z" fill="#e74c3c"/>
+        <!-- Gemini 20% = 72° → 162° to 234° -->
+        <path d="M95.5,107.6 A50,50 0 0,1 39.6,89.4 L80,60 Z" fill="#3498db"/>
+        <!-- DeepSeek 15% = 54° → 234° to 288° -->
+        <path d="M39.6,89.4 A50,50 0 0,1 32.5,44.6 L80,60 Z" fill="#2ecc71"/>
+        <!-- Claude 12% = 43.2° → 288° to 331.2° -->
+        <path d="M32.5,44.6 A50,50 0 0,1 56.1,16.1 L80,60 Z" fill="#f39c12"/>
+        <!-- Other 8% = 28.8° → 331.2° to 360° -->
+        <path d="M56.1,16.1 A50,50 0 0,1 80,10 L80,60 Z" fill="#9b59b6"/>
+        <!-- Legend (eye travel — the anti-pattern) -->
+        <rect x="145" y="25" width="8" height="8" fill="#e74c3c"/>
+        <text x="155" y="33" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">ChatGPT</text>
+        <rect x="145" y="38" width="8" height="8" fill="#3498db"/>
+        <text x="155" y="46" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Gemini</text>
+        <rect x="145" y="51" width="8" height="8" fill="#2ecc71"/>
+        <text x="155" y="59" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">DeepSeek</text>
+        <rect x="145" y="64" width="8" height="8" fill="#f39c12"/>
+        <text x="155" y="72" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Claude</text>
+        <rect x="145" y="77" width="8" height="8" fill="#9b59b6"/>
+        <text x="155" y="85" font-size="8" fill="#5a5650" font-family="'IBM Plex Sans',sans-serif">Other</text>
       </svg>
       <div class="pair-cite">Rule: angle decoding unreliable · Legend = eye travel</div>
     </div>
