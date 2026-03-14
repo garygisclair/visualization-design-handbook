@@ -27,11 +27,11 @@
   border: 1px solid rgba(0,0,0,0.08);
 }
 .color-token-name {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--type-chart-axis-size); color: var(--text-2); line-height: 1.3;
 }
 .color-token-hex {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--type-chart-axis-size); color: var(--text-3);
 }
 .color-token-role {
@@ -47,11 +47,11 @@
 .type-row:last-child { border-bottom: none; }
 .type-meta {
   width: 200px; flex-shrink: 0;
-  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size); color: var(--text-3);
+  font-family: var(--font-mono); font-size: var(--type-chart-axis-size); color: var(--text-3);
   line-height: 1.5;
 }
 .type-token-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size);
+  font-family: var(--font-mono); font-size: var(--type-chart-axis-size);
   color: var(--text-2); font-weight: 500;
 }
 .type-preview { flex: 1; }
@@ -63,11 +63,11 @@
 .spacing-bar-wrap { display: flex; align-items: center; gap: 8px; }
 .spacing-bar { height: 16px; background: var(--cobalt-lo); }
 .spacing-token-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size);
+  font-family: var(--font-mono); font-size: var(--type-chart-axis-size);
   color: var(--text-2); width: 72px;
 }
 .spacing-px {
-  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size); color: var(--text-3);
+  font-family: var(--font-mono); font-size: var(--type-chart-axis-size); color: var(--text-3);
   width: 40px;
 }
 
@@ -83,10 +83,33 @@
 .semantic-chip { width: 32px; height: 32px; border: 1px solid rgba(0,0,0,0.08); }
 .semantic-info { flex: 1; }
 .semantic-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size);
+  font-family: var(--font-mono); font-size: var(--type-chart-axis-size);
   color: var(--text-2); font-weight: 500;
 }
 .semantic-role { font-size: var(--type-annotation-size); color: var(--text-3); margin-top: 2px; }
+
+/* ── TYPE SPECIMEN HELPERS ───────────────────────────────── */
+.type-meta-desc { margin-top: 3px; }
+.type-preview--heading-section { font-size: var(--type-heading-section-size); font-weight: var(--type-heading-section-weight); color: var(--text-1); }
+.type-preview--heading-panel { font-size: var(--type-heading-panel-size); font-weight: var(--type-heading-panel-weight); color: var(--text-1); }
+.type-preview--subtitle { font-size: var(--type-subtitle-size); font-weight: var(--type-subtitle-weight); color: var(--text-3); }
+.type-preview--kpi-value { font-size: var(--type-kpi-value-size); font-weight: var(--type-kpi-value-weight); color: var(--text-1); }
+.type-preview--kpi-label { font-size: var(--type-kpi-label-size); font-weight: var(--type-kpi-label-weight); letter-spacing: var(--type-kpi-label-spacing); text-transform: uppercase; color: var(--text-3); }
+.type-preview--table-header { font-size: var(--type-table-header-size); font-weight: var(--type-table-header-weight); letter-spacing: var(--type-table-header-spacing); text-transform: uppercase; color: var(--text-1); }
+.type-preview--body { font-size: var(--type-body-size); font-weight: var(--type-body-weight); color: var(--text-2); }
+.type-preview--mono-number { font-size: var(--type-mono-number-size); font-weight: var(--type-mono-number-weight); font-family: var(--font-mono); color: var(--text-2); }
+.type-preview--chart-axis { font-size: var(--type-chart-axis-size); font-weight: var(--type-chart-axis-weight); font-family: var(--font-mono); color: var(--text-3); }
+.type-preview--badge { display: flex; gap: 8px; align-items: center; }
+.type-preview--page-title { font-size: var(--type-page-title-size); font-weight: var(--type-page-title-weight); color: var(--text-1); }
+.type-preview--label { font-size: var(--type-label-size); font-weight: var(--type-label-weight); letter-spacing: var(--type-label-spacing); text-transform: uppercase; color: var(--text-3); }
+.type-preview--annotation { font-size: var(--type-annotation-size); font-family: var(--font-mono); color: var(--cobalt-hi); }
+.type-preview--nav { font-size: var(--type-nav-size); font-weight: var(--type-nav-weight); color: var(--text-2); }
+.type-preview--nav-logo { font-size: var(--type-nav-logo-size); font-weight: var(--type-nav-logo-weight); color: var(--text-1); }
+
+/* ── THEME SWATCH HELPERS ────────────────────────────────── */
+.theme-swatch-strip { display: flex; gap: 0; margin-bottom: 12px; height: 40px; }
+.theme-swatch-cell { flex: 1; }
+.theme-desc { font-size: var(--type-chart-axis-size); color: var(--text-2); line-height: 1.6; }
 
 /* ── LARGE (≥1024px) ─────────────────────────────────────── */
 @media (min-width: 1024px) {

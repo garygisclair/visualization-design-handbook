@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/shared.css">
 <link rel="stylesheet" href="css/foundations.css">
+<link rel="stylesheet" href="css/components.css">
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <script src="js/nav.js"></script>
 </head>
@@ -160,14 +161,14 @@
     <!-- Warm Beige Theme -->
     <div class="frame" style="min-width:320px;">
       <div class="frame-label">Theme A — Warm Beige (primary)</div>
-      <div style="display:flex; gap:0; margin-bottom:12px; height:40px;">
-        <div style="flex:1; background:#f0eeeb;"></div>
-        <div style="flex:1; background:#ffffff; border:1px solid #d8d4ce;"></div>
-        <div style="flex:1; background:#1a1917;"></div>
-        <div style="flex:1; background:#4a4845;"></div>
-        <div style="flex:1; background:#b0aaa4;"></div>
+      <div class="theme-swatch-strip">
+        <div class="theme-swatch-cell" style="background:#f0eeeb;"></div>
+        <div class="theme-swatch-cell" style="background:#ffffff; border:1px solid #d8d4ce;"></div>
+        <div class="theme-swatch-cell" style="background:#1a1917;"></div>
+        <div class="theme-swatch-cell" style="background:#4a4845;"></div>
+        <div class="theme-swatch-cell" style="background:#b0aaa4;"></div>
       </div>
-      <div style="font-size:10px; color:var(--text-2); line-height:1.6;">
+      <div class="theme-desc">
         Warm, editorial. Used in ai-market-report.html.<br>
         Best for: analyst briefs, data journalism, print-adjacent reports.
       </div>
@@ -176,14 +177,14 @@
     <!-- Steel Blue Theme -->
     <div class="frame" style="min-width:320px;">
       <div class="frame-label">Theme B — Steel Blue (alternate)</div>
-      <div style="display:flex; gap:0; margin-bottom:12px; height:40px;">
-        <div style="flex:1; background:#fafaf8;"></div>
-        <div style="flex:1; background:#ffffff; border:1px solid #e0e4e8;"></div>
-        <div style="flex:1; background:#1e2a38;"></div>
-        <div style="flex:1; background:#2563a8;"></div>
-        <div style="flex:1; background:#a8bed6;"></div>
+      <div class="theme-swatch-strip">
+        <div class="theme-swatch-cell" style="background:#fafaf8;"></div>
+        <div class="theme-swatch-cell" style="background:#ffffff; border:1px solid #e0e4e8;"></div>
+        <div class="theme-swatch-cell" style="background:#1e2a38;"></div>
+        <div class="theme-swatch-cell" style="background:#2563a8;"></div>
+        <div class="theme-swatch-cell" style="background:#a8bed6;"></div>
       </div>
-      <div style="font-size:10px; color:var(--text-2); line-height:1.6;">
+      <div class="theme-desc">
         Cooler, command-centre feel. For leadership frameworks.<br>
         Best for: executive dashboards, ops monitoring.
       </div>
@@ -194,92 +195,132 @@
 
 <!-- ── SECTION 3: TYPOGRAPHY SCALE ───────────────────────── -->
 <div class="section">
-  <div class="section-title">Typography Scale — IBM Plex Sans + IBM Plex Mono</div>
+  <div class="section-title">Typography Scale — 15 Tokens · IBM Plex Sans + IBM Plex Mono</div>
   <div class="frame type-scale">
     <div class="frame-label">Token → Specimen</div>
 
     <div class="type-row">
       <div class="type-meta">
-        <div class="type-token-name">type/heading-section</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 14px · 600</div>
+        <div class="type-token-name">type/page-title</div>
+        <div class="type-meta-desc">IBM Plex Sans · 28px · 700</div>
       </div>
-      <div class="type-preview" style="font-size:14px; font-weight:600; color:var(--text-1);">Market Scale — Monthly Visits</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token-name">type/heading-panel</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 11px · 600</div>
-      </div>
-      <div class="type-preview" style="font-size:11px; font-weight:600; color:var(--text-1);">ChatGPT — User Growth</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token-name">type/subtitle</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 11px · 400</div>
-      </div>
-      <div class="type-preview" style="font-size:11px; font-weight:400; color:var(--text-3);">ChatGPT commands 5.8B monthly visits — nearly 8× its nearest rival.</div>
+      <div class="type-preview type-preview--page-title">Foundations</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/kpi-value</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 22px · 700</div>
+        <div class="type-meta-desc">IBM Plex Sans · 22px · 700</div>
       </div>
-      <div class="type-preview" style="font-size:22px; font-weight:700; color:var(--text-1);">ChatGPT</div>
+      <div class="type-preview type-preview--kpi-value">ChatGPT</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/heading-section</div>
+        <div class="type-meta-desc">IBM Plex Sans · 16px · 600</div>
+      </div>
+      <div class="type-preview type-preview--heading-section">Market Scale — Monthly Visits</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/heading-panel</div>
+        <div class="type-meta-desc">IBM Plex Sans · 13px · 600</div>
+      </div>
+      <div class="type-preview type-preview--heading-panel">ChatGPT — User Growth</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/subtitle</div>
+        <div class="type-meta-desc">IBM Plex Sans · 13px · 400</div>
+      </div>
+      <div class="type-preview type-preview--subtitle">ChatGPT commands 5.8B monthly visits — nearly 8× its nearest rival.</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/kpi-label</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 9px · 400 · 0.1em</div>
+        <div class="type-meta-desc">IBM Plex Sans · 11px · 400 · 0.1em</div>
       </div>
-      <div class="type-preview" style="font-size:9px; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-3);">Largest Tool by MAU</div>
+      <div class="type-preview type-preview--kpi-label">Largest Tool by MAU</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/table-header</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 9px · 600 · 0.08em</div>
+        <div class="type-meta-desc">IBM Plex Sans · 11px · 600 · 0.08em</div>
       </div>
-      <div class="type-preview" style="font-size:9px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-1);">Tool · Company · Category · MAU · API</div>
+      <div class="type-preview type-preview--table-header">Tool · Company · Category · MAU · API</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/body</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 11px · 400</div>
+        <div class="type-meta-desc">IBM Plex Sans · 13px · 400</div>
       </div>
-      <div class="type-preview" style="font-size:11px; font-weight:400; color:var(--text-2);">Standard table cell text and chart annotation copy.</div>
+      <div class="type-preview type-preview--body">Standard table cell text and chart annotation copy.</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/mono-number</div>
-        <div style="margin-top:3px;">IBM Plex Mono · 11px · 400</div>
+        <div class="type-meta-desc">IBM Plex Mono · 13px · 400</div>
       </div>
-      <div class="type-preview" style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-2);">$3.2B · 388M · 43.9%</div>
+      <div class="type-preview type-preview--mono-number">$3.2B · 388M · 43.9%</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/chart-axis</div>
-        <div style="margin-top:3px;">IBM Plex Mono · 10px · 400</div>
+        <div class="type-meta-desc">IBM Plex Mono · 11px · 400</div>
       </div>
-      <div class="type-preview" style="font-size:10px; font-family:'IBM Plex Mono',monospace; color:var(--text-3);">0 · 1B · 2B · 3B · 4B · 5B · 6B</div>
+      <div class="type-preview type-preview--chart-axis">0 · 1B · 2B · 3B · 4B · 5B · 6B</div>
     </div>
 
     <div class="type-row">
       <div class="type-meta">
         <div class="type-token-name">type/badge</div>
-        <div style="margin-top:3px;">IBM Plex Sans · 9px · 500 · 0.05em</div>
+        <div class="type-meta-desc">IBM Plex Sans · 10px · 500 · 0.05em</div>
       </div>
-      <div class="type-preview" style="display:flex; gap:8px; align-items:center;">
-        <span style="font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:1px 5px;border:1px solid #2a7a4a;color:#2a7a4a;">YES</span>
-        <span style="font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:1px 5px;border:1px solid #c97b2e;color:#c97b2e;">LIMITED</span>
-        <span style="font-size:9px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:1px 5px;border:1px solid #9a948e;color:#9a948e;">NO</span>
+      <div class="type-preview type-preview--badge">
+        <span class="badge b-yes">YES</span>
+        <span class="badge b-limited">LIMITED</span>
+        <span class="badge b-no">NO</span>
       </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/label</div>
+        <div class="type-meta-desc">IBM Plex Sans · 11px · 600 · 0.08em</div>
+      </div>
+      <div class="type-preview type-preview--label">Color Tokens — 16 Total</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/annotation</div>
+        <div class="type-meta-desc">IBM Plex Mono · 10px · 400</div>
+      </div>
+      <div class="type-preview type-preview--annotation">② Range-frame Y axis — tick at data min/max only</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/nav</div>
+        <div class="type-meta-desc">IBM Plex Sans · 13px · 400</div>
+      </div>
+      <div class="type-preview type-preview--nav">About · Foundations · Components · Charts</div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-token-name">type/nav-logo</div>
+        <div class="type-meta-desc">IBM Plex Sans · 15px · 700</div>
+      </div>
+      <div class="type-preview type-preview--nav-logo">Visualization Design Handbook</div>
     </div>
   </div>
 </div>

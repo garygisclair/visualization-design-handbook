@@ -84,6 +84,12 @@ tbody td.num { text-align: right; font-family: var(--font-mono); font-size: var(
 }
 .annot-group { display: flex; flex-direction: column; gap: 4px; margin-top: 12px; }
 
+/* ── SHOWCASE HELPERS ────────────────────────────────────── */
+.badge-showcase-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: 8px 0 4px; }
+.badge-showcase-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.comp-preview-dark { background: var(--bg-header); padding: 8px; display: flex; gap: 8px; margin-bottom: 4px; }
+.comp-preview-row { display: flex; gap: 12px; margin-bottom: 4px; }
+
 /* ── MEDIUM (640px – 1023px) ─────────────────────────────── */
 @media (min-width: 640px) and (max-width: 1023px) {
   .comp-frame { min-width: 280px; }
