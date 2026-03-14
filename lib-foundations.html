@@ -396,5 +396,120 @@
   </div>
 </div>
 
+<!-- ── SECTION 5: LAYOUT & BREAKPOINTS ─────────────────────── -->
+<div class="section">
+  <div class="section-title">Layout & Breakpoints</div>
+  <div class="row">
+
+    <!-- Max Width -->
+    <div class="frame" style="min-width:280px;">
+      <div class="frame-label">Container</div>
+      <table class="source-table">
+        <thead><tr><th>Property</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Max Width</td><td>1440px</td></tr>
+          <tr><td>Centering</td><td>margin: 0 auto</td></tr>
+          <tr><td>Overflow</td><td>overflow-x: hidden</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Breakpoints -->
+    <div class="frame" style="flex:1; min-width:480px;">
+      <div class="frame-label">Breakpoints — 3 tiers</div>
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Range</th>
+            <th>Body Padding</th>
+            <th>Nav</th>
+            <th>Nav Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Small</td>
+            <td>&lt; 640px</td>
+            <td>16px</td>
+            <td>Stacked (logo + links vertical)</td>
+            <td>12px</td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+            <td>640px – 1023px</td>
+            <td>24px</td>
+            <td>Inline (wraps if needed)</td>
+            <td>20px</td>
+          </tr>
+          <tr>
+            <td>Large</td>
+            <td>≥ 1024px</td>
+            <td>48px</td>
+            <td>Full row</td>
+            <td>32px</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Page-Specific Responsive Behavior -->
+  <div style="margin-top:24px;">
+    <div class="frame">
+      <div class="frame-label">Page-Specific Responsive Behavior</div>
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Large (≥1024px)</th>
+            <th>Medium (640–1023px)</th>
+            <th>Small (&lt;640px)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>About</td>
+            <td>Cover side-by-side, 3-col index</td>
+            <td>Cover stacked, 2-col index</td>
+            <td>Cover compact, 1-col index</td>
+          </tr>
+          <tr>
+            <td>Foundations</td>
+            <td>4-col color grid</td>
+            <td>3-col grid, type rows unwrap</td>
+            <td>2-col grid, type rows stack</td>
+          </tr>
+          <tr>
+            <td>Components</td>
+            <td>Flex wrap layout</td>
+            <td>280px min frames, SM → 1 col</td>
+            <td>Full-width cards, compact table</td>
+          </tr>
+          <tr>
+            <td>Charts</td>
+            <td>Side-by-side anatomy + do/don't</td>
+            <td>Narrower frames</td>
+            <td>Stacked, SVGs scroll</td>
+          </tr>
+          <tr>
+            <td>Anti-Patterns</td>
+            <td>2×2 pair grid</td>
+            <td>1-col pairs</td>
+            <td>Pairs + halves stack</td>
+          </tr>
+          <tr>
+            <td>Template</td>
+            <td>Dashboard at 1000px max</td>
+            <td>Full-width, SM → 1 col</td>
+            <td>Header wraps, KPIs stack</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

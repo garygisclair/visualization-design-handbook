@@ -76,6 +76,19 @@ body {
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 svg { display: block; }
 
+/* ── SOURCE TABLE ────────────────────────────────────────── */
+.source-table { width: 100%; border-collapse: collapse; font-size: var(--type-body-size); }
+.source-table th {
+  background: var(--bg-table-head); font-weight: var(--type-table-header-weight); font-size: var(--type-table-header-size);
+  text-transform: uppercase; letter-spacing: var(--type-table-header-spacing);
+  padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border);
+}
+.source-table td {
+  padding: 8px 12px; border-bottom: 1px solid #ede9e4; color: var(--text-2);
+}
+.source-table tr:nth-child(even) td { background: var(--bg-table-alt); }
+.source-table td:first-child { font-weight: 500; color: var(--text-1); }
+
 /* ── LARGE (≥1024px) ─────────────────────────────────────── */
 @media (min-width: 1024px) {
   body { padding: 48px; padding-top: 0; }
