@@ -1,0 +1,34 @@
+/* ── DESIGN TOKENS ──────────────────────────────────────────
+   Few / Tufte Visualization Design Handbook
+   Single source of truth for all color, type, and spacing tokens.
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Surfaces ──────────────────────────────────────────── */
+  --bg-page:        #f0eeeb;
+  --bg-surface:     #ffffff;
+  --bg-header:      #1a1917;
+  --bg-table-head:  #e8e5e0;
+  --bg-table-alt:   #faf9f7;
+  --border:         #d8d4ce;
+
+  /* ── Text ──────────────────────────────────────────────── */
+  --text-1:         #1a1917;
+  --text-2:         #5a5650;
+  --text-3:         #9a948e;
+
+  /* ── Data ──────────────────────────────────────────────── */
+  --bar-main:       #4a4845;
+  --bar-dim:        #b0aaa4;
+
+  /* ── Accent ────────────────────────────────────────────── */
+  --accent-warm:    #c97b2e;
+  --accent-crit:    #c0392b;
+  --cobalt-hi:      #1a4db8;
+  --cobalt-lo:      #8099b8;
+  --badge-yes:      #2a7a4a;
+
+  /* ── Typography ────────────────────────────────────────── */
+  --font-sans:      'IBM Plex Sans', sans-serif;
+  --font-mono:      'IBM Plex Mono', monospace;
+}

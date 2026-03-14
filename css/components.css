@@ -1,0 +1,102 @@
+/* ── COMPONENTS PAGE ────────────────────────────────────────
+   Atoms, molecules, dashboard header, table, small multiples.
+   ──────────────────────────────────────────────────────────── */
+
+/* ── COMPONENT FRAME ──────────────────────────────────── */
+.comp-frame {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.comp-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 16px; }
+.comp-name { font-size: 9px; font-family: var(--font-mono); color: var(--text-3); margin-top: 8px; }
+
+/* ── ATOM: BADGE ─────────────────────────────────────── */
+.badge {
+  display: inline-block; padding: 1px 5px; font-size: 9px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  border: 1px solid currentColor; font-family: var(--font-sans);
+}
+.b-yes     { color: var(--badge-yes); }
+.b-limited { color: var(--accent-warm); }
+.b-no      { color: var(--text-3); }
+.b-vh      { color: var(--cobalt-hi); }
+.b-h       { color: var(--bar-main); }
+.b-m       { color: var(--text-3); }
+
+/* ── ATOM: KPI CHIP (header) ─────────────────────────── */
+.kpi-chip {
+  display: inline-flex; flex-direction: column; align-items: center;
+  padding: 3px 10px; border: 1px solid rgba(255,255,255,0.2);
+  gap: 1px; background: var(--bg-header);
+}
+.kpi-chip .val { font-family: var(--font-mono); font-size: 12px; color: #fff; font-weight: 500; line-height: 1; }
+.kpi-chip .lbl { font-size: 8px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1; }
+
+/* ── ATOM: KPI CARD ──────────────────────────────────── */
+.kpi-card {
+  flex: 1 1 180px; background: var(--bg-surface); border: 1px solid var(--border); padding: 16px 20px;
+}
+.kpi-card .card-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); }
+.kpi-card .card-val { font-size: 22px; font-weight: 700; color: var(--text-1); margin: 4px 0 3px; }
+.kpi-card .card-sub { font-family: var(--font-mono); font-size: 11px; color: var(--text-2); }
+
+/* ── MOLECULE: SECTION HEADER ────────────────────────── */
+.section-header { border-top: 1px solid var(--border); padding-top: 24px; margin-bottom: 8px; }
+.section-header h2 { font-size: 14px; font-weight: 600; color: var(--text-1); margin-bottom: 3px; }
+.section-header .sub { font-size: 11px; color: var(--text-3); line-height: 1.4; }
+
+/* ── MOLECULE: DASHBOARD HEADER ──────────────────────── */
+.dash-header {
+  height: 44px; background: var(--bg-header);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; gap: 16px;
+}
+.dash-header h1 { font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.03em; }
+.dash-header .kpis { display: flex; gap: 8px; }
+
+/* ── MOLECULE: SPARKLINE ─────────────────────────────── */
+.sparkline-wrap { display: flex; align-items: center; gap: 6px; }
+.sparkline-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-3); }
+
+/* ── MOLECULE: TABLE ROW ─────────────────────────────── */
+table { width: 100%; border-collapse: collapse; font-size: 11px; }
+thead th {
+  background: var(--bg-table-head); font-weight: 600; font-size: 9px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+thead th.num { text-align: right; }
+tbody tr:nth-child(even) td { background: var(--bg-table-alt); }
+tbody td { padding: 7px 10px; color: var(--text-2); border-bottom: 1px solid #ede9e4; white-space: nowrap; }
+tbody td.tool-name { font-weight: 500; color: var(--text-1); }
+tbody td.num { text-align: right; font-family: var(--font-mono); font-size: 11px; }
+
+/* ── SM PANEL ────────────────────────────────────────── */
+.sm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+.sm-panel { background: var(--bg-surface); padding: 12px 16px 8px; }
+.sm-panel h3 { font-size: 11px; font-weight: 600; color: var(--text-1); margin-bottom: 4px; }
+
+/* ── ANNOTATION ──────────────────────────────────────── */
+.annotation {
+  font-size: 9px; font-family: var(--font-mono); color: var(--cobalt-hi);
+  border-left: 2px solid var(--cobalt-hi); padding-left: 8px; margin-top: 8px;
+}
+.annot-group { display: flex; flex-direction: column; gap: 4px; margin-top: 12px; }
+
+/* ── MEDIUM (640px – 1023px) ─────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .comp-frame { min-width: 280px; }
+  .sm-grid { grid-template-columns: 1fr; }
+}
+
+/* ── SMALL (<640px) ──────────────────────────────────────── */
+@media (max-width: 639px) {
+  .comp-frame { padding: 16px; }
+  .dash-header { height: auto; padding: 12px 16px; flex-wrap: wrap; }
+  .kpi-card { flex: 1 1 100%; }
+  .sm-grid { grid-template-columns: 1fr; }
+  table { font-size: 10px; }
+  thead th { font-size: 8px; padding: 6px 8px; }
+  tbody td { padding: 6px 8px; }
+}

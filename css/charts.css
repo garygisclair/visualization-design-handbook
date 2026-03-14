@@ -1,0 +1,39 @@
+/* ── CHARTS PAGE ────────────────────────────────────────────
+   Chart frames, anatomy annotations, do/don't pairs.
+   ──────────────────────────────────────────────────────────── */
+
+/* ── CHART FRAME ──────────────────────────────────────── */
+.chart-row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 40px; }
+
+.chart-frame {
+  background: var(--bg-surface); border: 1px solid var(--border); padding: 20px;
+  flex: 1; min-width: 420px;
+}
+.chart-frame-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 4px; }
+.chart-frame-name { font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 16px; }
+
+.annot-group { margin-top: 16px; display: flex; flex-direction: column; gap: 3px; }
+.annotation { font-size: 9px; font-family: var(--font-mono); color: var(--cobalt-hi); border-left: 2px solid var(--cobalt-hi); padding-left: 8px; }
+
+/* ── DO / DONT PAIR ───────────────────────────────────── */
+.do-dont { display: flex; gap: 16px; }
+.do-frame, .dont-frame { flex: 1; padding: 12px; }
+.do-frame { background: #f0faf4; border: 1px solid #8ccba4; }
+.dont-frame { background: #fdf0ee; border: 1px solid #e8a09a; }
+.do-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--badge-yes); margin-bottom: 8px; }
+.dont-label { font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-crit); margin-bottom: 8px; }
+
+/* ── MEDIUM (640px – 1023px) ─────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .chart-frame { min-width: 300px; }
+  .chart-row { gap: 16px; }
+}
+
+/* ── SMALL (<640px) ──────────────────────────────────────── */
+@media (max-width: 639px) {
+  .chart-row { flex-direction: column; }
+  .chart-frame { min-width: 0; }
+  .chart-frame[style] { min-width: 0 !important; flex: 1 !important; }
+  .do-dont { flex-direction: column; }
+  .chart-frame { padding: 16px; overflow-x: auto; }
+}
