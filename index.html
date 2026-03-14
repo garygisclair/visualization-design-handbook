@@ -346,34 +346,30 @@
     <div class="modal-formula">Sparkline: word-sized · data-intense · design-simple</div>
 
     <div class="modal-section">
-      <h3>Micro/Macro Readings</h3>
+      <h3>Definition</h3>
       <p>A graphic should provide a <strong>"panorama" overview</strong> visible at a glance while simultaneously rewarding close inspection with exquisite local detail. The design works at multiple scales: readable as a whole gestalt and inspectable at each individual data point — without switching views, scrolling, or clicking through.</p>
       <div class="modal-source">— Edward Tufte, <em>Envisioning Information</em> (1990)</div>
     </div>
 
     <div class="modal-section">
-      <h3>Sparklines</h3>
-      <p>Tufte's canonical example: <strong>"word-sized, data-intense, design-simple graphics"</strong> that provide historical context directly within the flow of text or table cells. A sparkline embeds a complete time series in the space of a single word, giving the reader trend, volatility, and current position without any eye travel to a separate chart.</p>
+      <h3>Key Techniques</h3>
+      <div class="modal-grid">
+        <div class="modal-item"><strong>Sparklines</strong> — "Word-sized, data-intense, design-simple graphics" that embed a complete time series in the space of a single word, providing trend, volatility, and current position without eye travel to a separate chart.</div>
+        <div class="modal-item"><strong>Small Multiples</strong> — A series of small, similar graphs arranged together. All panels share a common scale so the eye compares changes in the data, not changes in the design.</div>
+        <div class="modal-item"><strong>Shneiderman's Mantra</strong> — "Overview first, zoom and filter, then details on demand." The dashboard presents the full picture at the top level. Drill-down is for exceptions, not basic comprehension.</div>
+        <div class="modal-item"><strong>Single-Screen Constraint</strong> — Few mandates consolidating information on one screen. Scrolling or flipping pages forces reliance on visual memory — far weaker than immediate side-by-side comparison.</div>
+      </div>
     </div>
 
     <div class="modal-section">
-      <h3>Small Multiples</h3>
-      <p>A series of small, similar graphs arranged together allow the viewer to compare many different slices of a dataset <strong>within a single eyespan</strong>. The key constraint: all panels must share a common scale so that position and length remain comparable across panels. The eye compares changes in the data, not changes in the design.</p>
-    </div>
-
-    <div class="modal-section">
-      <h3>Shneiderman's Mantra</h3>
-      <p>The Visual Information Seeking Mantra provides the architectural framework: <strong>"Overview first, zoom and filter, then details on demand."</strong> The dashboard should present the full picture at the top level. Drill-down is for exceptions, not for basic comprehension.</p>
-    </div>
-
-    <div class="modal-section">
-      <h3>The Single-Screen Constraint</h3>
-      <p>Few mandates that dashboards consolidate information on <strong>one screen</strong>. This provides <strong>simultaneity of vision</strong> and prevents data fragmentation. When users must scroll or flip between pages, they rely on visual memory — a notoriously weak skill compared to the brain's ability to make immediate comparisons of items seen at once.</p>
-    </div>
-
-    <div class="modal-section">
-      <h3>Information Density</h3>
-      <p>The human eye has high resolution that can distinguish fine patterns when data is presented in a <strong>"rich texture"</strong> rather than spread across many pages. More data per square inch is better — not worse. Practical rules: use subtle gridlines for local reference, integrate micro-visuals (data bars, sparklines) directly into table rows, and use whitespace as a functional separator without adding ink.</p>
+      <h3>Practical Rules</h3>
+      <ol class="modal-list">
+        <li><strong>Maximize information density.</strong> The human eye can distinguish fine patterns in "rich texture." More data per square inch is better, not worse.</li>
+        <li><strong>Embed micro-visuals in tables.</strong> Use sparklines and data bars directly in table rows to provide historical context alongside numeric values.</li>
+        <li><strong>Shared scales across panels.</strong> Small multiples must use identical axes so position and length remain comparable.</li>
+        <li><strong>Use whitespace functionally.</strong> Separate information layers with space, not borders or fills — no added ink.</li>
+        <li><strong>Avoid modals for primary data.</strong> Drill-down is for exceptions. If the data matters, it belongs on the main view.</li>
+      </ol>
     </div>
 
     <div class="modal-section modal-section--quotes">
