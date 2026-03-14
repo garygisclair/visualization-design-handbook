@@ -49,6 +49,15 @@
   --type-kpi-value-size:          22px;
   --type-kpi-value-weight:        700;
 
+  /* type/kpi-chip-value — KPI chip numbers in header bar */
+  --type-kpi-chip-value-size:     12px;
+  --type-kpi-chip-value-weight:   500;
+
+  /* type/kpi-chip-label — KPI chip labels in header bar */
+  --type-kpi-chip-label-size:     8px;
+  --type-kpi-chip-label-weight:   400;
+  --type-kpi-chip-label-spacing:  0.1em;
+
   /* type/kpi-label — uppercase KPI labels */
   --type-kpi-label-size:          11px;
   --type-kpi-label-weight:        400;

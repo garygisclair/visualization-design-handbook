@@ -105,6 +105,8 @@
 .type-preview--annotation { font-size: var(--type-annotation-size); font-family: var(--font-mono); color: var(--cobalt-hi); }
 .type-preview--nav { font-size: var(--type-nav-size); font-weight: var(--type-nav-weight); color: var(--text-2); }
 .type-preview--nav-logo { font-size: var(--type-nav-logo-size); font-weight: var(--type-nav-logo-weight); color: var(--text-1); }
+.type-preview--kpi-chip-value { font-size: var(--type-kpi-chip-value-size); font-weight: var(--type-kpi-chip-value-weight); font-family: var(--font-mono); color: var(--text-1); }
+.type-preview--kpi-chip-label { font-size: var(--type-kpi-chip-label-size); font-weight: var(--type-kpi-chip-label-weight); letter-spacing: var(--type-kpi-chip-label-spacing); text-transform: uppercase; color: var(--text-3); }
 
 /* ── THEME SWATCH HELPERS ────────────────────────────────── */
 .theme-swatch-strip { display: flex; gap: 0; margin-bottom: 12px; height: 40px; }
