@@ -15,7 +15,7 @@
 }
 .cover-left { flex: 1; }
 .cover-eyebrow {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+  font-size: var(--type-label-size); font-weight: 600; letter-spacing: 0.12em;
   text-transform: uppercase; color: rgba(255,255,255,0.45);
   margin-bottom: 16px;
 }
@@ -38,8 +38,8 @@
   padding: 12px 0 12px 20px;
   margin-bottom: 8px;
 }
-.cover-stat-val { font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
-.cover-stat-lbl { font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
+.cover-stat-val { font-size: var(--type-page-title-size); font-weight: var(--type-page-title-weight); line-height: 1; margin-bottom: 4px; }
+.cover-stat-lbl { font-size: var(--type-label-size); color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* ── PRINCIPLE CARD ──────────────────────────────────────── */
 .principle-card {
@@ -50,33 +50,33 @@
 }
 .principle-number {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px; color: var(--text-3); margin-bottom: 8px;
+  font-size: var(--type-body-size); color: var(--text-3); margin-bottom: 8px;
 }
 .principle-title {
-  font-size: 14px; font-weight: 600; color: var(--text-1);
+  font-size: var(--type-heading-section-size); font-weight: var(--type-heading-section-weight); color: var(--text-1);
   margin-bottom: 8px; line-height: 1.3;
 }
 .principle-formula {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px; color: var(--cobalt-hi);
+  font-size: var(--type-body-size); color: var(--cobalt-hi);
   background: #f0f3f8;
   padding: 6px 10px; margin-bottom: 12px;
   display: inline-block;
 }
 .principle-body {
-  font-size: 14px; color: var(--text-2); line-height: 1.65;
+  font-size: var(--type-heading-section-size); color: var(--text-2); line-height: 1.65;
 }
 .principle-rule {
   margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
-  font-size: 10px; color: var(--text-3); line-height: 1.5;
+  font-size: var(--type-label-size); color: var(--text-3); line-height: 1.5;
 }
 .principle-rule strong { color: var(--text-2); font-weight: 600; }
 
 /* ── SOURCE TABLE ────────────────────────────────────────── */
-.source-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.source-table { width: 100%; border-collapse: collapse; font-size: var(--type-body-size); }
 .source-table th {
-  background: var(--bg-table-head); font-weight: 600; font-size: 9px;
-  text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--bg-table-head); font-weight: var(--type-table-header-weight); font-size: var(--type-table-header-size);
+  text-transform: uppercase; letter-spacing: var(--type-table-header-spacing);
   padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border);
 }
 .source-table td {
@@ -96,10 +96,10 @@
 }
 .page-card-num {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; color: var(--text-3); margin-bottom: 6px;
+  font-size: var(--type-label-size); color: var(--text-3); margin-bottom: 6px;
 }
-.page-card-name { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-.page-card-desc { font-size: 10px; color: var(--text-2); line-height: 1.5; }
+.page-card-name { font-size: var(--type-nav-size); font-weight: var(--type-heading-panel-weight); margin-bottom: 6px; }
+.page-card-desc { font-size: var(--type-label-size); color: var(--text-2); line-height: 1.5; }
 
 /* ── LARGE (≥1024px) ─────────────────────────────────────── */
 @media (min-width: 1024px) {

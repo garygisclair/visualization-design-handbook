@@ -9,7 +9,7 @@
   padding: 24px;
 }
 .frame-label {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+  font-size: var(--type-label-size); font-weight: var(--type-label-weight); letter-spacing: var(--type-label-spacing);
   text-transform: uppercase; color: var(--text-3);
   margin-bottom: 16px;
 }
@@ -28,14 +28,14 @@
 }
 .color-token-name {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; color: var(--text-2); line-height: 1.3;
+  font-size: var(--type-chart-axis-size); color: var(--text-2); line-height: 1.3;
 }
 .color-token-hex {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; color: var(--text-3);
+  font-size: var(--type-chart-axis-size); color: var(--text-3);
 }
 .color-token-role {
-  font-size: 9px; color: var(--text-3);
+  font-size: var(--type-annotation-size); color: var(--text-3);
 }
 
 /* ── TYPE SCALE ──────────────────────────────────────────── */
@@ -47,11 +47,11 @@
 .type-row:last-child { border-bottom: none; }
 .type-meta {
   width: 200px; flex-shrink: 0;
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-3);
+  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size); color: var(--text-3);
   line-height: 1.5;
 }
 .type-token-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size);
   color: var(--text-2); font-weight: 500;
 }
 .type-preview { flex: 1; }
@@ -63,11 +63,11 @@
 .spacing-bar-wrap { display: flex; align-items: center; gap: 8px; }
 .spacing-bar { height: 16px; background: var(--cobalt-lo); }
 .spacing-token-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size);
   color: var(--text-2); width: 72px;
 }
 .spacing-px {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-3);
+  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size); color: var(--text-3);
   width: 40px;
 }
 
@@ -83,10 +83,10 @@
 .semantic-chip { width: 32px; height: 32px; border: 1px solid rgba(0,0,0,0.08); }
 .semantic-info { flex: 1; }
 .semantic-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace; font-size: var(--type-chart-axis-size);
   color: var(--text-2); font-weight: 500;
 }
-.semantic-role { font-size: 9px; color: var(--text-3); margin-top: 2px; }
+.semantic-role { font-size: var(--type-annotation-size); color: var(--text-3); margin-top: 2px; }
 
 /* ── LARGE (≥1024px) ─────────────────────────────────────── */
 @media (min-width: 1024px) {

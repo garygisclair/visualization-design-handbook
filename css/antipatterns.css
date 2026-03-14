@@ -13,16 +13,16 @@
 .dont-half { background: #fdf2f0; }
 .do-half   { background: #f0faf4; }
 .do-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  font-size: var(--type-annotation-size); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
   color: var(--badge-yes); margin-bottom: 6px; display: flex; align-items: center; gap: 4px;
 }
 .dont-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  font-size: var(--type-annotation-size); font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
   color: var(--accent-crit); margin-bottom: 6px; display: flex; align-items: center; gap: 4px;
 }
-.pair-title { font-size: 11px; font-weight: 600; color: var(--text-1); margin-bottom: 4px; }
-.pair-rule { font-size: 10px; color: var(--text-2); line-height: 1.5; margin-bottom: 10px; }
-.pair-cite { font-size: 9px; font-family: var(--font-mono); color: var(--text-3); }
+.pair-title { font-size: var(--type-heading-panel-size); font-weight: var(--type-heading-panel-weight); color: var(--text-1); margin-bottom: 4px; }
+.pair-rule { font-size: var(--type-label-size); color: var(--text-2); line-height: 1.5; margin-bottom: 10px; }
+.pair-cite { font-size: var(--type-annotation-size); font-family: var(--font-mono); color: var(--text-3); }
 
 /* ── MEDIUM (640px – 1023px) ─────────────────────────────── */
 @media (min-width: 640px) and (max-width: 1023px) {
