@@ -1,0 +1,87 @@
+{
+  "spacing": {
+    "2xs":  { "$type": "number", "$value": 3 },
+    "xs":   { "$type": "number", "$value": 4 },
+    "sm":   { "$type": "number", "$value": 8 },
+    "md":   { "$type": "number", "$value": 12 },
+    "base": { "$type": "number", "$value": 16 },
+    "lg":   { "$type": "number", "$value": 20 },
+    "xl":   { "$type": "number", "$value": 24 },
+    "2xl":  { "$type": "number", "$value": 32 },
+    "3xl":  { "$type": "number", "$value": 40 },
+    "4xl":  { "$type": "number", "$value": 48 },
+    "5xl":  { "$type": "number", "$value": 56 },
+    "6xl":  { "$type": "number", "$value": 64 }
+  },
+  "sizing": {
+    "header-h":      { "$type": "number", "$value": 44 },
+    "nav-h":         { "$type": "number", "$value": 52 },
+    "color-chip":    { "$type": "number", "$value": 48 },
+    "semantic-chip": { "$type": "number", "$value": 32 },
+    "max-body":      { "$type": "number", "$value": 1440 },
+    "max-dashboard": { "$type": "number", "$value": 1000 },
+    "max-modal":     { "$type": "number", "$value": 720 },
+    "max-content":   { "$type": "number", "$value": 640 }
+  },
+  "fontSize": {
+    "page-title":      { "$type": "number", "$value": 28 },
+    "cover-title":     { "$type": "number", "$value": 40 },
+    "kpi-value":       { "$type": "number", "$value": 22 },
+    "heading-section": { "$type": "number", "$value": 16 },
+    "nav-logo":        { "$type": "number", "$value": 15 },
+    "cover-desc":      { "$type": "number", "$value": 14 },
+    "heading-panel":   { "$type": "number", "$value": 13 },
+    "subtitle":        { "$type": "number", "$value": 13 },
+    "nav":             { "$type": "number", "$value": 13 },
+    "body":            { "$type": "number", "$value": 13 },
+    "mono-number":     { "$type": "number", "$value": 13 },
+    "kpi-chip-value":  { "$type": "number", "$value": 12 },
+    "cover-version":   { "$type": "number", "$value": 12 },
+    "table-header":    { "$type": "number", "$value": 11 },
+    "chart-axis":      { "$type": "number", "$value": 11 },
+    "kpi-label":       { "$type": "number", "$value": 11 },
+    "label":           { "$type": "number", "$value": 11 },
+    "badge":           { "$type": "number", "$value": 10 },
+    "annotation":      { "$type": "number", "$value": 10 },
+    "do-dont-label":   { "$type": "number", "$value": 10 },
+    "kpi-chip-label":  { "$type": "number", "$value": 8 }
+  },
+  "fontWeight": {
+    "regular":  { "$type": "number", "$value": 400 },
+    "medium":   { "$type": "number", "$value": 500 },
+    "semibold": { "$type": "number", "$value": 600 },
+    "bold":     { "$type": "number", "$value": 700 }
+  },
+  "lineHeight": {
+    "none":    { "$type": "number", "$value": 1.0 },
+    "tight":   { "$type": "number", "$value": 1.15 },
+    "snug":    { "$type": "number", "$value": 1.3 },
+    "normal":  { "$type": "number", "$value": 1.4 },
+    "relaxed": { "$type": "number", "$value": 1.5 },
+    "loose":   { "$type": "number", "$value": 1.6 },
+    "prose":   { "$type": "number", "$value": 1.65 },
+    "reading": { "$type": "number", "$value": 1.7 }
+  },
+  "borderWidth": {
+    "default":    { "$type": "number", "$value": 1 },
+    "annotation": { "$type": "number", "$value": 2 }
+  },
+  "borderRadius": {
+    "none": { "$type": "number", "$value": 0 }
+  },
+  "opacity": {
+    "chip-border":   { "$type": "number", "$value": 0.08 },
+    "stat-border":   { "$type": "number", "$value": 0.15 },
+    "header-border": { "$type": "number", "$value": 0.20 },
+    "version-text":  { "$type": "number", "$value": 0.40 },
+    "eyebrow-text":  { "$type": "number", "$value": 0.45 },
+    "header-label":  { "$type": "number", "$value": 0.55 },
+    "cover-desc":    { "$type": "number", "$value": 0.70 },
+    "nav-backdrop":  { "$type": "number", "$value": 0.85 }
+  },
+  "breakpoint": {
+    "sm": { "$type": "number", "$value": 639 },
+    "md": { "$type": "number", "$value": 640 },
+    "lg": { "$type": "number", "$value": 1024 }
+  }
+}

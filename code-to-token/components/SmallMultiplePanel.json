@@ -1,0 +1,41 @@
+{
+  "name": "Small Multiple Panel",
+  "renderType": "single",
+  "componentProperties": {
+    "title": { "type": "TEXT", "defaultValue": "Tool Name" }
+  },
+  "base": {
+    "layoutMode": "VERTICAL",
+    "primaryAxisAlignItems": "MIN",
+    "counterAxisAlignItems": "MIN",
+    "primaryAxisSizingMode": "AUTO",
+    "counterAxisSizingMode": "AUTO",
+    "itemSpacing": { "var": "spacing/xs", "fallback": 4 },
+    "paddingTop": { "var": "spacing/md", "fallback": 12 },
+    "paddingBottom": { "var": "spacing/sm", "fallback": 8 },
+    "paddingLeft": { "var": "spacing/base", "fallback": 16 },
+    "paddingRight": { "var": "spacing/base", "fallback": 16 },
+    "fillColor": { "var": "surface/default", "fallback": "#ffffff" },
+    "fontFamily": "IBM Plex Sans"
+  },
+  "children": [
+    {
+      "name": "title",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Sans",
+      "fontStyle": "SemiBold",
+      "fontSize": { "var": "fontSize/heading-panel", "fallback": 13 },
+      "lineHeight": 18.2,
+      "characters": "Tool Name",
+      "textColor": { "var": "text/primary", "fallback": "#1a1917" },
+      "propertyRef": { "characters": "title" }
+    },
+    {
+      "name": "chart",
+      "type": "COMPONENT_INSTANCE",
+      "componentName": "tool=chatgpt",
+      "width": 260,
+      "height": 72
+    }
+  ]
+}

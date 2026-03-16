@@ -1,0 +1,50 @@
+{
+  "name": "KPI Chip",
+  "renderType": "single",
+  "componentProperties": {
+    "value": { "type": "TEXT", "defaultValue": "7.5B" },
+    "label": { "type": "TEXT", "defaultValue": "METRIC" }
+  },
+  "base": {
+    "layoutMode": "VERTICAL",
+    "primaryAxisAlignItems": "CENTER",
+    "counterAxisAlignItems": "CENTER",
+    "primaryAxisSizingMode": "AUTO",
+    "counterAxisSizingMode": "AUTO",
+    "itemSpacing": 1,
+    "paddingTop": { "var": "spacing/2xs", "fallback": 3 },
+    "paddingBottom": { "var": "spacing/2xs", "fallback": 3 },
+    "paddingLeft": { "var": "spacing/md", "fallback": 10 },
+    "paddingRight": { "var": "spacing/md", "fallback": 10 },
+    "fillColor": { "var": "surface/header", "fallback": "#1a1917" },
+    "strokeColor": { "fallback": "#ffffff33" },
+    "strokeWeight": 1,
+    "fontFamily": "IBM Plex Sans"
+  },
+  "children": [
+    {
+      "name": "value",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Mono",
+      "fontStyle": "Medium",
+      "fontSize": { "var": "fontSize/kpi-chip-value", "fallback": 12 },
+      "lineHeight": 12,
+      "characters": "7.5B",
+      "textColor": { "var": "text/on-dark", "fallback": "#ffffff" },
+      "propertyRef": { "characters": "value" }
+    },
+    {
+      "name": "label",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Sans",
+      "fontStyle": "Regular",
+      "fontSize": { "var": "fontSize/kpi-chip-label", "fallback": 8 },
+      "lineHeight": 8,
+      "letterSpacing": 0.8,
+      "textCase": "UPPER",
+      "characters": "METRIC",
+      "textColor": { "fallback": "#ffffff8c" },
+      "propertyRef": { "characters": "label" }
+    }
+  ]
+}

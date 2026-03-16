@@ -1,0 +1,62 @@
+{
+  "name": "KPI Card",
+  "renderType": "single",
+  "componentProperties": {
+    "label": { "type": "TEXT", "defaultValue": "METRIC LABEL" },
+    "value": { "type": "TEXT", "defaultValue": "Value" },
+    "subtitle": { "type": "TEXT", "defaultValue": "Supporting detail" }
+  },
+  "base": {
+    "layoutMode": "VERTICAL",
+    "primaryAxisAlignItems": "MIN",
+    "counterAxisAlignItems": "MIN",
+    "primaryAxisSizingMode": "AUTO",
+    "counterAxisSizingMode": "AUTO",
+    "itemSpacing": 0,
+    "paddingTop": { "var": "spacing/base", "fallback": 16 },
+    "paddingBottom": { "var": "spacing/base", "fallback": 16 },
+    "paddingLeft": { "var": "spacing/lg", "fallback": 20 },
+    "paddingRight": { "var": "spacing/lg", "fallback": 20 },
+    "fillColor": { "var": "surface/default", "fallback": "#ffffff" },
+    "strokeColor": { "var": "border/default", "fallback": "#d8d4ce" },
+    "strokeWeight": 1,
+    "fontFamily": "IBM Plex Sans"
+  },
+  "children": [
+    {
+      "name": "label",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Sans",
+      "fontStyle": "Regular",
+      "fontSize": { "var": "fontSize/kpi-label", "fallback": 11 },
+      "lineHeight": 15.4,
+      "letterSpacing": 1.1,
+      "textCase": "UPPER",
+      "characters": "METRIC LABEL",
+      "textColor": { "var": "text/tertiary", "fallback": "#9a948e" },
+      "propertyRef": { "characters": "label" }
+    },
+    {
+      "name": "value",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Sans",
+      "fontStyle": "Bold",
+      "fontSize": { "var": "fontSize/kpi-value", "fallback": 22 },
+      "lineHeight": 22,
+      "characters": "Value",
+      "textColor": { "var": "text/primary", "fallback": "#1a1917" },
+      "propertyRef": { "characters": "value" }
+    },
+    {
+      "name": "subtitle",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Mono",
+      "fontStyle": "Regular",
+      "fontSize": { "var": "fontSize/body", "fallback": 13 },
+      "lineHeight": 18.2,
+      "characters": "Supporting detail",
+      "textColor": { "var": "text/secondary", "fallback": "#5a5650" },
+      "propertyRef": { "characters": "subtitle" }
+    }
+  ]
+}

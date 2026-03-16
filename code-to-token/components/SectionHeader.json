@@ -1,0 +1,47 @@
+{
+  "name": "Section Header",
+  "renderType": "single",
+  "componentProperties": {
+    "title": { "type": "TEXT", "defaultValue": "Section Title" },
+    "subtitle": { "type": "TEXT", "defaultValue": "Description text for this section." }
+  },
+  "base": {
+    "layoutMode": "VERTICAL",
+    "primaryAxisAlignItems": "MIN",
+    "counterAxisAlignItems": "MIN",
+    "primaryAxisSizingMode": "AUTO",
+    "counterAxisSizingMode": "AUTO",
+    "itemSpacing": { "var": "spacing/2xs", "fallback": 3 },
+    "paddingTop": { "var": "spacing/xl", "fallback": 24 },
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "strokeColor": { "var": "border/default", "fallback": "#d8d4ce" },
+    "strokeWeight": 1,
+    "fontFamily": "IBM Plex Sans"
+  },
+  "children": [
+    {
+      "name": "title",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Sans",
+      "fontStyle": "SemiBold",
+      "fontSize": { "var": "fontSize/heading-section", "fallback": 16 },
+      "lineHeight": 20.8,
+      "characters": "Section Title",
+      "textColor": { "var": "text/primary", "fallback": "#1a1917" },
+      "propertyRef": { "characters": "title" }
+    },
+    {
+      "name": "subtitle",
+      "type": "TEXT",
+      "fontFamily": "IBM Plex Sans",
+      "fontStyle": "Regular",
+      "fontSize": { "var": "fontSize/body", "fallback": 13 },
+      "lineHeight": 18.2,
+      "characters": "Description text for this section.",
+      "textColor": { "var": "text/tertiary", "fallback": "#9a948e" },
+      "propertyRef": { "characters": "subtitle" }
+    }
+  ]
+}

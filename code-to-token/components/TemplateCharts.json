@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Template Bar Chart",
+    "renderType": "svg",
+    "variantProperties": {
+      "data": [
+        "ai-market-2025"
+      ]
+    },
+    "variants": [
+      {
+        "name": "data=ai-market-2025",
+        "width": 900,
+        "height": 310,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"310\" viewBox=\"0 0 900 310\">\n  <line x1=\"140\" y1=\"8\" x2=\"140\" y2=\"300\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <!-- ChatGPT -->\n  <text x=\"133\" y=\"36\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">ChatGPT</text>\n  <rect x=\"140\" y=\"20\" width=\"620\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"752\" y=\"37\" text-anchor=\"end\" font-size=\"11\" fill=\"#fff\" font-weight=\"500\" font-family=\"'IBM Plex Mono',monospace\">5.8B</text>\n  <!-- Gemini -->\n  <text x=\"133\" y=\"72\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">Gemini</text>\n  <rect x=\"140\" y=\"56\" width=\"77\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"224\" y=\"73\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">723M</text>\n  <!-- DeepSeek -->\n  <text x=\"133\" y=\"108\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">DeepSeek</text>\n  <rect x=\"140\" y=\"92\" width=\"34\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"181\" y=\"109\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">319M</text>\n  <!-- Perplexity -->\n  <text x=\"133\" y=\"144\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">Perplexity</text>\n  <rect x=\"140\" y=\"128\" width=\"16\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"162\" y=\"145\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">148M</text>\n  <!-- Claude -->\n  <text x=\"133\" y=\"180\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">Claude</text>\n  <rect x=\"140\" y=\"164\" width=\"16\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"162\" y=\"181\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">148M</text>\n  <!-- G.AI Studio -->\n  <text x=\"133\" y=\"216\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">G.AI Studio</text>\n  <rect x=\"140\" y=\"200\" width=\"11\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"157\" y=\"217\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">99M</text>\n  <!-- Quark -->\n  <text x=\"133\" y=\"252\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">Quark AI</text>\n  <rect x=\"140\" y=\"236\" width=\"9\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"155\" y=\"253\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">87M</text>\n  <!-- Doubao -->\n  <text x=\"133\" y=\"288\" text-anchor=\"end\" font-size=\"12\" fill=\"#5a5650\" font-family=\"'IBM Plex Sans',sans-serif\">Doubao</text>\n  <rect x=\"140\" y=\"272\" width=\"8\" height=\"26\" fill=\"#4a4845\"/>\n  <text x=\"154\" y=\"289\" font-size=\"11\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">74M</text>\n</svg>"
+      }
+    ]
+  },
+  {
+    "name": "Template Scatter",
+    "renderType": "svg",
+    "variantProperties": {
+      "scatter": [
+        "ai-market-2025"
+      ]
+    },
+    "variants": [
+      {
+        "name": "scatter=ai-market-2025",
+        "width": 860,
+        "height": 260,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"860\" height=\"260\" viewBox=\"0 0 860 260\">\n  <line x1=\"60\" y1=\"230\" x2=\"820\" y2=\"230\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <line x1=\"60\" y1=\"10\" x2=\"60\" y2=\"230\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <line x1=\"60\" y1=\"225\" x2=\"60\" y2=\"240\" stroke=\"#9a948e\" stroke-width=\"0.5\"/>\n  <line x1=\"820\" y1=\"225\" x2=\"820\" y2=\"240\" stroke=\"#9a948e\" stroke-width=\"0.5\"/>\n  <line x1=\"55\" y1=\"10\" x2=\"65\" y2=\"10\" stroke=\"#9a948e\" stroke-width=\"0.5\"/>\n  <line x1=\"55\" y1=\"230\" x2=\"65\" y2=\"230\" stroke=\"#9a948e\" stroke-width=\"0.5\"/>\n  <!-- Regression line -->\n  <line x1=\"60\" y1=\"220\" x2=\"820\" y2=\"50\" stroke=\"#d8d4ce\" stroke-width=\"1\" stroke-dasharray=\"4,2\"/>\n  <!-- ChatGPT: far right, high revenue -->\n  <circle cx=\"780\" cy=\"30\" r=\"6\" fill=\"#4a4845\"/>\n  <text x=\"789\" y=\"34\" font-size=\"10\" fill=\"#4a4845\" font-family=\"'IBM Plex Sans',sans-serif\">ChatGPT</text>\n  <!-- Gemini -->\n  <circle cx=\"160\" cy=\"110\" r=\"5\" fill=\"#4a4845\"/>\n  <text x=\"169\" y=\"114\" font-size=\"10\" fill=\"#4a4845\" font-family=\"'IBM Plex Sans',sans-serif\">Gemini</text>\n  <!-- Claude: high rev outlier -->\n  <circle cx=\"95\" cy=\"60\" r=\"5\" fill=\"#4a4845\"/>\n  <text x=\"104\" y=\"64\" font-size=\"10\" fill=\"#4a4845\" font-family=\"'IBM Plex Sans',sans-serif\">Claude &#x2191; revenue outlier</text>\n  <!-- DeepSeek -->\n  <circle cx=\"120\" cy=\"185\" r=\"5\" fill=\"#4a4845\"/>\n  <text x=\"129\" y=\"189\" font-size=\"10\" fill=\"#4a4845\" font-family=\"'IBM Plex Sans',sans-serif\">DeepSeek</text>\n  <!-- Perplexity -->\n  <circle cx=\"90\" cy=\"195\" r=\"4\" fill=\"#b0aaa4\"/>\n  <text x=\"99\" y=\"199\" font-size=\"10\" fill=\"#b0aaa4\" font-family=\"'IBM Plex Sans',sans-serif\">Perplexity</text>\n  <!-- Axis labels -->\n  <text x=\"440\" y=\"248\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\">Monthly Visits &#x2192;</text>\n  <text x=\"22\" y=\"130\" text-anchor=\"middle\" font-size=\"10\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" transform=\"rotate(-90,22,130)\">Est. Revenue &#x2192;</text>\n  <text x=\"60\" y=\"248\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\">min</text>\n  <text x=\"820\" y=\"248\" text-anchor=\"middle\" font-size=\"9\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\">5.8B</text>\n</svg>"
+      }
+    ]
+  }
+]

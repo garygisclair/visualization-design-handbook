@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Sparkline",
+    "renderType": "svg",
+    "variantProperties": {
+      "trend": [
+        "up",
+        "up-steep",
+        "up-gentle",
+        "down",
+        "spike",
+        "flat"
+      ]
+    },
+    "variants": [
+      {
+        "name": "trend=up",
+        "width": 60,
+        "height": 16,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"16\" viewBox=\"0 0 60 16\">\n  <polyline points=\"0,13 20,10 40,7 60,4\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"1.5\"/>\n</svg>"
+      },
+      {
+        "name": "trend=up-steep",
+        "width": 60,
+        "height": 16,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"16\" viewBox=\"0 0 60 16\">\n  <polyline points=\"0,13 20,10 40,6 60,2\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"1.5\"/>\n</svg>"
+      },
+      {
+        "name": "trend=up-gentle",
+        "width": 60,
+        "height": 16,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"16\" viewBox=\"0 0 60 16\">\n  <polyline points=\"0,12 20,9 40,7 60,5\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"1.5\"/>\n</svg>"
+      },
+      {
+        "name": "trend=down",
+        "width": 60,
+        "height": 16,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"16\" viewBox=\"0 0 60 16\">\n  <polyline points=\"0,4 20,7 40,10 60,13\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"1.5\"/>\n</svg>"
+      },
+      {
+        "name": "trend=spike",
+        "width": 60,
+        "height": 16,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"16\" viewBox=\"0 0 60 16\">\n  <polyline points=\"0,14 20,5 40,8 60,11\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"1.5\"/>\n</svg>"
+      },
+      {
+        "name": "trend=flat",
+        "width": 60,
+        "height": 16,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"16\" viewBox=\"0 0 60 16\">\n  <polyline points=\"0,8 20,9 40,8 60,7\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"1.5\"/>\n</svg>"
+      }
+    ]
+  }
+]

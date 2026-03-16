@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Mini Line Chart",
+    "renderType": "svg",
+    "variantProperties": {
+      "tool": [
+        "chatgpt",
+        "claude",
+        "gemini",
+        "deepseek"
+      ]
+    },
+    "variants": [
+      {
+        "name": "tool=chatgpt",
+        "width": 260,
+        "height": 72,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"260\" height=\"72\" viewBox=\"0 0 260 72\">\n  <line x1=\"8\" y1=\"4\" x2=\"8\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <line x1=\"8\" y1=\"56\" x2=\"220\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <polyline points=\"8.0,43.0 114.0,23.5 220.0,5.6\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"2\"/>\n  <text x=\"225.0\" y=\"8.6\" font-size=\"9\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">388M</text>\n  <text x=\"8.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2023</text>\n  <text x=\"114.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2024</text>\n  <text x=\"220.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2025</text>\n</svg>"
+      },
+      {
+        "name": "tool=claude",
+        "width": 260,
+        "height": 72,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"260\" height=\"72\" viewBox=\"0 0 260 72\">\n  <line x1=\"8\" y1=\"4\" x2=\"8\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <line x1=\"8\" y1=\"56\" x2=\"220\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <polyline points=\"8.0,55.7 114.0,55.0 220.0,53.4\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"2\"/>\n  <text x=\"225.0\" y=\"56.4\" font-size=\"9\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">20M</text>\n  <text x=\"8.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2023</text>\n  <text x=\"114.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2024</text>\n  <text x=\"220.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2025</text>\n</svg>"
+      },
+      {
+        "name": "tool=gemini",
+        "width": 260,
+        "height": 72,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"260\" height=\"72\" viewBox=\"0 0 260 72\">\n  <line x1=\"8\" y1=\"4\" x2=\"8\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <line x1=\"8\" y1=\"56\" x2=\"220\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <polyline points=\"8.0,55.7 114.0,54.0 220.0,49.8\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"2\"/>\n  <text x=\"225.0\" y=\"52.8\" font-size=\"9\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">47.6M</text>\n  <text x=\"8.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2023</text>\n  <text x=\"114.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2024</text>\n  <text x=\"220.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2025</text>\n</svg>"
+      },
+      {
+        "name": "tool=deepseek",
+        "width": 260,
+        "height": 72,
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"260\" height=\"72\" viewBox=\"0 0 260 72\">\n  <line x1=\"8\" y1=\"4\" x2=\"8\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"1\"/>\n  <line x1=\"8\" y1=\"56\" x2=\"220\" y2=\"56\" stroke=\"#9a948e\" stroke-width=\"0.5\" stroke-dasharray=\"3,3\"/>\n  <polyline points=\"114.0,55.4 220.0,49.6\" fill=\"none\" stroke=\"#4a4845\" stroke-width=\"2\"/>\n  <text x=\"225.0\" y=\"52.6\" font-size=\"9\" fill=\"#5a5650\" font-family=\"'IBM Plex Mono',monospace\">49.5M</text>\n  <text x=\"8.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2023</text>\n  <text x=\"114.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2024</text>\n  <text x=\"220.0\" y=\"70\" font-size=\"8\" fill=\"#9a948e\" font-family=\"'IBM Plex Mono',monospace\" text-anchor=\"middle\">2025</text>\n</svg>"
+      }
+    ]
+  }
+]

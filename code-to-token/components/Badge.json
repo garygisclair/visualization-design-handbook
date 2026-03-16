@@ -1,0 +1,92 @@
+{
+  "name": "Badge",
+  "renderType": "declarative",
+  "variantProperties": {
+    "type": ["yes", "warn", "no", "vh", "hi", "med"]
+  },
+  "base": {
+    "layoutMode": "HORIZONTAL",
+    "primaryAxisAlignItems": "CENTER",
+    "counterAxisAlignItems": "CENTER",
+    "primaryAxisSizingMode": "AUTO",
+    "counterAxisSizingMode": "AUTO",
+    "paddingTop": 1,
+    "paddingBottom": 1,
+    "paddingLeft": 5,
+    "paddingRight": 5,
+    "fontFamily": "IBM Plex Sans"
+  },
+  "variants": [
+    {
+      "name": "type=yes",
+      "strokeColor": { "var": "accent/positive", "fallback": "#2a7a4a" },
+      "strokeWeight": 1,
+      "textColor": { "var": "accent/positive", "fallback": "#2a7a4a" },
+      "labelText": "YES",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER"
+    },
+    {
+      "name": "type=warn",
+      "strokeColor": { "var": "accent/warning", "fallback": "#c97b2e" },
+      "strokeWeight": 1,
+      "textColor": { "var": "accent/warning", "fallback": "#c97b2e" },
+      "labelText": "LIMITED",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER"
+    },
+    {
+      "name": "type=no",
+      "strokeColor": { "var": "text/tertiary", "fallback": "#9a948e" },
+      "strokeWeight": 1,
+      "textColor": { "var": "text/tertiary", "fallback": "#9a948e" },
+      "labelText": "NO",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER"
+    },
+    {
+      "name": "type=vh",
+      "strokeColor": { "var": "accent/info", "fallback": "#1a4db8" },
+      "strokeWeight": 1,
+      "textColor": { "var": "accent/info", "fallback": "#1a4db8" },
+      "labelText": "V.HIGH",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER"
+    },
+    {
+      "name": "type=hi",
+      "strokeColor": { "var": "data/bar-primary", "fallback": "#4a4845" },
+      "strokeWeight": 1,
+      "textColor": { "var": "data/bar-primary", "fallback": "#4a4845" },
+      "labelText": "HIGH",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER"
+    },
+    {
+      "name": "type=med",
+      "strokeColor": { "var": "text/tertiary", "fallback": "#9a948e" },
+      "strokeWeight": 1,
+      "textColor": { "var": "text/tertiary", "fallback": "#9a948e" },
+      "labelText": "MED",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER"
+    }
+  ],
+  "children": [
+    {
+      "name": "label",
+      "type": "TEXT",
+      "fontStyle": "Regular",
+      "fontSize": { "var": "fontSize/badge", "fallback": 10 },
+      "letterSpacing": 0.5,
+      "textCase": "UPPER",
+      "characters": "BADGE"
+    }
+  ]
+}

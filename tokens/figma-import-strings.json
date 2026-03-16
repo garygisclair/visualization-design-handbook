@@ -1,0 +1,6 @@
+{
+  "fontFamily": {
+    "sans": { "$type": "string", "$value": "IBM Plex Sans" },
+    "mono": { "$type": "string", "$value": "IBM Plex Mono" }
+  }
+}

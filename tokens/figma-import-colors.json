@@ -1,0 +1,74 @@
+{
+  "neutral": {
+    "white":    { "$type": "color", "$value": { "colorSpace": "srgb", "components": [1, 1, 1], "alpha": 1, "hex": "#FFFFFF" } },
+    "gray-50":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.98, 0.976, 0.969], "alpha": 1, "hex": "#FAF9F7" } },
+    "gray-100": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.976, 0.976, 0.965], "alpha": 1, "hex": "#F9F9F6" } },
+    "gray-150": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.961, 0.961, 0.961], "alpha": 1, "hex": "#F5F5F5" } },
+    "gray-200": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.953, 0.973], "alpha": 1, "hex": "#F0F3F8" } },
+    "gray-250": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.933, 0.922], "alpha": 1, "hex": "#F0EEEB" } },
+    "gray-300": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.929, 0.914, 0.894], "alpha": 1, "hex": "#EDE9E4" } },
+    "gray-350": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.910, 0.898, 0.878], "alpha": 1, "hex": "#E8E5E0" } },
+    "gray-400": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.847, 0.831, 0.808], "alpha": 1, "hex": "#D8D4CE" } },
+    "gray-500": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.690, 0.667, 0.643], "alpha": 1, "hex": "#B0AAA4" } },
+    "gray-600": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.604, 0.580, 0.557], "alpha": 1, "hex": "#9A948E" } },
+    "gray-700": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.353, 0.337, 0.314], "alpha": 1, "hex": "#5A5650" } },
+    "gray-800": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.290, 0.282, 0.271], "alpha": 1, "hex": "#4A4845" } },
+    "gray-900": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.102, 0.098, 0.090], "alpha": 1, "hex": "#1A1917" } }
+  },
+  "blue": {
+    "100": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.953, 0.973], "alpha": 1, "hex": "#F0F3F8" } },
+    "400": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.502, 0.600, 0.722], "alpha": 1, "hex": "#8099B8" } },
+    "700": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.102, 0.302, 0.722], "alpha": 1, "hex": "#1A4DB8" } }
+  },
+  "green": {
+    "50":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.980, 0.957], "alpha": 1, "hex": "#F0FAF4" } },
+    "400": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.549, 0.796, 0.643], "alpha": 1, "hex": "#8CCBA4" } },
+    "700": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.165, 0.478, 0.290], "alpha": 1, "hex": "#2A7A4A" } }
+  },
+  "amber": {
+    "600": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.788, 0.482, 0.180], "alpha": 1, "hex": "#C97B2E" } }
+  },
+  "red": {
+    "50":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.992, 0.941, 0.933], "alpha": 1, "hex": "#FDF0EE" } },
+    "400": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.910, 0.627, 0.604], "alpha": 1, "hex": "#E8A09A" } },
+    "700": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.753, 0.224, 0.169], "alpha": 1, "hex": "#C0392B" } }
+  },
+  "surface": {
+    "chrome":     { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.961, 0.961, 0.961], "alpha": 1, "hex": "#F5F5F5" } },
+    "page":       { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.933, 0.922], "alpha": 1, "hex": "#F0EEEB" } },
+    "panel":      { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.976, 0.976, 0.965], "alpha": 1, "hex": "#F9F9F6" } },
+    "default":    { "$type": "color", "$value": { "colorSpace": "srgb", "components": [1, 1, 1], "alpha": 1, "hex": "#FFFFFF" } },
+    "header":     { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.102, 0.098, 0.090], "alpha": 1, "hex": "#1A1917" } },
+    "table-head": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.910, 0.898, 0.878], "alpha": 1, "hex": "#E8E5E0" } },
+    "table-alt":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.980, 0.976, 0.969], "alpha": 1, "hex": "#FAF9F7" } },
+    "formula":    { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.953, 0.973], "alpha": 1, "hex": "#F0F3F8" } }
+  },
+  "border": {
+    "default": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.847, 0.831, 0.808], "alpha": 1, "hex": "#D8D4CE" } },
+    "row":     { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.929, 0.914, 0.894], "alpha": 1, "hex": "#EDE9E4" } },
+    "subtle":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.980, 0.976, 0.969], "alpha": 1, "hex": "#FAF9F7" } }
+  },
+  "text": {
+    "primary":   { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.102, 0.098, 0.090], "alpha": 1, "hex": "#1A1917" } },
+    "secondary": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.353, 0.337, 0.314], "alpha": 1, "hex": "#5A5650" } },
+    "tertiary":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.604, 0.580, 0.557], "alpha": 1, "hex": "#9A948E" } },
+    "on-dark":   { "$type": "color", "$value": { "colorSpace": "srgb", "components": [1, 1, 1], "alpha": 1, "hex": "#FFFFFF" } }
+  },
+  "data": {
+    "bar-primary":   { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.290, 0.282, 0.271], "alpha": 1, "hex": "#4A4845" } },
+    "bar-secondary": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.690, 0.667, 0.643], "alpha": 1, "hex": "#B0AAA4" } }
+  },
+  "accent": {
+    "info":     { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.102, 0.302, 0.722], "alpha": 1, "hex": "#1A4DB8" } },
+    "info-dim": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.502, 0.600, 0.722], "alpha": 1, "hex": "#8099B8" } },
+    "positive": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.165, 0.478, 0.290], "alpha": 1, "hex": "#2A7A4A" } },
+    "warning":  { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.788, 0.482, 0.180], "alpha": 1, "hex": "#C97B2E" } },
+    "critical": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.753, 0.224, 0.169], "alpha": 1, "hex": "#C0392B" } }
+  },
+  "feedback": {
+    "do-bg":       { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.941, 0.980, 0.957], "alpha": 1, "hex": "#F0FAF4" } },
+    "do-border":   { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.549, 0.796, 0.643], "alpha": 1, "hex": "#8CCBA4" } },
+    "dont-bg":     { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.992, 0.941, 0.933], "alpha": 1, "hex": "#FDF0EE" } },
+    "dont-border": { "$type": "color", "$value": { "colorSpace": "srgb", "components": [0.910, 0.627, 0.604], "alpha": 1, "hex": "#E8A09A" } }
+  }
+}

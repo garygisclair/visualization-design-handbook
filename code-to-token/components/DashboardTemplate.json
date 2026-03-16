@@ -1,0 +1,289 @@
+{
+  "name": "Dashboard Template",
+  "renderType": "single",
+  "componentProperties": {
+    "dashboardTitle": { "type": "TEXT", "defaultValue": "Global AI Tools Market Report · 2025" }
+  },
+  "base": {
+    "layoutMode": "VERTICAL",
+    "primaryAxisAlignItems": "MIN",
+    "counterAxisAlignItems": "MIN",
+    "primaryAxisSizingMode": "AUTO",
+    "counterAxisSizingMode": "FIXED",
+    "width": 1000,
+    "itemSpacing": 0,
+    "paddingTop": 0,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "fillColor": { "var": "surface/page", "fallback": "#f0eeeb" },
+    "fontFamily": "IBM Plex Sans"
+  },
+  "children": [
+    {
+      "name": "header",
+      "type": "COMPONENT_INSTANCE",
+      "componentName": "Dashboard Header",
+      "layoutSizingHorizontal": "FILL",
+      "overrides": {
+        "title": "Global AI Tools Market Report · 2025"
+      }
+    },
+    {
+      "name": "body",
+      "type": "FRAME",
+      "layoutMode": "VERTICAL",
+      "primaryAxisAlignItems": "MIN",
+      "counterAxisAlignItems": "MIN",
+      "primaryAxisSizingMode": "AUTO",
+      "counterAxisSizingMode": "AUTO",
+      "layoutSizingHorizontal": "FILL",
+      "layoutSizingVertical": "HUG",
+      "itemSpacing": { "var": "spacing/xl", "fallback": 24 },
+      "paddingTop": { "var": "spacing/xl", "fallback": 24 },
+      "paddingBottom": { "var": "spacing/xl", "fallback": 24 },
+      "paddingLeft": { "var": "spacing/xl", "fallback": 24 },
+      "paddingRight": { "var": "spacing/xl", "fallback": 24 },
+      "fills": [],
+      "children": [
+        {
+          "name": "kpi-row",
+          "type": "FRAME",
+          "layoutMode": "HORIZONTAL",
+          "primaryAxisAlignItems": "MIN",
+          "counterAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "counterAxisSizingMode": "AUTO",
+          "layoutSizingHorizontal": "FILL",
+          "layoutSizingVertical": "HUG",
+          "itemSpacing": { "var": "spacing/md", "fallback": 12 },
+          "fills": [],
+          "children": [
+            {
+              "name": "kpi-1",
+              "type": "COMPONENT_INSTANCE",
+              "componentName": "KPI Card",
+              "layoutSizingHorizontal": "FILL",
+              "overrides": {
+                "label": "LARGEST TOOL BY MAU",
+                "value": "ChatGPT",
+                "subtitle": "388M monthly active users"
+              }
+            },
+            {
+              "name": "kpi-2",
+              "type": "COMPONENT_INSTANCE",
+              "componentName": "KPI Card",
+              "layoutSizingHorizontal": "FILL",
+              "overrides": {
+                "label": "FASTEST GROWING",
+                "value": "Claude",
+                "subtitle": "+18.6% month-over-month"
+              }
+            },
+            {
+              "name": "kpi-3",
+              "type": "COMPONENT_INSTANCE",
+              "componentName": "KPI Card",
+              "layoutSizingHorizontal": "FILL",
+              "overrides": {
+                "label": "MOST STICKY",
+                "value": "ChatGPT",
+                "subtitle": "43.9% DAU / MAU ratio"
+              }
+            },
+            {
+              "name": "kpi-4",
+              "type": "COMPONENT_INSTANCE",
+              "componentName": "KPI Card",
+              "layoutSizingHorizontal": "FILL",
+              "overrides": {
+                "label": "REVENUE LEADER",
+                "value": "ChatGPT",
+                "subtitle": "$3.2B estimated annual"
+              }
+            }
+          ]
+        },
+        {
+          "name": "section-1-header",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Section Header",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "title": "Market Scale — Monthly Visits",
+            "subtitle": "ChatGPT commands 5.8B monthly visits — nearly 8× its nearest rival."
+          }
+        },
+        {
+          "name": "bar-chart",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "data=ai-market-2025",
+          "width": 900,
+          "height": 310
+        },
+        {
+          "name": "section-2-header",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Section Header",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "title": "User Growth Trajectory (2023→2025)",
+            "subtitle": "Monthly active users per tool. Shared log Y-scale enables valid cross-panel comparison."
+          }
+        },
+        {
+          "name": "sm-grid",
+          "type": "FRAME",
+          "layoutMode": "VERTICAL",
+          "primaryAxisAlignItems": "MIN",
+          "counterAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "counterAxisSizingMode": "AUTO",
+          "layoutSizingHorizontal": "FILL",
+          "layoutSizingVertical": "HUG",
+          "itemSpacing": 1,
+          "fillColor": { "var": "border/default", "fallback": "#d8d4ce" },
+          "clipsContent": true,
+          "children": [
+            {
+              "name": "row-1",
+              "type": "FRAME",
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "MIN",
+              "counterAxisAlignItems": "MIN",
+              "primaryAxisSizingMode": "AUTO",
+              "counterAxisSizingMode": "AUTO",
+              "layoutSizingHorizontal": "FILL",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 1,
+              "fills": [],
+              "children": [
+                {
+                  "name": "panel-chatgpt",
+                  "type": "COMPONENT_INSTANCE",
+                  "componentName": "Small Multiple Panel",
+                  "layoutSizingHorizontal": "FILL",
+                  "overrides": {
+                    "title": "ChatGPT"
+                  }
+                },
+                {
+                  "name": "panel-claude",
+                  "type": "COMPONENT_INSTANCE",
+                  "componentName": "Small Multiple Panel",
+                  "layoutSizingHorizontal": "FILL",
+                  "overrides": {
+                    "title": "Claude"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "row-2",
+              "type": "FRAME",
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisAlignItems": "MIN",
+              "counterAxisAlignItems": "MIN",
+              "primaryAxisSizingMode": "AUTO",
+              "counterAxisSizingMode": "AUTO",
+              "layoutSizingHorizontal": "FILL",
+              "layoutSizingVertical": "HUG",
+              "itemSpacing": 1,
+              "fills": [],
+              "children": [
+                {
+                  "name": "panel-deepseek",
+                  "type": "COMPONENT_INSTANCE",
+                  "componentName": "Small Multiple Panel",
+                  "layoutSizingHorizontal": "FILL",
+                  "overrides": {
+                    "title": "DeepSeek"
+                  }
+                },
+                {
+                  "name": "panel-gemini",
+                  "type": "COMPONENT_INSTANCE",
+                  "componentName": "Small Multiple Panel",
+                  "layoutSizingHorizontal": "FILL",
+                  "overrides": {
+                    "title": "Gemini"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "section-3-header",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Section Header",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "title": "Revenue vs. Scale",
+            "subtitle": "ChatGPT and Claude generate outsized revenue relative to their visit volume."
+          }
+        },
+        {
+          "name": "scatter-chart",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "scatter=ai-market-2025",
+          "width": 860,
+          "height": 260
+        },
+        {
+          "name": "section-4-header",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Section Header",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "title": "Capability & Access Matrix",
+            "subtitle": "Full comparison across 10 tools. Badge cells, inline sparklines, mono numerics."
+          }
+        },
+        {
+          "name": "table-header",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Table Header Row",
+          "layoutSizingHorizontal": "FILL"
+        },
+        {
+          "name": "table-row-1",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Table Data Row",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "tool": "ChatGPT",
+            "company": "OpenAI",
+            "category": "AI Assistant",
+            "marketShare": "69.0%"
+          }
+        },
+        {
+          "name": "table-row-2",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Table Data Row",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "tool": "Gemini",
+            "company": "Google",
+            "category": "AI Assistant",
+            "marketShare": "8.5%"
+          }
+        },
+        {
+          "name": "table-row-3",
+          "type": "COMPONENT_INSTANCE",
+          "componentName": "Table Data Row",
+          "layoutSizingHorizontal": "FILL",
+          "overrides": {
+            "tool": "Claude",
+            "company": "Anthropic",
+            "category": "AI Assistant",
+            "marketShare": "2.0%"
+          }
+        }
+      ]
+    }
+  ]
+}
